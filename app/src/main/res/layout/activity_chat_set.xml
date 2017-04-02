@@ -78,7 +78,7 @@
                     android:textSize="14sp"
                     android:typeface="serif" />
 
-                <com.ding.easeui.widget.EaseSwitchButton
+                <com.wust.easeui.widget.EaseSwitchButton
                     android:id="@+id/switch_speaker"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -120,7 +120,7 @@
                 android:textSize="14sp"
                 android:typeface="serif" />
 
-            <com.ding.easeui.widget.EaseSwitchButton
+            <com.wust.easeui.widget.EaseSwitchButton
                 android:id="@+id/switch_delete_msg_when_exit_group"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -152,7 +152,7 @@
                 android:textSize="14sp"
                 android:typeface="serif" />
 
-            <com.ding.easeui.widget.EaseSwitchButton
+            <com.wust.easeui.widget.EaseSwitchButton
                 android:id="@+id/switch_auto_accept_group_invitation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

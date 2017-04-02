@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg_gray"
-    tools:context="com.ding.chat.ui.NewTaskActivity">
+    tools:context="com.wust.newsmartschool.ui.NewTaskActivity">
 
     <RelativeLayout
         android:id="@+id/rl_creat_notice_title"
@@ -190,7 +190,7 @@
                     android:textColor="@color/common_bottom_bar_normal_bg"
                     android:textSize="14sp" />
 
-                <com.ding.chat.views.ListViewForScrollView
+                <com.wust.newsmartschool.views.ListViewForScrollView
                     android:id="@+id/lv_topic"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

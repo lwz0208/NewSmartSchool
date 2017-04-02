@@ -172,12 +172,12 @@
                     android:textSize="14sp" />
             </RelativeLayout>
 
-            <com.ding.chat.views.ListViewForScrollView
+            <com.wust.newsmartschool.views.ListViewForScrollView
                 android:id="@+id/listViewForScrollView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:divider="@color/divider_list"
-                android:dividerHeight="1px"></com.ding.chat.views.ListViewForScrollView>
+                android:dividerHeight="1px"></com.wust.newsmartschool.views.ListViewForScrollView>
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -206,13 +206,13 @@
                     android:src="@drawable/bigadd" />
             </RelativeLayout>
 
-            <com.ding.chat.views.ListViewForScrollView
+            <com.wust.newsmartschool.views.ListViewForScrollView
                 android:id="@+id/newmeeting_attachlistview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
                 android:divider="@color/divider_list"
-                android:dividerHeight="1px"></com.ding.chat.views.ListViewForScrollView>
+                android:dividerHeight="1px"></com.wust.newsmartschool.views.ListViewForScrollView>
         </LinearLayout>
     </ScrollView>
 

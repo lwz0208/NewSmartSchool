@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.ding.chat">
+    package="com.wust.newsmartschool">
 
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.READ_SMS" />
@@ -35,33 +35,33 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <permission
-        android:name="com.ding.chat.permission.C2D_MESSAGE"
+        android:name="com.wust.newsmartschool.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
 
     <uses-permission android:name="com.ding.chatuidemo.permission.C2D_MESSAGE" />
 
     <permission
-        android:name="com.ding.chat.permission.MIPUSH_RECEIVE"
+        android:name="com.wust.newsmartschool.permission.MIPUSH_RECEIVE"
         android:protectionLevel="signature" />
 
     <uses-permission android:name="com.ding.chatuidemo.permission.MIPUSH_RECEIVE" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
-        android:name=".DemoApplication"
+        android:name="com.wust.newsmartschool.DemoApplication"
         android:allowBackup="true"
         android:icon="@drawable/ding_ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.MainActivity"
+            android:name="com.wust.newsmartschool.ui.MainActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
 
         <!-- 开屏页 -->
         <activity
-            android:name=".ui.SplashActivity"
+            android:name="com.wust.newsmartschool.ui.SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@style/CommonTheme">
             <intent-filter>
@@ -73,19 +73,19 @@
 
         <!-- 登陆 -->
         <activity
-            android:name=".ui.LoginActivity"
+            android:name="com.wust.newsmartschool.ui.LoginActivity"
             android:screenOrientation="portrait"
             android:theme="@style/CommonTheme"
             android:windowSoftInputMode="adjustResize|stateVisible" />
 
         <!-- 注册 -->
         <activity
-            android:name=".ui.RegisterActivity"
+            android:name="com.wust.newsmartschool.ui.RegisterActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateVisible" />
         <!-- 聊天页面 -->
         <activity
-            android:name=".ui.ChatActivity"
+            android:name="com.wust.newsmartschool.ui.ChatActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
@@ -103,151 +103,151 @@
         <service android:name="com.bugtags.library.BugtagsService" />
         -->
         <activity
-            android:name=".ui.AddContactActivity"
+            android:name="com.wust.newsmartschool.ui.AddContactActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateVisible" />
         <!-- 群组详情 -->
         <activity
-            android:name=".ui.GroupDetailsActivity"
+            android:name="com.wust.newsmartschool.ui.GroupDetailsActivity"
             android:screenOrientation="portrait" />
         <!-- 群组列表 -->
         <activity
-            android:name=".ui.GroupsActivity"
+            android:name="com.wust.newsmartschool.ui.GroupsActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name=".ui.ChatRoomActivity"
+            android:name="com.wust.newsmartschool.ui.ChatRoomActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
         <!-- 聊天室详情 -->
         <activity
-            android:name=".ui.ChatRoomDetailsActivity"
+            android:name="com.wust.newsmartschool.ui.ChatRoomDetailsActivity"
             android:screenOrientation="portrait" />
 
         <!-- 新建群组 -->
         <activity
-            android:name=".ui.NewGroupActivity"
+            android:name="com.wust.newsmartschool.ui.NewGroupActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
         <!-- 退出群组提示框 -->
         <activity
-            android:name=".ui.ExitGroupDialog"
+            android:name="com.wust.newsmartschool.ui.ExitGroupDialog"
             android:screenOrientation="portrait"
             android:theme="@style/MyDialogStyleBottom" />
         <!-- 群组选人 -->
         <activity
-            android:name=".ui.GroupPickContactsActivity"
+            android:name="com.wust.newsmartschool.ui.GroupPickContactsActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
         <!-- 地图 -->
         <activity
-            android:name="com.ding.easeui.ui.EaseBaiduMapActivity"
+            android:name="com.wust.easeui.ui.EaseBaiduMapActivity"
             android:screenOrientation="portrait" />
 
         <!-- 新的朋友邀请消息页面 -->
         <activity
-            android:name=".ui.NewFriendsMsgActivity"
+            android:name="com.wust.newsmartschool.ui.NewFriendsMsgActivity"
             android:screenOrientation="portrait" />
         <!-- 转发消息用户列表页面 -->
         <activity
-            android:name=".ui.ForwardMessageActivity"
+            android:name="com.wust.newsmartschool.ui.ForwardMessageActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
         <!-- 自定义的contextmenu -->
         <activity
-            android:name=".ui.ContextMenuActivity"
+            android:name="com.wust.newsmartschool.ui.ContextMenuActivity"
             android:screenOrientation="portrait"
             android:theme="@style/MyDialogStyle" />
         <!-- 显示下载大图页面 -->
         <activity
-            android:name="com.ding.easeui.ui.EaseShowBigImageActivity"
+            android:name="com.wust.easeui.ui.EaseShowBigImageActivity"
             android:screenOrientation="portrait" />
         <!-- 下载文件 -->
         <activity
-            android:name="com.ding.easeui.ui.EaseShowNormalFileActivity"
+            android:name="com.wust.easeui.ui.EaseShowNormalFileActivity"
             android:screenOrientation="portrait" />
         <!-- 黑名单 -->
         <activity
-            android:name=".ui.BlacklistActivity"
+            android:name="com.wust.newsmartschool.ui.BlacklistActivity"
             android:screenOrientation="portrait" />
 
         <!-- 公开的群聊列表 -->
         <activity
-            android:name=".ui.PublicGroupsActivity"
+            android:name="com.wust.newsmartschool.ui.PublicGroupsActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name=".ui.PublicChatRoomsActivity"
+            android:name="com.wust.newsmartschool.ui.PublicChatRoomsActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
 
         <!-- 语音通话 -->
         <activity
-            android:name=".ui.VoiceCallActivity"
+            android:name="com.wust.newsmartschool.ui.VoiceCallActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/nornal_style" />
         <!-- 视频通话 -->
         <activity
-            android:name=".ui.VideoCallActivity"
+            android:name="com.wust.newsmartschool.ui.VideoCallActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <!-- 群聊简单信息 -->
         <activity
-            android:name=".ui.GroupSimpleDetailActivity"
+            android:name="com.wust.newsmartschool.ui.GroupSimpleDetailActivity"
             android:screenOrientation="portrait" />
         <!-- 群组黑名单用户列表 -->
         <activity
-            android:name=".ui.GroupBlacklistActivity"
+            android:name="com.wust.newsmartschool.ui.GroupBlacklistActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.GroupSearchMessageActivity"
+            android:name="com.wust.newsmartschool.ui.GroupSearchMessageActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateVisible" />
         <activity
-            android:name=".ui.PublicGroupsSeachActivity"
+            android:name="com.wust.newsmartschool.ui.PublicGroupsSeachActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.EditActivity"
+            android:name="com.wust.newsmartschool.ui.EditActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateVisible" />
         <activity
-            android:name="com.ding.easeui.ui.EaseShowVideoActivity"
+            android:name="com.wust.easeui.ui.EaseShowVideoActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <!-- choose video -->
         <activity
-            android:name=".ui.ImageGridActivity"
+            android:name="com.wust.newsmartschool.ui.ImageGridActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name=".ui.RecorderVideoActivity"
+            android:name="com.wust.newsmartschool.ui.RecorderVideoActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <!-- upload error log -->
         <activity
-            android:name=".ui.DiagnoseActivity"
+            android:name="com.wust.newsmartschool.ui.DiagnoseActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden" />
 
         <!-- iOS offline push nick -->
         <activity
-            android:name=".ui.OfflinePushNickActivity"
+            android:name="com.wust.newsmartschool.ui.OfflinePushNickActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <!-- robots list -->
         <activity
-            android:name=".ui.RobotsActivity"
+            android:name="com.wust.newsmartschool.ui.RobotsActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <!-- user profile -->
         <activity
-            android:name=".ui.UserProfileActivity"
+            android:name="com.wust.newsmartschool.ui.UserProfileActivity"
             android:screenOrientation="portrait" />
 
         <!-- 开机自启动服务 -->
-        <receiver android:name=".receiver.StartServiceReceiver">
+        <receiver android:name="com.wust.newsmartschool.receiver.StartServiceReceiver">
             <intent-filter android:priority="1000">
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.intent.action.QUICKBOOT_POWERON" />
@@ -273,7 +273,7 @@
             android:exported="false" />
 
         <receiver
-            android:name=".receiver.GCMPushBroadCast"
+            android:name="com.wust.newsmartschool.receiver.GCMPushBroadCast"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.hyphenate.sdk.push" />
@@ -383,131 +383,131 @@
             android:value="3ecea51f560650b1ed8a4b99808f52e8" />
 
         <activity
-            android:name=".ui.UserInfoActivity"
+            android:name="com.wust.newsmartschool.ui.UserInfoActivity"
             android:label="@string/title_activity_user_info" />
         <activity
-            android:name=".ui.FriendsListActivity"
+            android:name="com.wust.newsmartschool.ui.FriendsListActivity"
             android:label="@string/title_activity_friends_list" />
         <activity
-            android:name=".zxing.activity.CaptureActivity"
+            android:name="com.wust.newsmartschool.zxing.activity.CaptureActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name=".ui.CompanyActivity"
+            android:name="com.wust.newsmartschool.ui.CompanyActivity"
             android:label="@string/title_activity_company" />
         <activity
-            android:name=".ui.DeptMembersActivity"
+            android:name="com.wust.newsmartschool.ui.DeptMembersActivity"
             android:label="@string/title_activity_dept_members" />
         <activity
-            android:name=".ui.PreRegisterActivity"
+            android:name="com.wust.newsmartschool.ui.PreRegisterActivity"
             android:label="@string/title_activity_pre_register" />
         <activity
-            android:name=".ui.InfoSetActivity"
+            android:name="com.wust.newsmartschool.ui.InfoSetActivity"
             android:label="@string/title_activity_info_set" />
         <activity
-            android:name=".ui.ChatSetActivity"
+            android:name="com.wust.newsmartschool.ui.ChatSetActivity"
             android:label="@string/title_activity_chat_set" />
         <activity
-            android:name=".ui.DeptMemInfoActivity"
+            android:name="com.wust.newsmartschool.ui.DeptMemInfoActivity"
             android:label="@string/title_activity_dept_mem_info" />
         <activity
-            android:name=".ui.DeptMemInfoActivity2"
+            android:name="com.wust.newsmartschool.ui.DeptMemInfoActivity2"
             android:label="@string/title_activity_dept_mem_info" />
         <activity
-            android:name=".ui.EditeNoticeActivity"
+            android:name="com.wust.newsmartschool.ui.EditeNoticeActivity"
             android:label="@string/title_activity_edite__notice" />
         <activity
-            android:name=".ui.NewsDetailActivity"
+            android:name="com.wust.newsmartschool.ui.NewsDetailActivity"
             android:label="@string/title_activity_news_detail" />
         <activity
-            android:name=".ui.WorkFragNoticeActivity"
+            android:name="com.wust.newsmartschool.ui.WorkFragNoticeActivity"
             android:label="@string/title_activity_work_frag_notice" />
         <activity
-            android:name=".ui.NoticeDetailActivity"
+            android:name="com.wust.newsmartschool.ui.NoticeDetailActivity"
             android:label="@string/title_activity_notice_detail" />
         <activity
-            android:name=".ui.NoticeDetailActivity_new"
+            android:name="com.wust.newsmartschool.ui.NoticeDetailActivity_new"
             android:label="@string/title_activity_notice_detail" />
         <activity
-            android:name=".ui.MeSentNoticeActivity"
+            android:name="com.wust.newsmartschool.ui.MeSentNoticeActivity"
             android:label="@string/title_activity_me_sent_notice" />
         <activity
-            android:name=".ui.CreatNewNoticeActivity"
+            android:name="com.wust.newsmartschool.ui.CreatNewNoticeActivity"
             android:label="@string/title_activity_creat_new_notice" />
         <activity
-            android:name=".ui.WorkFragWorkFlowActivity"
+            android:name="com.wust.newsmartschool.ui.WorkFragWorkFlowActivity"
             android:label="@string/title_activity_work_flow" />
         <activity
-            android:name=".ui.WorkFlowNeedMeActivity"
+            android:name="com.wust.newsmartschool.ui.WorkFlowNeedMeActivity"
             android:label="@string/title_activity_work_flow_need_me" />
         <activity
-            android:name=".ui.WorkFlowDealedActivity"
+            android:name="com.wust.newsmartschool.ui.WorkFlowDealedActivity"
             android:label="@string/title_activity_work_flow_dealed" />
         <activity
-            android:name=".ui.WorkFlowCopyToMeActivity"
+            android:name="com.wust.newsmartschool.ui.WorkFlowCopyToMeActivity"
             android:label="@string/title_activity_work_flow_copy_to_me" />
         <activity
-            android:name=".ui.CreatWorkFlowActivity"
+            android:name="com.wust.newsmartschool.ui.CreatWorkFlowActivity"
             android:label="@string/title_activity_creat_work_flow" />
         <activity
-            android:name=".ui.NoticeChooseMemActivity_over"
+            android:name="com.wust.newsmartschool.ui.NoticeChooseMemActivity_over"
             android:label="@string/title_activity_notice_choose_mem" />
         <activity
-            android:name=".ui.MeetingActivity"
+            android:name="com.wust.newsmartschool.ui.MeetingActivity"
             android:label="@string/title_activity_notice_choose_mem" />
         <activity
-            android:name=".ui.MeetingDetailActivity"
+            android:name="com.wust.newsmartschool.ui.MeetingDetailActivity"
             android:label="@string/title_activity_notice_choose_mem" />
         <activity
-            android:name=".ui.MeetingPointActivity"
+            android:name="com.wust.newsmartschool.ui.MeetingPointActivity"
             android:label="@string/title_activity_notice_choose_mem" />
         <activity
-            android:name=".ui.NewMeetingActivity"
+            android:name="com.wust.newsmartschool.ui.NewMeetingActivity"
             android:label="@string/title_activity_notice_choose_mem" />
         <activity
-            android:name=".ui.NewTaskActivity"
+            android:name="com.wust.newsmartschool.ui.NewTaskActivity"
             android:label="@string/title_activity_notice_choose_mem" />
         <activity
-            android:name=".ui.WorkFragTaskActivity"
+            android:name="com.wust.newsmartschool.ui.WorkFragTaskActivity"
             android:label="@string/title_activity_notice_choose_mem" />
         <activity
-            android:name=".ui.TaskDetailActivity"
+            android:name="com.wust.newsmartschool.ui.TaskDetailActivity"
             android:label="@string/title_activity_notice_choose_mem" />
         <activity
-            android:name=".ui.MessageSettingActivity"
+            android:name="com.wust.newsmartschool.ui.MessageSettingActivity"
             android:label="@string/title_activity_message_setting" />
         <activity
-            android:name=".ui.JFlowItemApplyActivity"
+            android:name="com.wust.newsmartschool.ui.JFlowItemApplyActivity"
             android:label="@string/title_activity_jflow_item_apply" />
         <activity
-            android:name=".ui.JFlowDetailActivity"
+            android:name="com.wust.newsmartschool.ui.JFlowDetailActivity"
             android:label="@string/title_activity_jflow_detail" />
-        <activity android:name=".ui.HeadImgActivity" />
+        <activity android:name="com.wust.newsmartschool.ui.HeadImgActivity" />
         <activity
-            android:name=".ui.DeleteAndBlackActivity"
+            android:name="com.wust.newsmartschool.ui.DeleteAndBlackActivity"
             android:theme="@style/MyDialogMenuStyleBottom"></activity>
         <activity
-            android:name=".ui.WorkFlowCopyMeUnreadActivity"
+            android:name="com.wust.newsmartschool.ui.WorkFlowCopyMeUnreadActivity"
             android:label="@string/title_activity_work_flow_copy_me_unread" />
         <activity
-            android:name=".ui.MyReactActivity"
+            android:name="com.wust.newsmartschool.ui.MyReactActivity"
             android:label="@string/title_activity_work_flow_copy_me_unread" />
         <activity
-            android:name=".ui.NoticeChooseMemActivity"
+            android:name="com.wust.newsmartschool.ui.NoticeChooseMemActivity"
             android:label="@string/title_activity_work_flow_copy_me_unread" />
         <activity
-            android:name=".ui.NoticeChooseMemActivitySingleChoose"
+            android:name="com.wust.newsmartschool.ui.NoticeChooseMemActivitySingleChoose"
             android:label="@string/title_activity_work_flow_copy_me_unread" />
-        <activity android:name=".ui.PublishTaskActivity" />
+        <activity android:name="com.wust.newsmartschool.ui.PublishTaskActivity" />
         <activity
-            android:name=".zxing.activity.BarCodeTestActivity"
+            android:name="com.wust.newsmartschool.zxing.activity.BarCodeTestActivity"
             android:label="@string/app_name" />
         <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
         <!-- User defined.  For test only  用户自定义的广播接收器 -->
         <receiver
-            android:name=".receiver.MyReceiver"
+            android:name="com.wust.newsmartschool.receiver.MyReceiver"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
@@ -527,32 +527,32 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".ui.ChooseAtPersonActivity" />
+        <activity android:name="com.wust.newsmartschool.ui.ChooseAtPersonActivity" />
         <activity
-            android:name=".ui.EditeTaskCommentActivity"
+            android:name="com.wust.newsmartschool.ui.EditeTaskCommentActivity"
             android:windowSoftInputMode="stateAlwaysVisible|adjustPan" />
         <activity
-            android:name=".ui.SearchNoticeActivity"
+            android:name="com.wust.newsmartschool.ui.SearchNoticeActivity"
             android:windowSoftInputMode="stateVisible|adjustResize" />
-        <activity android:name=".ui.NoticeAttachActivity" />
-        <activity android:name=".ui.SearchTaskActivity" />
+        <activity android:name="com.wust.newsmartschool.ui.NoticeAttachActivity" />
+        <activity android:name="com.wust.newsmartschool.ui.SearchTaskActivity" />
         <activity
-            android:name=".ui.SearchTaskChildActivity"
+            android:name="com.wust.newsmartschool.ui.SearchTaskChildActivity"
             android:label="@string/title_activity_search_task_child" />
         <activity
-            android:name=".ui.ChangePswActivity"
+            android:name="com.wust.newsmartschool.ui.ChangePswActivity"
             android:label="@string/title_activity_change_psw" />
         <activity
-            android:name=".ui.NoticeDetail_SeeNoSeeMemActivity"
+            android:name="com.wust.newsmartschool.ui.NoticeDetail_SeeNoSeeMemActivity"
             android:label="@string/title_activity_notice_detail__see_no_see_mem" />
         <activity
-            android:name=".ui.NoticeChooseMemActivitySingleChooseForTask"
+            android:name="com.wust.newsmartschool.ui.NoticeChooseMemActivitySingleChooseForTask"
             android:label="@string/title_activity_notice_detail__see_no_see_mem" />
-        <activity android:name=".ui.SettingActivity" />
+        <activity android:name="com.wust.newsmartschool.ui.SettingActivity" />
         <activity
-            android:name=".ui.WorkFragApplyActivity"
+            android:name="com.wust.newsmartschool.ui.WorkFragApplyActivity"
             android:label="@string/title_activity_work_frag_apply" />
-        <activity android:name=".ui.GroupMembersActivity"></activity>
+        <activity android:name="com.wust.newsmartschool.ui.GroupMembersActivity"></activity>
     </application>
 
 </manifest>

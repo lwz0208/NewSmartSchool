@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="@color/common_bg"
     android:orientation="vertical"
-    tools:context="com.ding.chat.ui.CompanyActivity">
+    tools:context="com.wust.newsmartschool.ui.CompanyActivity">
 
     <RelativeLayout
         android:id="@+id/relativeLayout1"
@@ -58,12 +58,12 @@
             android:paddingRight="10dp"
             android:visibility="gone">
 
-            <com.ding.chat.views.ListViewForScrollView
+            <com.wust.newsmartschool.views.ListViewForScrollView
                 android:id="@+id/deptmem_listview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:divider="@color/divider_list"
-                android:dividerHeight="2px"></com.ding.chat.views.ListViewForScrollView>
+                android:dividerHeight="2px"></com.wust.newsmartschool.views.ListViewForScrollView>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

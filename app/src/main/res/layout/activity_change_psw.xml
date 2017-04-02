@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/common_bg"
     android:orientation="vertical"
-    tools:context="com.ding.chat.ui.ChangePswActivity">
+    tools:context="com.wust.newsmartschool.ui.ChangePswActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"

@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/common_bg"
-    tools:context="com.ding.chat.ui.WorkFragNoticeActivity">
+    tools:context="com.wust.newsmartschool.ui.WorkFragNoticeActivity">
 
     <RelativeLayout
         android:id="@+id/title_workfrag_notice"

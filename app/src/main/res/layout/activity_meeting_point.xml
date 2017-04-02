@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg_gray"
-    tools:context="com.ding.chat.ui.NewTaskActivity">
+    tools:context="com.wust.newsmartschool.ui.NewTaskActivity">
 
     <RelativeLayout
         android:id="@+id/rl_creat_notice_title"

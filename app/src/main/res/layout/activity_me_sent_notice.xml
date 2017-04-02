@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/common_bg"
-    tools:context="com.ding.chat.ui.MeSentNoticeActivity">
+    tools:context="com.wust.newsmartschool.ui.MeSentNoticeActivity">
 
     <RelativeLayout
         android:id="@+id/title_my_notice"

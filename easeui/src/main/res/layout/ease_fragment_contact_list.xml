@@ -6,7 +6,7 @@
     android:background="@color/common_bg"
     android:orientation="vertical" >
 
-    <com.ding.easeui.widget.EaseTitleBar
+    <com.wust.easeui.widget.EaseTitleBar
         android:id="@+id/title_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
 
-        <com.ding.easeui.widget.EaseContactList
+        <com.wust.easeui.widget.EaseContactList
             android:id="@+id/contact_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />

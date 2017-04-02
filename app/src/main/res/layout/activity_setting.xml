@@ -4,6 +4,6 @@
     android:id="@+id/setting_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ding.chat.ui.SettingActivity">
+    tools:context="com.wust.newsmartschool.ui.SettingActivity">
 
 </RelativeLayout>

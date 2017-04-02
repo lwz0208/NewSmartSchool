@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/common_bg"
-    tools:context="com.ding.chat.ui.DeptMemInfoActivity">
+    tools:context="com.wust.newsmartschool.ui.DeptMemInfoActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -64,7 +64,7 @@
                     android:gravity="center"
                     android:orientation="vertical">
 
-                    <com.ding.chat.views.CircleImageView
+                    <com.wust.newsmartschool.views.CircleImageView
                         android:id="@+id/head_imag_mem"
                         android:layout_width="80dp"
                         android:layout_height="80dp"

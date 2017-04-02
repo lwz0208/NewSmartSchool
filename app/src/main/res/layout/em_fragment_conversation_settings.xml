@@ -25,7 +25,7 @@
                 android:gravity="center"
                 android:orientation="vertical" >
 
-                <com.ding.chat.views.CircleImageView
+                <com.wust.newsmartschool.views.CircleImageView
                     android:id="@+id/head_imag"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
@@ -127,7 +127,7 @@
                         android:textSize="14sp"
                         android:typeface="serif" />
 
-                    <com.ding.easeui.widget.EaseSwitchButton
+                    <com.wust.easeui.widget.EaseSwitchButton
                         android:id="@+id/switch_notification"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -160,7 +160,7 @@
                         android:textSize="14sp"
                         android:typeface="serif" />
 
-                    <com.ding.easeui.widget.EaseSwitchButton
+                    <com.wust.easeui.widget.EaseSwitchButton
                         android:id="@+id/switch_sound"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -193,7 +193,7 @@
                         android:textSize="14sp"
                         android:typeface="serif" />
 
-                    <com.ding.easeui.widget.EaseSwitchButton
+                    <com.wust.easeui.widget.EaseSwitchButton
                         android:id="@+id/switch_vibrate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -240,7 +240,7 @@
                         android:textSize="14sp"
                         android:typeface="serif" />
 
-                    <com.ding.easeui.widget.EaseSwitchButton
+                    <com.wust.easeui.widget.EaseSwitchButton
                         android:id="@+id/switch_speaker"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -378,7 +378,7 @@
                     android:textSize="14sp"
                     android:typeface="serif" />
 
-                <com.ding.easeui.widget.EaseSwitchButton
+                <com.wust.easeui.widget.EaseSwitchButton
                     android:id="@+id/switch_owner_leave"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -411,7 +411,7 @@
                     android:textSize="14sp"
                     android:typeface="serif" />
 
-                <com.ding.easeui.widget.EaseSwitchButton
+                <com.wust.easeui.widget.EaseSwitchButton
                     android:id="@+id/switch_delete_msg_when_exit_group"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -444,7 +444,7 @@
                     android:textSize="14sp"
                     android:typeface="serif" />
 
-                <com.ding.easeui.widget.EaseSwitchButton
+                <com.wust.easeui.widget.EaseSwitchButton
                     android:id="@+id/switch_auto_accept_group_invitation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -478,7 +478,7 @@
                     android:textSize="14sp"
                     android:typeface="serif" />
 
-                <com.ding.easeui.widget.EaseSwitchButton
+                <com.wust.easeui.widget.EaseSwitchButton
                     android:id="@+id/switch_adaptive_video_encode"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

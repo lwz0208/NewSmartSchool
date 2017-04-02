@@ -6,7 +6,7 @@ android {
     buildToolsVersion "23.0.1"
 
     defaultConfig {
-        applicationId "com.ding.chat"
+        applicationId "com.wust.newsmartschool"
         minSdkVersion 16
         targetSdkVersion 21
         versionCode 7
@@ -18,7 +18,7 @@ android {
         }
 
         manifestPlaceholders = [
-                JPUSH_PKGNAME: "com.ding.chat",//JPush上注册的包名对应的appkey.
+                JPUSH_PKGNAME: "com.wust.newsmartschool",//JPush上注册的包名对应的appkey.
                 JPUSH_APPKEY : "f4dcc596fb116ed48a9d4435",
                 JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
         ]

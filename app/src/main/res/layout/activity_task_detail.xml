@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical"
-    tools:context="com.ding.chat.ui.TaskDetailActivity">
+    tools:context="com.wust.newsmartschool.ui.TaskDetailActivity">
 
     <RelativeLayout
         android:id="@+id/title_workfrag_noticedetail"

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.ding.chat.ui.GroupMembersActivity">
+    tools:context="com.wust.newsmartschool.ui.GroupMembersActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -43,7 +43,7 @@
         android:paddingTop="20dp"
         android:scrollbars="none">
 
-        <com.ding.easeui.widget.EaseExpandGridView
+        <com.wust.easeui.widget.EaseExpandGridView
             android:id="@+id/gridviewdetail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

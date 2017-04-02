@@ -56,7 +56,8 @@
                 android:layout_height="60dp"
                 android:layout_gravity="center_vertical"
                 android:background="@drawable/em_btn_bottom_selector_white"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                android:visibility="gone">
 
                 <ImageView
                     android:id="@+id/img_work_notice"
@@ -109,7 +110,8 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dip"
-                android:background="#f2f2f2" />
+                android:background="#f2f2f2"
+                android:visibility="gone" />
 
             <RelativeLayout
                 android:id="@+id/rl_work_workline"
@@ -117,7 +119,8 @@
                 android:layout_height="60dp"
                 android:layout_gravity="center_vertical"
                 android:background="@drawable/em_btn_bottom_selector_white"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                android:visibility="gone">
 
                 <ImageView
                     android:id="@+id/img_work_workline"
@@ -171,7 +174,8 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dip"
-                android:background="#f2f2f2" />
+                android:background="#f2f2f2"
+                android:visibility="gone" />
 
 
             <RelativeLayout
@@ -180,7 +184,8 @@
                 android:layout_height="60dp"
                 android:layout_gravity="center_vertical"
                 android:background="@drawable/em_btn_bottom_selector_white"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                android:visibility="gone">
 
                 <ImageView
                     android:id="@+id/img_work_duty"
@@ -232,10 +237,10 @@
             </RelativeLayout>
 
             <View
-                android:id="@+id/textview4"
                 android:layout_width="match_parent"
                 android:layout_height="1dip"
-                android:background="#f2f2f2" />
+                android:background="#f2f2f2"
+                android:visibility="gone" />
 
             <RelativeLayout
                 android:id="@+id/rl_work_meetting"
@@ -243,7 +248,8 @@
                 android:layout_height="60dp"
                 android:layout_gravity="center_vertical"
                 android:background="@drawable/em_btn_bottom_selector_white"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                android:visibility="gone">
 
                 <ImageView
                     android:id="@+id/img_work_bibibi"
@@ -293,6 +299,199 @@
                     android:textColor="@color/white"
                     android:visibility="invisible" />
             </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/em_btn_bottom_selector_white"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:id="@+id/img001"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/workfragment_meeting" />
+
+                <ImageView
+                    android:id="@+id/imageView001"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/right_arrow" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/img001"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="学生之家"
+                        android:textColor="@color/common_bottom_bar_normal_bg"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:background="#f2f2f2" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/em_btn_bottom_selector_white"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:id="@+id/img002"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/workfragment_meeting" />
+
+                <ImageView
+                    android:id="@+id/imageView002"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/right_arrow" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/img002"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="校园服务"
+                        android:textColor="@color/common_bottom_bar_normal_bg"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:background="#f2f2f2" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/em_btn_bottom_selector_white"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:id="@+id/img003"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/workfragment_meeting" />
+
+                <ImageView
+                    android:id="@+id/imageView003"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/right_arrow" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/img003"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="选课及评教"
+                        android:textColor="@color/common_bottom_bar_normal_bg"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:background="#f2f2f2" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/em_btn_bottom_selector_white"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:id="@+id/img004"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/workfragment_meeting" />
+
+                <ImageView
+                    android:id="@+id/imageView004"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/right_arrow" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/img004"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="图书服务"
+                        android:textColor="@color/common_bottom_bar_normal_bg"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:background="#f2f2f2" />
         </LinearLayout>
     </ScrollView>
 

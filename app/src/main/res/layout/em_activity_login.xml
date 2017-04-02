@@ -11,7 +11,7 @@
         android:layout_gravity="center"
         android:layout_margin="50dp">
 
-        <com.ding.chat.views.CircleImageView
+        <com.wust.newsmartschool.views.CircleImageView
             android:id="@+id/pro_headimg"
             android:layout_width="80dp"
             android:layout_height="80dp"

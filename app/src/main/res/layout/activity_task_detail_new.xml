@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context="com.ding.chat.ui.TaskDetailActivity">
+    tools:context="com.wust.newsmartschool.ui.TaskDetailActivity">
 
     <RelativeLayout
         android:id="@+id/title_workfrag_taskdetail"
@@ -324,10 +324,10 @@
                     android:layout_height="1dip"
                     android:background="@color/top_bottom_line" />
 
-                <com.ding.chat.views.ListViewForScrollView
+                <com.wust.newsmartschool.views.ListViewForScrollView
                     android:id="@+id/lv_taskdetailattach"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"></com.ding.chat.views.ListViewForScrollView>
+                    android:layout_height="match_parent"></com.wust.newsmartschool.views.ListViewForScrollView>
             </LinearLayout>
 
 
@@ -358,10 +358,10 @@
                     android:layout_height="1dip"
                     android:background="@color/top_bottom_line" />
 
-                <com.ding.chat.views.ListViewForScrollView
+                <com.wust.newsmartschool.views.ListViewForScrollView
                     android:id="@+id/lv_taskdetailchildtask"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"></com.ding.chat.views.ListViewForScrollView>
+                    android:layout_height="match_parent"></com.wust.newsmartschool.views.ListViewForScrollView>
             </LinearLayout>
 
 
@@ -390,10 +390,10 @@
                     android:layout_height="1dip"
                     android:background="@color/top_bottom_line" />
 
-                <com.ding.chat.views.ListViewForScrollView
+                <com.wust.newsmartschool.views.ListViewForScrollView
                     android:id="@+id/lv_taskdetailcomment"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"></com.ding.chat.views.ListViewForScrollView>
+                    android:layout_height="match_parent"></com.wust.newsmartschool.views.ListViewForScrollView>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

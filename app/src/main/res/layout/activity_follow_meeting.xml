@@ -144,7 +144,7 @@
                 android:text="会议讨论议题"
                 android:textSize="14sp" />
 
-            <com.ding.chat.views.ListViewForScrollView
+            <com.wust.newsmartschool.views.ListViewForScrollView
                 android:id="@+id/lv_topic"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

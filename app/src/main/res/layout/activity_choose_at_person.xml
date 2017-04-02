@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="@color/common_bg"
     android:orientation="vertical"
-    tools:context="com.ding.chat.ui.ChooseAtPersonActivity">
+    tools:context="com.wust.newsmartschool.ui.ChooseAtPersonActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -36,7 +36,7 @@
         android:layout_height="wrap_content">
 
 
-        <com.ding.chat.views.ListViewForScrollView
+        <com.wust.newsmartschool.views.ListViewForScrollView
             android:id="@+id/lv_groupmems"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -44,7 +44,7 @@
             android:divider="@color/divider_list"
             android:dividerHeight="1dp"
             android:fastScrollAlwaysVisible="false"
-            android:fastScrollEnabled="false"></com.ding.chat.views.ListViewForScrollView>
+            android:fastScrollEnabled="false"></com.wust.newsmartschool.views.ListViewForScrollView>
 
     </ScrollView>
 

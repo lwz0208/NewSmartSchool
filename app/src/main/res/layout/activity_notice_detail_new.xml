@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/common_bg"
-    tools:context="com.ding.chat.ui.NoticeDetailActivity">
+    tools:context="com.wust.newsmartschool.ui.NoticeDetailActivity">
 
     <RelativeLayout
         android:id="@+id/title_workfrag_noticedetail"
@@ -165,11 +165,11 @@
                     android:layout_height="1dip"
                     android:background="@color/top_bottom_line" />
 
-                <com.ding.chat.views.ListViewForScrollView
+                <com.wust.newsmartschool.views.ListViewForScrollView
                     android:id="@+id/noticedetail_attach"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/white"></com.ding.chat.views.ListViewForScrollView>
+                    android:background="@color/white"></com.wust.newsmartschool.views.ListViewForScrollView>
             </LinearLayout>
 
 
@@ -266,11 +266,11 @@
                     android:layout_height="1dip"
                     android:background="#E6E6E6" />
 
-                <com.ding.chat.views.ListViewForScrollView
+                <com.wust.newsmartschool.views.ListViewForScrollView
                     android:id="@+id/noticedetail_comment"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/white"></com.ding.chat.views.ListViewForScrollView>
+                    android:background="@color/white"></com.wust.newsmartschool.views.ListViewForScrollView>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

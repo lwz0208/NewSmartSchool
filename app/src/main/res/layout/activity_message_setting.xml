@@ -40,7 +40,7 @@
             android:textSize="14sp"
             android:typeface="serif" />
 
-        <com.ding.easeui.widget.EaseSwitchButton
+        <com.wust.easeui.widget.EaseSwitchButton
             android:id="@+id/switch_notification"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -73,7 +73,7 @@
             android:textSize="14sp"
             android:typeface="serif" />
 
-        <com.ding.easeui.widget.EaseSwitchButton
+        <com.wust.easeui.widget.EaseSwitchButton
             android:id="@+id/switch_sound"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -106,7 +106,7 @@
             android:textSize="14sp"
             android:typeface="serif" />
 
-        <com.ding.easeui.widget.EaseSwitchButton
+        <com.wust.easeui.widget.EaseSwitchButton
             android:id="@+id/switch_vibrate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

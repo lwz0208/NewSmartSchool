@@ -6,7 +6,7 @@
     android:animateLayoutChanges="true"
     android:background="#f2f0eb">
 
-    <com.ding.easeui.widget.EaseTitleBar
+    <com.wust.easeui.widget.EaseTitleBar
         android:id="@+id/title_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -17,12 +17,12 @@
         android:layout_above="@+id/input_menu"
         android:layout_below="@id/title_bar">
 
-        <com.ding.easeui.widget.EaseChatMessageList
+        <com.wust.easeui.widget.EaseChatMessageList
             android:id="@+id/message_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-        <com.ding.easeui.widget.EaseVoiceRecorderView
+        <com.wust.easeui.widget.EaseVoiceRecorderView
             android:id="@+id/voice_recorder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -30,7 +30,7 @@
             android:visibility="invisible" />
     </RelativeLayout>
 
-    <com.ding.easeui.widget.EaseChatInputMenu
+    <com.wust.easeui.widget.EaseChatInputMenu
         android:id="@+id/input_menu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

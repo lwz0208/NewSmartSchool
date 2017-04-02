@@ -462,12 +462,12 @@
                     android:layout_height="1dip"
                     android:background="@color/top_bottom_line" />
 
-                <com.ding.chat.utils.MyGridView
+                <com.wust.newsmartschool.utils.MyGridView
                     android:id="@+id/baseappGV"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:numColumns="4"
-                    android:stretchMode="columnWidth"></com.ding.chat.utils.MyGridView>
+                    android:stretchMode="columnWidth"></com.wust.newsmartschool.utils.MyGridView>
             </LinearLayout>
 
             <LinearLayout
@@ -516,14 +516,14 @@
                     android:layout_height="1dip"
                     android:background="@color/top_bottom_line" />
 
-                <com.ding.chat.utils.MyGridView
+                <com.wust.newsmartschool.utils.MyGridView
                     android:id="@+id/usualapplyGV"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:numColumns="4"
                     android:stretchMode="columnWidth">
 
-                </com.ding.chat.utils.MyGridView>
+                </com.wust.newsmartschool.utils.MyGridView>
             </LinearLayout>
 
             <LinearLayout

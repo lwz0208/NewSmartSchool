@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/common_bg"
     android:orientation="vertical"
-    tools:context="com.ding.chat.ui.NoticeAttachActivity">
+    tools:context="com.wust.newsmartschool.ui.NoticeAttachActivity">
 
     <RelativeLayout
         android:id="@+id/title_workfrag_noticedetail"
@@ -31,10 +31,10 @@
         android:layout_height="1dip"
         android:background="@color/top_bottom_line" />
 
-    <com.ding.chat.views.ListViewForScrollView
+    <com.wust.newsmartschool.views.ListViewForScrollView
         android:id="@+id/lv_notice_attach"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"></com.ding.chat.views.ListViewForScrollView>
+        android:background="@color/white"></com.wust.newsmartschool.views.ListViewForScrollView>
 
 </LinearLayout>

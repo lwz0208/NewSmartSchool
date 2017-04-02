@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/common_bg"
-    tools:context="com.ding.chat.ui.JFlowDetailActivity">
+    tools:context="com.wust.newsmartschool.ui.JFlowDetailActivity">
 
     <RelativeLayout
         android:id="@+id/rl_workflow"
@@ -138,12 +138,12 @@
                     android:padding="10dp"
                     android:text="审批信息" />
 
-                <com.ding.chat.views.ListViewForScrollView
+                <com.wust.newsmartschool.views.ListViewForScrollView
                     android:id="@+id/applyinfo_listview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/common_bg"
-                    android:divider="@color/common_bg"></com.ding.chat.views.ListViewForScrollView>
+                    android:divider="@color/common_bg"></com.wust.newsmartschool.views.ListViewForScrollView>
             </LinearLayout>
 
 

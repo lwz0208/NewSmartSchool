@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/common_bg"
     android:orientation="vertical"
-    tools:context="com.ding.chat.ui.SearchTaskActivity">
+    tools:context="com.wust.newsmartschool.ui.SearchTaskActivity">
 
     <RelativeLayout
         android:id="@+id/rl_title_searchchiletask"
@@ -37,7 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.ding.chat.views.ListViewForScrollView
+        <com.wust.newsmartschool.views.ListViewForScrollView
             android:id="@+id/lv_searchchildtask"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -45,6 +45,6 @@
             android:background="@color/white"
             android:cacheColorHint="#00000000"
             android:divider="@color/divider_list"
-            android:dividerHeight="1px"></com.ding.chat.views.ListViewForScrollView>
+            android:dividerHeight="1px"></com.wust.newsmartschool.views.ListViewForScrollView>
     </ScrollView>
 </LinearLayout>

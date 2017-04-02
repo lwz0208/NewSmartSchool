@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/common_bg"
-    tools:context="com.ding.chat.ui.CreatNewNoticeActivity">
+    tools:context="com.wust.newsmartschool.ui.CreatNewNoticeActivity">
 
     <RelativeLayout
         android:id="@+id/rl_creat_notice_title"
@@ -158,10 +158,10 @@
 
                 </LinearLayout>
 
-                <com.ding.chat.views.ListViewForScrollView
+                <com.wust.newsmartschool.views.ListViewForScrollView
                     android:id="@+id/newnotice_attachlist"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"></com.ding.chat.views.ListViewForScrollView>
+                    android:layout_height="match_parent"></com.wust.newsmartschool.views.ListViewForScrollView>
 
                 <View
                     android:layout_width="match_parent"
