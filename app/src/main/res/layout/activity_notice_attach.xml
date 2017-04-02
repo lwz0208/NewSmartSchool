@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_bg"
+    android:orientation="vertical"
+    tools:context="com.ding.chat.ui.NoticeAttachActivity">
+
+    <RelativeLayout
+        android:id="@+id/title_workfrag_noticedetail"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_top_bar"
+        android:background="@color/top_bar_normal_bg"
+        android:gravity="center_vertical">
+
+        <include
+            android:id="@+id/back_workfrag_noticedetail"
+            layout="@layout/ease_commom_back_btn" />
+
+        <TextView
+            style="@style/common_topbar_text_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="附件列表" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:background="@color/top_bottom_line" />
+
+    <com.ding.chat.views.ListViewForScrollView
+        android:id="@+id/lv_notice_attach"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"></com.ding.chat.views.ListViewForScrollView>
+
+</LinearLayout>

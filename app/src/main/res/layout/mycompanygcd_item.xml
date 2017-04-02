@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:padding="2dp">
+
+        <TextView
+            android:id="@+id/brand_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/brand_num"
+            android:layout_alignBottom="@+id/brand_num"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:padding="5dp"
+            android:text="研15"
+            android:textColor="@color/common_text_lightblack"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/brand_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/company_right_arrow"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:padding="5dp"
+            android:textColor="@color/grgray"
+            android:textSize="15dp" />
+
+        <ImageView
+            android:id="@+id/company_right_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textView1"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:padding="5dp"
+            android:src="@drawable/right_arrow" />
+    </RelativeLayout>
+
+</LinearLayout>

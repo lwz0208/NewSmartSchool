@@ -1,0 +1,131 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_bg"
+    tools:context="com.ding.chat.ui.WorkFragWorkFlowActivity">
+
+    <RelativeLayout
+        android:id="@+id/rl_workflow"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_top_bar"
+        android:background="@color/top_bar_normal_bg"
+        android:gravity="center_vertical">
+
+        <include
+            android:id="@+id/include1_workflow"
+            layout="@layout/ease_commom_back_btn" />
+
+        <TextView
+            android:id="@+id/workflow_title"
+            style="@style/common_topbar_text_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="流程" />
+
+        <TextView
+            android:id="@+id/workfrag_creatworkflow"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:gravity="center_vertical"
+            android:padding="10dp"
+            android:text="申请"
+            android:textColor="@color/bg_blue"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_workfolw_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_workflow"
+        android:layout_marginTop="1dp"
+        android:background="#ffffff"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/ll_workflow_needmetodeal"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/em_btn_bottom_selector_white">
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentLeft="true"
+                android:layout_margin="10dp"
+                android:src="@drawable/flow_need_approve" />
+
+            <TextView
+                android:id="@+id/unread_jflow_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="25dp"
+                android:background="@drawable/em_unread_dot"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:visibility="invisible" />
+
+            <TextView
+                style="@style/common_items_text_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/unread_jflow_number"
+                android:layout_alignBottom="@+id/unread_jflow_number"
+                android:layout_toRightOf="@+id/imageView1"
+                android:text="需要我审批的流程" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dip"
+            android:background="#f2f2f2" />
+
+        <LinearLayout
+            android:id="@+id/ll_workflow_copytome"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/em_btn_bottom_selector_white"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_margin="10dp"
+                android:src="@drawable/flow_copy" />
+
+            <TextView
+                style="@style/common_items_text_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="抄送给我的流程" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_workflow_id"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@id/ll_workfolw_id"
+        android:layout_marginLeft="10dp"
+        android:gravity="center_vertical"
+        android:text="我申请的流程"
+        android:textColor="@color/grgray" />
+
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:id="@+id/workfrag_workflow_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tv_workflow_id"
+        android:background="@color/white"
+        android:cacheColorHint="#00000000"
+        android:divider="@color/divider_list"
+        android:dividerHeight="1px"></com.handmark.pulltorefresh.library.PullToRefreshListView>
+
+</RelativeLayout>

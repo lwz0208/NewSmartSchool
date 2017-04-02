@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/main_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="#FAFAFA"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dip"
+            android:background="@color/top_bottom_line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingTop="5dp">
+
+            <RelativeLayout
+                android:id="@+id/btn_container_conversation"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <Button
+                    android:id="@+id/btn_conversation"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:drawableTop="@drawable/em_tab_chat_bg"
+                    android:onClick="onTabClicked"
+                    android:scaleType="matrix"
+                    android:text="对话"
+                    android:textColor="@color/em_main_botton_text_color" />
+
+                <TextView
+                    android:id="@+id/unread_msg_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/em_unread_dot"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:visibility="invisible"
+                    tools:text="1" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/btn_container_work_list"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <Button
+                    android:id="@+id/btn_work_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:drawableTop="@drawable/em_tab_work_bg"
+                    android:onClick="onTabClicked"
+                    android:scaleType="matrix"
+                    android:text="工作"
+                    android:textColor="@color/em_main_botton_text_color" />
+
+                <TextView
+                    android:id="@+id/unread_work_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/em_unread_dot"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:visibility="invisible" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/btn_container_setting"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <Button
+                    android:id="@+id/btn_setting"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:drawableTop="@drawable/em_tab_setting_bg"
+                    android:onClick="onTabClicked"
+                    android:scaleType="matrix"
+                    android:text="首页"
+                    android:textColor="@color/em_main_botton_text_color" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/btn_container_address_list"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <Button
+                    android:id="@+id/btn_address_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:drawableTop="@drawable/em_tab_contact_list_bg"
+                    android:onClick="onTabClicked"
+                    android:scaleType="matrix"
+                    android:text="联系人"
+                    android:textColor="@color/em_main_botton_text_color" />
+
+                <TextView
+                    android:id="@+id/unread_address_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/em_unread_dot"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textColor="@color/white" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/btn_container_ding"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <Button
+                    android:id="@+id/btn_ding_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:drawableTop="@drawable/em_tab_ding_bg"
+                    android:onClick="onTabClicked"
+                    android:scaleType="matrix"
+                    android:text="我的"
+                    android:textColor="@color/em_main_botton_text_color" />
+
+                <TextView
+                    android:id="@+id/unread_ding_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/em_unread_dot"
+                    android:visibility="gone" />
+            </RelativeLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/main_bottom"
+        android:background="@color/common_bg" />
+
+</RelativeLayout>

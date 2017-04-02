@@ -1,0 +1,117 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_bg"
+    android:orientation="vertical"
+    tools:context=".MessageSettingActivity" >
+
+    <RelativeLayout
+        android:id="@+id/rl_workflow_dealed_id"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_top_bar"
+        android:background="@color/top_bar_normal_bg"
+        android:gravity="center_vertical" >
+
+        <include layout="@layout/ease_commom_back_btn" />
+
+        <TextView
+            style="@style/common_topbar_text_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="消息设置" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_switch_notification"
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:background="@drawable/em_btn_bottom_selector"
+        android:padding="10dip" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:paddingLeft="10dip"
+            android:text="@string/newnotify"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            android:typeface="serif" />
+
+        <com.ding.easeui.widget.EaseSwitchButton
+            android:id="@+id/switch_notification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textview1"
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:background="#E6E6E6" />
+
+    <RelativeLayout
+        android:id="@+id/rl_switch_sound"
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:background="@drawable/em_btn_bottom_selector"
+        android:padding="10dip" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:paddingLeft="10dip"
+            android:text="@string/voice"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            android:typeface="serif" />
+
+        <com.ding.easeui.widget.EaseSwitchButton
+            android:id="@+id/switch_sound"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textview2"
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:background="#E6E6E6" />
+
+    <RelativeLayout
+        android:id="@+id/rl_switch_vibrate"
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:background="@drawable/em_btn_bottom_selector"
+        android:padding="10dip" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:paddingLeft="10dip"
+            android:text="@string/shake"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            android:typeface="serif" />
+
+        <com.ding.easeui.widget.EaseSwitchButton
+            android:id="@+id/switch_vibrate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true" />
+    </RelativeLayout>
+
+</LinearLayout>

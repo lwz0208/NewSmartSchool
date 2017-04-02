@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <ImageView
+            android:id="@+id/search_headerimg"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ease_default_avatar" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/search_headerimg"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/search_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical"
+                android:text=""
+                android:textColor="@color/common_text_lightblack"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/depmemt_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/search_name"
+                android:layout_centerVertical="true"
+                android:text=""
+                android:textColor="@color/gray_ios" />
+
+            <TextView
+                android:id="@+id/depmem_position"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/search_name"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                android:text=""
+                android:textColor="@color/gray_ios" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/addfriend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/jflow_btn_yes"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="添加好友"
+            android:textColor="@color/white" />
+
+
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World</string>
+    <string name="title_activity_user_info">UserInfoActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_friends_list">FriendsListActivity</string>
+    <string name="title_activity_pho__friend_list">Pho_FriendListActivity</string>
+    <string name="title_activity_company">CompanyActivity</string>
+    <string name="title_activity_dept_members">DeptMembersActivity</string>
+    <string name="title_activity_pre_register">PreRegisterActivity</string>
+    <string name="title_activity_info_set">InfoSetActivity</string>
+    <string name="title_activity_chat_set">ChatSetActivity</string>
+    <string name="title_activity_dept_mem_info">DeptMemInfoActivity</string>
+    <string name="title_activity_edite__notice">Edite_NoticeActivity</string>
+    <string name="title_activity_work_items">WorkItemsActivity</string>
+    <string name="title_activity_news_detail">NewsDetailActivity</string>
+    <string name="title_activity_wait_to_deal">WaitToDealActivity</string>
+    <string name="title_activity_work_items__leave">WorkItems_LeaveActivity</string>
+    <string name="title_activity_work_frag_notice">WorkFragNoticeActivity</string>
+    <string name="title_activity_notice_detail">NoticeDetailActivity</string>
+    <string name="title_activity_me_sent_notice">MeSentNoticeActivity</string>
+    <string name="title_activity_creat_new_notice">CreatNewNoticeActivity</string>
+    <string name="title_activity_work_flow">WorkFlowActivity</string>
+    <string name="title_activity_work_flow_need_me">WorkFlowNeedMeActivity</string>
+    <string name="title_activity_work_flow_dealed">WorkFlowDealedActivity</string>
+    <string name="title_activity_work_flow_copy_to_me">WorkFlowCopyToMeActivity</string>
+    <string name="title_activity_creat_work_flow">CreatWorkFlowActivity</string>
+    <string name="title_activity_notice_choose_mem">NoticeChooseMemActivity</string>
+
+    <!-- expand list select -->
+    <string name="title_expand_list_select">二级列表选择\nExpandableListView</string>
+    <string name="str_expand_list_select">选择人物</string>
+    <string name="str_trans_receiver_num"> (%1$d / %2$d) </string>
+    <string name="title_activity_message_setting">MessageSettingActivity</string>
+    <string name="title_activity_jflow_item_apply">JFlowItemApplyActivity</string>
+    <string name="title_activity_jflow_detail">JFlowDetailActivity</string>
+    <string name="title_activity_work_flow_copy_me_unread">WorkFlowCopyMeUnreadActivity</string>
+    <string name="title_activity_search_task_child">SearchTaskChildActivity</string>
+    <string name="title_activity_change_psw">ChangePswActivity</string>
+    <string name="title_activity_notice_detail__see_no_see_mem">NoticeDetail_SeeNoSeeMemActivity
+    </string>
+    <string name="title_activity_work_frag_apply">WorkFragApplyActivity</string>
+
+</resources>

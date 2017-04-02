@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/common_list_selector"
+    android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/explist_group_item_select"
+        android:layout_width="30dip"
+        android:layout_height="30dip"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/select_item_img"
+        android:contentDescription="@null"
+        android:scaleType="fitXY" />
+
+    <TextView
+        android:id="@+id/explist_group_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/explist_group_item_select"
+        android:textColor="@color/common_bottom_bar_normal_bg"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/explist_group_selected_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/explist_group_title"
+        android:paddingLeft="4dip"
+        android:text="(%1$d / %2$d)"
+        android:textColor="@color/grgray"
+        android:textSize="12sp" />
+
+    <ImageView
+        android:id="@+id/explist_group_indicator"
+        android:layout_width="25dip"
+        android:layout_height="25dip"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:contentDescription="@null"
+        android:scaleType="fitXY" />
+
+</RelativeLayout>

@@ -1,0 +1,78 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_bg"
+    tools:context="com.ding.chat.ui.WorkFragWorkFlowActivity">
+
+    <RelativeLayout
+        android:id="@+id/rl_workflow_needme_id"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_top_bar"
+        android:background="@color/top_bar_normal_bg"
+        android:gravity="center_vertical">
+
+        <include
+            android:id="@+id/include1_workflow_needme"
+            layout="@layout/ease_commom_back_btn" />
+
+        <TextView
+            style="@style/common_topbar_text_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="需要我审批的流程" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_workfolw_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_workflow_needme_id"
+        android:layout_marginTop="1dp"
+        android:background="#ffffff"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/ll_workflow_dealed"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/em_btn_bottom_selector_white"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/common_items_text_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="20dp"
+                android:text="已审批的流程" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dip"
+            android:background="#f2f2f2" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_workflow_id"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@id/ll_workfolw_id"
+        android:layout_marginLeft="10dp"
+        android:gravity="center_vertical"
+        android:text="需要我审批的流程"
+        android:textColor="@color/grgray" />
+
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:id="@+id/workflow_needme_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tv_workflow_id"
+        android:background="@color/white"
+        android:cacheColorHint="#00000000"
+        android:divider="@color/divider_list"
+        android:dividerHeight="1px"></com.handmark.pulltorefresh.library.PullToRefreshListView>
+
+</RelativeLayout>

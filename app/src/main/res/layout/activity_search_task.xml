@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_bg"
+    android:orientation="vertical"
+    tools:context="com.ding.chat.ui.SearchTaskActivity">
+
+    <RelativeLayout
+        android:id="@+id/title_searchtask"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_top_bar"
+        android:background="@color/top_bar_normal_bg"
+        android:gravity="center_vertical">
+
+        <include
+            android:id="@+id/back_searchtask"
+            layout="@layout/ease_commom_back_btn" />
+
+        <TextView
+            style="@style/common_topbar_text_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="任务综合查询" />
+
+        <TextView
+            android:id="@+id/sure_searchtask"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:padding="10dp"
+            android:text="搜索"
+            android:textColor="@color/btn_green_noraml" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/divider_list" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="5dp"
+        android:background="#ededed"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/rl_query_task"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ededed"
+            android:paddingBottom="7dp"
+            android:paddingLeft="@dimen/padding_search_bar"
+            android:paddingRight="@dimen/padding_search_bar"
+            android:paddingTop="7dp">
+
+            <EditText
+                android:id="@+id/query_task"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:background="@drawable/ease_seabar_input"
+                android:drawableLeft="@drawable/ease_search_bar_icon_normal"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:hint="@string/search"
+                android:paddingBottom="5dp"
+                android:paddingLeft="5dp"
+                android:paddingTop="5dp"
+                android:singleLine="true"
+                android:textColorHint="#8C8C8C"
+                android:textSize="16sp" />
+
+            <ImageButton
+                android:id="@+id/search_clear_task"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="3dp"
+                android:background="@android:color/transparent"
+                android:padding="6dp"
+                android:src="@drawable/ease_search_clear"
+                android:visibility="invisible" />
+        </RelativeLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_searchtask_Tips"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="点击按按下分类搜索:"
+            android:textColor="@color/common_bottom_bar_normal_bg"
+            android:textSize="15sp" />
+
+        <RelativeLayout
+            android:id="@+id/tasksearch_bydept"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
+
+            <TextView
+                android:id="@+id/tasksearch_bydept_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="按科室"
+                android:textColor="@color/common_bottom_bar_normal_bg"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_margin="5dp"
+                android:src="@drawable/right_arrow" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/tasksearch_bymajor"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
+
+            <TextView
+                android:id="@+id/tasksearch_bymajor_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="按优先级"
+                android:textColor="@color/common_bottom_bar_normal_bg"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_margin="5dp"
+                android:src="@drawable/right_arrow" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/tasksearch_bytype"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
+
+            <TextView
+                android:id="@+id/tasksearch_bytype_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="按类型"
+                android:textColor="@color/common_bottom_bar_normal_bg"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_margin="5dp"
+                android:src="@drawable/right_arrow" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/tasksearch_bystatus"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
+
+            <TextView
+                android:id="@+id/tasksearch_bystatus_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="按状态"
+                android:textColor="@color/common_bottom_bar_normal_bg"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_margin="5dp"
+                android:src="@drawable/right_arrow" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/tasksearch_bytimefrom"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
+
+            <TextView
+                android:id="@+id/tasksearch_bytimefrom_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="时间起"
+                android:textColor="@color/common_bottom_bar_normal_bg"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_margin="5dp"
+                android:src="@drawable/right_arrow" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/tasksearch_bytimeend"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
+
+            <TextView
+                android:id="@+id/tasksearch_bytimeend_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="时间止"
+                android:textColor="@color/common_bottom_bar_normal_bg"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_margin="5dp"
+                android:src="@drawable/right_arrow" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <com.chanven.lib.cptr.PtrClassicFrameLayout xmlns:cube_ptr="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/search_listview_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#f0f0f0"
+        android:visibility="gone"
+        cube_ptr:ptr_duration_to_close="200"
+        cube_ptr:ptr_duration_to_close_header="700"
+        cube_ptr:ptr_keep_header_when_refresh="true"
+        cube_ptr:ptr_pull_to_fresh="false"
+        cube_ptr:ptr_ratio_of_header_height_to_refresh="1.2"
+        cube_ptr:ptr_resistance="1.8">
+
+        <ListView
+            android:id="@+id/lv_searchtask"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:background="@color/white"
+            android:cacheColorHint="#00000000"
+            android:divider="@color/divider_list"
+            android:dividerHeight="1px"
+            android:visibility="gone"></ListView>
+    </com.chanven.lib.cptr.PtrClassicFrameLayout>
+</LinearLayout>

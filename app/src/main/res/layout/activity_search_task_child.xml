@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_bg"
+    android:orientation="vertical"
+    tools:context="com.ding.chat.ui.SearchTaskActivity">
+
+    <RelativeLayout
+        android:id="@+id/rl_title_searchchiletask"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_top_bar"
+        android:background="@color/top_bar_normal_bg"
+        android:gravity="center_vertical">
+
+        <include
+            android:id="@+id/back_searchchildtask"
+            layout="@layout/ease_commom_back_btn" />
+
+        <TextView
+            android:id="@+id/title_searchchiletask"
+            style="@style/common_topbar_text_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/back_searchchildtask"
+            android:text="子任务列表" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/divider_list" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.ding.chat.views.ListViewForScrollView
+            android:id="@+id/lv_searchchildtask"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:background="@color/white"
+            android:cacheColorHint="#00000000"
+            android:divider="@color/divider_list"
+            android:dividerHeight="1px"></com.ding.chat.views.ListViewForScrollView>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/delete_conversation"
+        android:background="@color/common_bg"
+        android:title="@string/delete_conversation"/>
+    <item
+        android:id="@+id/delete_message"
+        android:background="@color/common_bg"
+        android:title="@string/delete_conversation_messages"/>
+
+</menu>

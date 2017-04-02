@@ -1,0 +1,102 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.NoticeChooseMemActivity">
+
+    <RelativeLayout
+        android:id="@+id/rl_workflow_choose_id_new"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_top_bar"
+        android:background="@color/top_bar_normal_bg"
+        android:gravity="center_vertical">
+
+        <include
+            android:id="@+id/include1_workflow_needme"
+            layout="@layout/ease_commom_back_btn" />
+
+        <LinearLayout
+            android:id="@+id/ll_title_choosemem_new"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/common_topbar_text_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="请选择人员" />
+
+            <ImageView
+                android:id="@+id/other_type_notice_new"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/em_btn_bottom_selector"
+                android:padding="10dp"
+                android:src="@drawable/selector_btn_arrow_down" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/allchoose_new"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:padding="10dp"
+            android:text="全选"
+            android:textColor="@color/white_light"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dip"
+            android:layout_alignParentBottom="true"
+            android:background="@color/top_bottom_line" />
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/showBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="显示"
+        android:visibility="gone" />
+
+    <ExpandableListView
+        android:id="@+id/expandable_list_new"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_workflow_choose_id_new"
+        android:layout_marginBottom="40dp"></ExpandableListView>
+
+    <View
+        android:id="@+id/btn_yes_finish_view_new"
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:layout_alignParentBottom="true"
+        android:background="@color/top_bottom_line"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/btn_yes_finish_new"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:background="@drawable/em_btn_bottom_selector"
+        android:onClick="onOkClick"
+        android:text="确定"
+        android:visibility="gone" />
+
+
+</RelativeLayout>

@@ -1,0 +1,91 @@
+apply plugin: 'com.android.application'
+
+android {
+    useLibrary 'org.apache.http.legacy'
+    compileSdkVersion 23
+    buildToolsVersion "23.0.1"
+
+    defaultConfig {
+        applicationId "com.ding.chat"
+        minSdkVersion 16
+        targetSdkVersion 21
+        versionCode 7
+        versionName "1.0.7"
+        multiDexEnabled true
+
+        ndk {
+            abiFilters "armeabi-v7a", "x86"
+        }
+
+        manifestPlaceholders = [
+                JPUSH_PKGNAME: "com.ding.chat",//JPush上注册的包名对应的appkey.
+                JPUSH_APPKEY : "f4dcc596fb116ed48a9d4435",
+                JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+        ]
+
+    }
+    splits {
+        abi {
+            reset()
+            universalApk false  // If true, also generate a universal APK
+            include "armeabi-v7a", "x86"
+        }
+    }
+
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+
+    lintOptions {
+        abortOnError false
+        checkReleaseBuilds false
+        // 防止在发布的时候出现因MissingTranslation导致Build Failed!
+        disable 'MissingTranslation'
+    }
+}
+
+//应用 Bugtags 插件
+apply plugin: 'com.bugtags.library.plugin'
+//Bugtags 插件配置
+bugtags {
+    //自动上传符号表功能配置，如果需要根据 build varint 配置，请参考帮助中心->符号表->Android 符号表->配置自动上传符号表
+    appKey "APP_KEY"  //这里是你的 appKey
+    appSecret "APP_SECRET"    //这里是你的 appSecret，管理员在设置页可以查看
+    mappingUploadEnabled true
+
+    //网络跟踪功能配置(企业版)
+    trackingNetworkEnabled true
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    //compile 'com.android.support:appcompat-v7:23.0.1'
+    //BGAdapter
+    compile 'com.facebook.react:react-native:+'
+    // compile 'com.parse.bolts:bolts-android:1.2.0'
+    compile 'com.android.support:design:23.2.1'
+    compile 'com.alibaba:fastjson:1.2.16'
+    compile 'com.bugtags.library:bugtags-lib:latest.integration'
+    compile 'cn.jiguang.sdk:jpush:3.0.0'  // 此处以JPush 3.0.0 版本为例。
+    compile 'cn.jiguang.sdk:jcore:1.0.0'  // 此处以JCore 1.0.0 版本为例。
+    //compile 'com.bugtags.library:bugtags-lib:latest.integration'
+    compile 'com.google.code.gson:gson:2.5'
+    compile 'com.android.support:multidex:1.0.0'
+    compile 'org.jsoup:jsoup:1.9.2'
+    compile 'com.chanven.lib:cptr:1.1.0'
+    compile 'org.lzh.nonview.updateplugin:UpdatePlugin:0.7.1'
+    compile 'com.bigkoo:convenientbanner:2.0.5'
+    compile 'com.github.chrisbanes.photoview:library:1.2.3'
+    compile files('libs/Parse-1.9.4.jar')
+    compile files('libs/zxing.jar')
+    compile project(':freshlibrary')
+    compile project(':easeui')
+}

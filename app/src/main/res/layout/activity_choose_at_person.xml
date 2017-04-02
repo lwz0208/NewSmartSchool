@@ -1,0 +1,51 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_bg"
+    android:orientation="vertical"
+    tools:context="com.ding.chat.ui.ChooseAtPersonActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_top_bar"
+        android:background="@color/top_bar_normal_bg"
+        android:gravity="center_vertical">
+
+        <include layout="@layout/ease_commom_back_btn" />
+
+        <TextView
+            style="@style/common_topbar_text_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="请选择" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dip"
+            android:layout_alignParentBottom="true"
+            android:background="@color/top_bottom_line" />
+    </RelativeLayout>
+
+    <include layout="@layout/ease_search_bar" />
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+        <com.ding.chat.views.ListViewForScrollView
+            android:id="@+id/lv_groupmems"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:choiceMode="multipleChoice"
+            android:divider="@color/divider_list"
+            android:dividerHeight="1dp"
+            android:fastScrollAlwaysVisible="false"
+            android:fastScrollEnabled="false"></com.ding.chat.views.ListViewForScrollView>
+
+    </ScrollView>
+
+</LinearLayout>

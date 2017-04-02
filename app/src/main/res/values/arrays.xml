@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- expand list select title item name -->
+    <string-array name="array_explist_title_name">
+        <item>总部</item>
+        <item>前端部</item>
+        <item>后端部</item>
+        <item>安卓部</item>
+        <item>IOS部</item>
+        <item>管理部</item>
+    </string-array>
+    <string-array name="array_explist_child_zb_name">
+        <item>夏斌</item>
+    </string-array>
+    <string-array name="array_explist_child_qdb_name">
+        <item>张远航</item>
+        <item>卢海川</item>
+    </string-array>
+    <string-array name="array_explist_child_hdb_name">
+        <item>刘凯</item>
+    </string-array>
+    <string-array name="array_explist_child_azb_name">
+        <item>王嵩</item>
+        <item>李文钊</item>
+    </string-array>
+    <string-array name="array_explist_child_ios_name">
+        <item>张银萍</item>
+        <item>周小林</item>
+    </string-array>
+    <string-array name="array_explist_child_glb_name">
+        <item>顾进广</item>
+        <item>吴飞</item>
+        <item>顾俊伟</item>
+        <item>陈达</item>
+    </string-array>
+
+</resources>

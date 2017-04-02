@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingBottom="8dp"
+    android:paddingLeft="15dp"
+    android:paddingTop="8dp">
+
+    <ImageView
+        android:id="@+id/image_meetingflage"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/working_meeting_pu" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_meetingTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/common_bottom_bar_normal_bg"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_meetingStartTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/spilt_gray"
+            android:textSize="14sp" />
+    </LinearLayout>
+</LinearLayout>
