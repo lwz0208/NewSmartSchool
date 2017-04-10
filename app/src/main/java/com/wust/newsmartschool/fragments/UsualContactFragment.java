@@ -29,7 +29,7 @@ import com.wust.newsmartschool.DemoApplication;
 import com.wust.newsmartschool.R;
 import com.wust.newsmartschool.ui.AddContactActivity;
 import com.wust.newsmartschool.ui.CompanyActivity;
-import com.wust.newsmartschool.ui.DeptMemInfoActivity2;
+import com.wust.newsmartschool.ui.DeptMemInfoActivity;
 import com.wust.newsmartschool.ui.FriendsListActivity;
 import com.wust.newsmartschool.ui.GroupsActivity;
 import com.wust.newsmartschool.ui.NewFriendsMsgActivity;
@@ -90,7 +90,7 @@ public class UsualContactFragment extends Fragment implements OnClickListener {
         company = (TextView) headerView.findViewById(R.id.company);
         tip_my_deptname = (TextView) headerView.findViewById(R.id.tip_my_deptname);
         try {
-            tip_my_deptname.setText(PreferenceManager.getInstance().getCurrentUserDeptmentName());
+            tip_my_deptname.setText(PreferenceManager.getInstance().getCurrentUserColleageName());
         } catch (Exception e) {
             ll_my_deptname.setVisibility(View.GONE);
             e.printStackTrace();
@@ -121,7 +121,7 @@ public class UsualContactFragment extends Fragment implements OnClickListener {
                             .valueOf(((Common_TypeMem_Data) typememb_adapter.getItem(position - 1)).getUserId());
                     Log.e(TAG, userId);
                     startActivity(new Intent(getActivity(),
-                            DeptMemInfoActivity2.class).putExtra("userId",
+                            DeptMemInfoActivity.class).putExtra("userId",
                             userId));
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -229,7 +229,7 @@ public class UsualContactFragment extends Fragment implements OnClickListener {
     private void getTypeMembers() throws JSONException {
         JSONObject loginJson = new JSONObject();
         loginJson.put("typeId", "departmentId");
-        loginJson.put("id", PreferenceManager.getInstance().getCurrentUserDeptmentId());
+        loginJson.put("id", PreferenceManager.getInstance().getCurrentUserColleageId());
         Log.i(TAG, loginJson.toString());
         CommonUtils.setCommonJson(getActivity(), loginJson, PreferenceManager.getInstance().getCurrentUserFlowSId());
         OkHttpUtils.postString().url(Constant.GETMEMBYTYPE_URL)

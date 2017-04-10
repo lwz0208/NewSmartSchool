@@ -347,7 +347,7 @@
         <!-- 设置环信应用的appkey -->
         <meta-data
             android:name="EASEMOB_APPKEY"
-            android:value="516881172#mo" />
+            android:value="ontoweb#smartschool" />
         <!-- 声明sdk所需的service -->
         <service
             android:name="com.hyphenate.chat.EMChatService"
@@ -413,9 +413,6 @@
             android:name="com.wust.newsmartschool.ui.DeptMemInfoActivity"
             android:label="@string/title_activity_dept_mem_info" />
         <activity
-            android:name="com.wust.newsmartschool.ui.DeptMemInfoActivity2"
-            android:label="@string/title_activity_dept_mem_info" />
-        <activity
             android:name="com.wust.newsmartschool.ui.EditeNoticeActivity"
             android:label="@string/title_activity_edite__notice" />
         <activity
@@ -436,15 +433,6 @@
         <activity
             android:name="com.wust.newsmartschool.ui.CreatNewNoticeActivity"
             android:label="@string/title_activity_creat_new_notice" />
-        <activity
-            android:name="com.wust.newsmartschool.ui.WorkFragWorkFlowActivity"
-            android:label="@string/title_activity_work_flow" />
-        <activity
-            android:name="com.wust.newsmartschool.ui.WorkFlowNeedMeActivity"
-            android:label="@string/title_activity_work_flow_need_me" />
-        <activity
-            android:name="com.wust.newsmartschool.ui.WorkFlowDealedActivity"
-            android:label="@string/title_activity_work_flow_dealed" />
         <activity
             android:name="com.wust.newsmartschool.ui.WorkFlowCopyToMeActivity"
             android:label="@string/title_activity_work_flow_copy_to_me" />

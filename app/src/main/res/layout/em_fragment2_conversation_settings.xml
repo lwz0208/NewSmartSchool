@@ -12,7 +12,6 @@
         android:background="@color/top_bar_normal_bg"
         android:gravity="center_vertical">
 
-
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

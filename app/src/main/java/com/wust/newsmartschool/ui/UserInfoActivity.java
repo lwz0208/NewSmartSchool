@@ -108,18 +108,10 @@ public class UserInfoActivity extends BaseActivity implements OnClickListener {
                 .into(user_info_headimage);
         realname.setText(PreferenceManager.getInstance().getCurrentRealName());
         if (userInfoEntity != null) {
-            if (userInfoEntity.getData().getUserGender() == 0) {
-                usergender.setText("男");
-            } else if (userInfoEntity.getData().getUserGender() == 1) {
-                usergender.setText("女");
-            } else if (userInfoEntity.getData().getUserGender() == 2) {
-                usergender.setText("保密");
-            }
-            workid.setText(userInfoEntity.getData().getPersonnelId());
-            usertelephone.setText(userInfoEntity.getData().getTelephone());
-//        companyname.setText(userInfoEntity.getData().getDepartmentName());
-            createtime.setText(userInfoEntity.getData().getWorkNumber());
-            deptname.setText(userInfoEntity.getData().getDepartmentName());
+            usergender.setText(userInfoEntity.getData().getSex());
+            workid.setText(userInfoEntity.getData().getId());
+            companyname.setText(userInfoEntity.getData().getCollegeName());
+            deptname.setText(userInfoEntity.getData().getClassName());
         } else {
             showToastShort("获取个人信息失败");
         }

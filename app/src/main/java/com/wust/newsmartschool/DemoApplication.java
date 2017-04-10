@@ -13,7 +13,6 @@
  */
 package com.wust.newsmartschool;
 
-import com.bugtags.library.Bugtags;
 import com.wust.easeui.utils.ACache;
 import com.facebook.react.ReactApplication;
 import com.facebook.react.ReactNativeHost;
@@ -58,8 +57,6 @@ public class DemoApplication extends MultiDexApplication implements ReactApplica
         JPushInterface.init(this); // 初始化 JPush
         JPushInterface.setLatestNotificationNumber(instance, 6);
 
-        //在这里初始化
-        Bugtags.start("7c181aeb8b247422da4f518583260a82", this, Bugtags.BTGInvocationEventNone);
     }
 
     public static DemoApplication getInstance() {

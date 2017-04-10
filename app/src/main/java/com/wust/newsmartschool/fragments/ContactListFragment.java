@@ -16,7 +16,7 @@ package com.wust.newsmartschool.fragments;
 import java.util.Hashtable;
 import java.util.Map;
 
-import com.wust.newsmartschool.ui.DeptMemInfoActivity2;
+import com.wust.newsmartschool.ui.DeptMemInfoActivity;
 import com.hyphenate.chat.EMClient;
 import com.wust.newsmartschool.DemoHelper;
 import com.wust.newsmartschool.R;
@@ -118,7 +118,7 @@ public class ContactListFragment extends EaseContactListFragment {
                 // startActivity(new Intent(getActivity(), ChatActivity.class)
                 // .putExtra("userId", username));
                 startActivity(new Intent(getActivity(),
-                        DeptMemInfoActivity2.class).putExtra("userId",
+                        DeptMemInfoActivity.class).putExtra("userId",
                         username));
             }
         });

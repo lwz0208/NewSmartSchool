@@ -283,7 +283,7 @@ public class ChatFragment extends EaseChatFragment implements
     public void onAvatarClick(String username) {
         // 跳转到自己的用户信息展示页面
         if (!username.equals("admin"))
-            startActivity(new Intent(getContext(), DeptMemInfoActivity2.class)
+            startActivity(new Intent(getContext(), DeptMemInfoActivity.class)
                     .putExtra("userId", username));
     }
 

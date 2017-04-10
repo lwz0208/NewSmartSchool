@@ -20,7 +20,6 @@ import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
-import com.bugtags.library.Bugtags;
 import com.wust.easeui.ui.EaseBaseActivity;
 
 public class BaseActivity extends EaseBaseActivity {
@@ -33,9 +32,6 @@ public class BaseActivity extends EaseBaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        // umeng
-        //MobclickAgent.onResume(this);
-        Bugtags.onResume(this);
     }
 
     @Override
@@ -48,14 +44,10 @@ public class BaseActivity extends EaseBaseActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        // 注：回调 2
-        Bugtags.onPause(this);
     }
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
-        // 注：回调 3
-        Bugtags.onDispatchTouchEvent(this, event);
         return super.dispatchTouchEvent(event);
     }
 

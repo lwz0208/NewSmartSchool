@@ -93,7 +93,7 @@ public class AddContactActivity extends BaseActivity {
                         .valueOf(((SearchFriendsEntity.DataBean) search_adapter
                                 .getItem(position)).getId());
                 startActivity(new Intent(getApplicationContext(),
-                        DeptMemInfoActivity2.class).putExtra("userId",
+                        DeptMemInfoActivity.class).putExtra("userId",
                         userId));
             }
         });

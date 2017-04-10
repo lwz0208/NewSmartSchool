@@ -224,7 +224,7 @@ public class MainActivity extends BaseActivity {
                             .getInstance()
                             .getUserProfileManager()
                             .updateCurrentUserNickName(
-                                    userInfoEntity.getData().getUserRealname());
+                                    userInfoEntity.getData().getName());
                 }
             }
         }).start();
@@ -369,9 +369,7 @@ public class MainActivity extends BaseActivity {
 //                            Toast.LENGTH_SHORT).show();
                         unread_work_jflow_number.setVisibility(View.VISIBLE);
                         unread_work_jflow_number.setText(getIntent.getJflow() + "");
-                        WorkFragWorkFlowActivity.jflow_number_needtodeal = getIntent.getJflow() + "";
                     } else {
-                        WorkFragWorkFlowActivity.jflow_number_needtodeal = "0";
                         unread_work_jflow_number.setVisibility(View.INVISIBLE);
                     }
                     // 任务count

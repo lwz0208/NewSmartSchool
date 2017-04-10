@@ -49,7 +49,8 @@ public class PreferenceManager {
     private static String MY_KEY_SHARED_KEY_CURRENTUSER_DEPTMENTNAME = "MY_KEY_SHARED_KEY_CURRENTUSER_DEPTMENTNAME";
     private static String MY_KEY_SET_FRIENDSMSG_ONLY = "MY_KEY_SET_FRIENDSMSG_ONLY";
     private static String DISPLAYMESSAGEDETAIL = "DISPLAYMESSAGEDETAIL";
-
+    private static String CurrentUserClassName = "CurrentUserClassName";
+    private static String CurrentUserClassId = "CurrentUserClassId";
     private static String ISFIRSTUSE = "ISFIRSTUSE";
 
     private PreferenceManager(Context cxt) {
@@ -219,14 +220,15 @@ public class PreferenceManager {
         editor.commit();
     }
 
-    // 通用存储函数
-    public void setCommonStringData(String Key, String Value) {
-        editor.putString(Key, Value);
+
+    public void setCurrentUserFlowSId(String userid) {
+        editor.putString(MY_KEY_SHARED_KEY_CURRENTUSER_FLOWSID, userid);
         editor.commit();
     }
 
-    public String getCommonStringData(String Key) {
-        return mSharedPreferences.getString(Key, null);
+    public String getCurrentUserFlowSId() {
+        return mSharedPreferences.getString(
+                MY_KEY_SHARED_KEY_CURRENTUSER_FLOWSID, "");
     }
 
     // 自己加的
@@ -251,36 +253,46 @@ public class PreferenceManager {
                 MY_KEY_SHARED_KEY_CURRENTUSER_USERREALNAME, null);
     }
 
-    public void setCurrentUserDeptmentName(String name) {
+    public void setCurrentUserClassName(String name) {
+        editor.putString(CurrentUserClassName, name);
+        editor.commit();
+    }
+
+    public String getCurrentUserClassName() {
+        return mSharedPreferences.getString(
+                CurrentUserClassName, null);
+    }
+
+    public void setCurrentUserClassId(int id) {
+        editor.putInt(CurrentUserClassId, id);
+        editor.commit();
+    }
+
+    public int getCurrentUserClassId() {
+        return mSharedPreferences.getInt(
+                CurrentUserClassId, -1);
+    }
+
+    public void setCurrentUserColleageName(String name) {
         editor.putString(MY_KEY_SHARED_KEY_CURRENTUSER_DEPTMENTNAME, name);
         editor.commit();
     }
 
-    public String getCurrentUserDeptmentName() {
+    public String getCurrentUserColleageName() {
         return mSharedPreferences.getString(
                 MY_KEY_SHARED_KEY_CURRENTUSER_DEPTMENTNAME, null);
     }
 
-    public void setCurrentUserDeptmentId(int id) {
+    public void setCurrentUserColleageId(int id) {
         editor.putInt(MY_KEY_SHARED_KEY_CURRENTUSER_DEPTMENTID, id);
         editor.commit();
     }
 
-    public int getCurrentUserDeptmentId() {
+    public int getCurrentUserColleageId() {
         return mSharedPreferences.getInt(
                 MY_KEY_SHARED_KEY_CURRENTUSER_DEPTMENTID, -1);
     }
 
-
-    public void setCurrentUserFlowSId(String userid) {
-        editor.putString(MY_KEY_SHARED_KEY_CURRENTUSER_FLOWSID, userid);
-        editor.commit();
-    }
-
-    public String getCurrentUserFlowSId() {
-        return mSharedPreferences.getString(
-                MY_KEY_SHARED_KEY_CURRENTUSER_FLOWSID, "");
-    }
 
     //缓存群详情里最下面的那个开关按钮，缓存是否是“接受消息但不提醒”
     public void setGroupMsgNobibi(String Key_groupid, String Value) {

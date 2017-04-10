@@ -169,8 +169,7 @@ public class EaseChatFragment extends EaseBaseFragment {
     public void getUserRealName(String phonme) throws FileNotFoundException,
             JSONException {
         JSONObject realnamejson = new JSONObject();
-        realnamejson.put("userId", phonme);
-        CommonUtils.setCommonJson(getActivity(), realnamejson, PreferenceManager.getInstance().getCurrentUserFlowSId());
+        realnamejson.put("id", phonme);
         Log.i("ChatActivity", realnamejson.toString());
 
         OkHttpUtils.postString().url(Constant.USERINFO_URL)
@@ -301,7 +300,6 @@ public class EaseChatFragment extends EaseBaseFragment {
         JSONObject noticeJson = new JSONObject();
         noticeJson.put("groupId", toChatUsername);
         noticeJson.put("userName", myUsername);
-        CommonUtils.setCommonJson(getActivity(), noticeJson, PreferenceManager.getInstance().getCurrentUserFlowSId());
 
         OkHttpUtils.postString().url(Constant.GETGROUPNOTICE_URL)
                 .content(noticeJson.toString())
@@ -373,7 +371,6 @@ public class EaseChatFragment extends EaseBaseFragment {
         try {
             readJson.put("userName", myUsername);
             readJson.put("noticeId", noticeid);
-            CommonUtils.setCommonJson(getActivity(), readJson, PreferenceManager.getInstance().getCurrentUserFlowSId());
         } catch (JSONException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

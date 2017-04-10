@@ -235,7 +235,7 @@ public class NoticeDetailActivity_new extends BaseActivity implements OnClickLis
                                                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                                                             String userId = String.valueOf(((NoticeCommentEntity.DataBean) commentListAdapter.getItem(position)).getUserId());
                                                             startActivity(new Intent(getApplicationContext(),
-                                                                    DeptMemInfoActivity2.class).putExtra("userId",
+                                                                    DeptMemInfoActivity.class).putExtra("userId",
                                                                     userId));
                                                             if (android.os.Build.VERSION.SDK_INT > 5) {
                                                                 overridePendingTransition(R.anim.slide_in_from_right,

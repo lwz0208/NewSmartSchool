@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/common_bg"
-    tools:context="com.wust.newsmartschool.ui.DeptMemInfoActivity2">
+    tools:context=".ui.DeptMemInfoActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"

@@ -355,14 +355,14 @@ public class SettingsFragment extends Fragment implements OnClickListener {
                                         Constant.MY_KEY_USERINFO,
                                         userInfoEntity);
                                 PreferenceManager.getInstance().setCurrentUserRealName(userInfoEntity.getData()
-                                        .getUserRealname().toString());
-                                PreferenceManager.getInstance().setfriendsMsgOnly(userInfoEntity.getData().getReceiveStatus());
+                                        .getName().toString());
+//                                PreferenceManager.getInstance().setfriendsMsgOnly(userInfoEntity.getData().getReceiveStatus());
                                 new Thread(new Runnable() {
                                     @Override
                                     public void run() {
                                         EMClient.getInstance().updateCurrentUserNick(
                                                 userInfoEntity.getData()
-                                                        .getUserRealname());
+                                                        .getName());
                                     }
                                 });
 

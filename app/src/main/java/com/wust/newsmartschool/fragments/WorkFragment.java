@@ -1,6 +1,5 @@
 package com.wust.newsmartschool.fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -12,10 +11,6 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.wust.newsmartschool.R;
-import com.wust.newsmartschool.ui.MeetingActivity;
-import com.wust.newsmartschool.ui.WorkFragApplyActivity;
-import com.wust.newsmartschool.ui.WorkFragNoticeActivity;
-import com.wust.newsmartschool.ui.WorkFragTaskActivity;
 
 public class WorkFragment extends Fragment implements OnClickListener {
     String TAG = "WorkFragment2_Degugs";

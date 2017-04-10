@@ -32,7 +32,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Iterator;
 import java.util.List;
 
@@ -48,6 +53,48 @@ public class appUseUtils {
     public static List<ChildrenItem> checkedChildrenList = new ArrayList<ChildrenItem>();
     public static List<GroupItem> checkedGroupList = new ArrayList<GroupItem>();
 
+
+    public static String getMD5(String info) {
+        byte[] hash;
+        try {
+            hash = MessageDigest.getInstance("MD5").digest(info.getBytes("UTF-8"));
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException("Huh, MD5 should be supported?", e);
+        } catch (UnsupportedEncodingException e) {
+            throw new RuntimeException("Huh, UTF-8 should be supported?", e);
+        }
+
+        StringBuilder hex = new StringBuilder(hash.length * 2);
+        for (byte b : hash) {
+            if ((b & 0xFF) < 0x10) hex.append("0");
+            hex.append(Integer.toHexString(b & 0xFF));
+        }
+        return hex.toString();
+
+    }
+
+
+    /**
+     * 获取本地当前时间
+     */
+    public static String getTime() {
+        Calendar calendat = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String dateStr = sdf.format(calendat.getTime());
+        return dateStr;
+
+
+    }
+
+    /**
+     *
+     * */
+    public static String getParamtowebservice() {
+        String test = "webservice_whkdapp" + getTime();
+        String test1 = getMD5(test);
+        String psdString = test1.substring(2, test1.length());
+        return psdString;
+    }
 
     /**
      * 获取Glide造成的缓存大小
@@ -145,18 +192,16 @@ public class appUseUtils {
                         try {
                             jObject = new JSONObject(arg0);
                             if (jObject.getInt("code") == 1 && jObject.getJSONObject("data") != null) {
-                                UserInfoEntity userInfoEntity = new UserInfoEntity();
-                                userInfoEntity = new Gson().fromJson(arg0,
+                                UserInfoEntity userInfoEntity = new Gson().fromJson(arg0,
                                         UserInfoEntity.class);
                                 DemoApplication.getInstance().mCache.put(
                                         Constant.MY_KEY_USERINFO,
                                         userInfoEntity);
                                 PreferenceManager.getInstance().setCurrentUserRealName(userInfoEntity.getData()
-                                        .getUserRealname().toString());
-                                PreferenceManager.getInstance().setfriendsMsgOnly(userInfoEntity.getData().getReceiveStatus());
+                                        .getName().toString());
                                 EMClient.getInstance().updateCurrentUserNick(
                                         userInfoEntity.getData()
-                                                .getUserRealname());
+                                                .getName());
                             } else {
                                 DemoApplication.getInstance().mCache.remove(Constant.MY_KEY_USERINFO);
                             }

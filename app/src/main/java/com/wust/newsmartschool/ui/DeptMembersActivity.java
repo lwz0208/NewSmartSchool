@@ -91,7 +91,7 @@ public class DeptMembersActivity extends BaseActivity {
                         .valueOf(((Common_TypeMem_Data) typememb_adapter.getItem(arg2)).getUserId());
                 Log.e(TAG, userId);
                 startActivity(new Intent(getApplicationContext(),
-                        DeptMemInfoActivity2.class).putExtra("userId",
+                        DeptMemInfoActivity.class).putExtra("userId",
                         userId));
                 if (android.os.Build.VERSION.SDK_INT > 5) {
                     overridePendingTransition(R.anim.slide_in_from_right,

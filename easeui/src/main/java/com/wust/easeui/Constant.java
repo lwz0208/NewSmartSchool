@@ -15,20 +15,26 @@ public class Constant extends EaseConstant {
 
     // 服务器测试访问的地址
     //方便Copy:http://120.132.85.24:8080/MOA/
-    public static final String ROOT_URL = "http://120.132.85.24:8080/";
-    public static final String BASE_URL = ROOT_URL + "MOA/";
+    public static final String ROOT_URL = "http://202.114.242.32:8080/";
+    public static final String BASE_URL = ROOT_URL + "SchoolApp/";
     public static final String FLOW_BASE_URL = ROOT_URL + "jflow-web/OA/Jflow/";
     //    服务器正式的参数
     //方便Copy:http://219.140.188.58:8080/MOA/
 //    public static final String ROOT_URL = "http://219.140.188.58:8080/";
 //    public static final String BASE_URL = ROOT_URL + "MOA/";
 //    public static final String FLOW_BASE_URL = ROOT_URL + "/jflow-web/OA/Jflow/";
+
+    //登录webservice
+    public static final String SERVICE_URL = "http://jwxt.wust.edu.cn/whkjdx/services/whkdapp";
+    //登录强智的接口
+    public static final String NAMESPACE = "http://webservices.qzdatasoft.com";
+    public static final String SOAP_ACTION = "";
     // 登录
     public static final String LOGIN_URL = BASE_URL
             + "home/company/1406.spring";
     // 通过userId获取用户个人信息
     public static final String USERINFO_URL = BASE_URL
-            + "home/user/1001.spring";
+            + "user/2002.spring";
     // 上传头像URL
     public static final String UPLOADAVATAR_URL = BASE_URL
             + "tools/upload/0003.spring";

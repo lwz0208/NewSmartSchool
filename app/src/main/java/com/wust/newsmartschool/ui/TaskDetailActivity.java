@@ -223,7 +223,7 @@ public class TaskDetailActivity extends BaseActivity implements View.OnClickList
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String userId = String.valueOf(((NoticeCommentEntity.DataBean) taskcommentListAdapter.getItem(position)).getUserId());
                 startActivity(new Intent(getApplicationContext(),
-                        DeptMemInfoActivity2.class).putExtra("userId",
+                        DeptMemInfoActivity.class).putExtra("userId",
                         userId));
                 if (android.os.Build.VERSION.SDK_INT > 5) {
                     overridePendingTransition(R.anim.slide_in_from_right,
@@ -722,7 +722,7 @@ public class TaskDetailActivity extends BaseActivity implements View.OnClickList
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 startActivity(new Intent(getApplicationContext(),
-                                        DeptMemInfoActivity2.class).putExtra("userId",
+                                        DeptMemInfoActivity.class).putExtra("userId",
                                         membersArr.getJSONObject(which).getString(
                                                 "userId")));
                             }

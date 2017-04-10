@@ -221,10 +221,10 @@ public class NoticeDetailActivity extends BaseActivity implements OnClickListene
                                                                 String beclickuserId = ((NoticeCommentEntity.DataBean) commentListAdapter.getItem(position)).getUserId() + "";
                                                                 Log.e(TAG, beclickuserId + "/" + position);
                                                                 startActivity(new Intent(NoticeDetailActivity.this,
-                                                                        DeptMemInfoActivity2.class).putExtra("userId", beclickuserId));
+                                                                        DeptMemInfoActivity.class).putExtra("userId", beclickuserId));
                                                             } else {
                                                                 startActivity(new Intent(NoticeDetailActivity.this,
-                                                                        DeptMemInfoActivity2.class).putExtra("userId",
+                                                                        DeptMemInfoActivity.class).putExtra("userId",
                                                                         whoseeListAdapter.getItem(position)));
                                                             }
                                                         }

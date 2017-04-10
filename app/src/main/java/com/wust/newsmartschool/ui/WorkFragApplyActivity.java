@@ -412,11 +412,10 @@ public class WorkFragApplyActivity extends BaseActivity {
                                         Constant.MY_KEY_USERINFO,
                                         userInfoEntity);
                                 PreferenceManager.getInstance().setCurrentUserRealName(userInfoEntity.getData()
-                                        .getUserRealname().toString());
-                                PreferenceManager.getInstance().setfriendsMsgOnly(userInfoEntity.getData().getReceiveStatus());
+                                        .getName().toString());
                                 EMClient.getInstance().updateCurrentUserNick(
                                         userInfoEntity.getData()
-                                                .getUserRealname());
+                                                .getName());
                                 //以上是为了加强缓存机制，居然缓存木有了那其他的可能也木有了。再怼他一遍。
                                 //下面就是运行那一段js了。
                                 Gson gson;

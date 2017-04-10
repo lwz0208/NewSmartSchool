@@ -84,7 +84,7 @@ public class NoticeDetail_SeeNoSeeMemActivity extends Activity {
                                                                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                                                                     String beclickuserId = ((NoticeDetail_SeeMemList.MenbersBean) members_ListAdapter.getItem(position - 1)).getUserId();
                                                                     startActivity(new Intent(NoticeDetail_SeeNoSeeMemActivity.this,
-                                                                            DeptMemInfoActivity2.class).putExtra("userId", beclickuserId));
+                                                                            DeptMemInfoActivity.class).putExtra("userId", beclickuserId));
                                                                 }
                                                             }
 

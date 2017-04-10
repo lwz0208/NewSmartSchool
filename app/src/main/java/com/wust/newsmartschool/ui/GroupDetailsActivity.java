@@ -898,7 +898,7 @@ public class GroupDetailsActivity extends BaseActivity implements
                         } else {
                             // 正常情况下点击user，可以进入用户详情或者聊天页面等等
                             startActivity(new Intent(getApplicationContext(),
-                                    DeptMemInfoActivity2.class).putExtra("userId",
+                                    DeptMemInfoActivity.class).putExtra("userId",
                                     username));
                             if (android.os.Build.VERSION.SDK_INT > 5) {
                                 overridePendingTransition(R.anim.slide_in_from_right,
@@ -1067,7 +1067,7 @@ public class GroupDetailsActivity extends BaseActivity implements
                 public void onClick(View v) {
                     // 正常情况下点击user，可以进入用户详情或者聊天页面等等
                     startActivity(new Intent(getApplicationContext(),
-                            DeptMemInfoActivity2.class).putExtra("userId",
+                            DeptMemInfoActivity.class).putExtra("userId",
                             username));
                     if (android.os.Build.VERSION.SDK_INT > 5) {
                         overridePendingTransition(R.anim.slide_in_from_right,

@@ -13,36 +13,15 @@
  */
 package com.wust.newsmartschool.ui;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import cn.jpush.android.api.JPushInterface;
-import cn.jpush.android.api.TagAliasCallback;
-import okhttp3.Call;
-import okhttp3.MediaType;
-
-import com.wust.newsmartschool.DemoApplication;
-import com.wust.newsmartschool.DemoHelper;
-import com.wust.newsmartschool.R;
-import com.wust.newsmartschool.db.DemoDBManager;
-import com.wust.newsmartschool.domain.UnreadMsgNum;
-import com.wust.newsmartschool.domain.UserInfoEntity;
-import com.wust.newsmartschool.utils.appUseUtils;
-import com.wust.easeui.utils.CommonUtils;
-import com.google.gson.Gson;
-import com.hyphenate.EMCallBack;
-import com.hyphenate.chat.EMClient;
-import com.wust.easeui.Constant;
-import com.wust.easeui.utils.EaseCommonUtils;
-import com.zhy.http.okhttp.OkHttpUtils;
-import com.zhy.http.okhttp.callback.StringCallback;
-
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.support.v7.app.AlertDialog;
 import android.text.Editable;
-import android.text.Selection;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -52,13 +31,37 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.alibaba.fastjson.JSONArray;
+import com.google.gson.Gson;
+import com.hyphenate.EMCallBack;
+import com.hyphenate.chat.EMClient;
+import com.wust.easeui.Constant;
+import com.wust.easeui.utils.EaseCommonUtils;
 import com.wust.easeui.utils.PreferenceManager;
+import com.wust.newsmartschool.DemoApplication;
+import com.wust.newsmartschool.DemoHelper;
+import com.wust.newsmartschool.R;
+import com.wust.newsmartschool.db.DemoDBManager;
+import com.wust.newsmartschool.domain.UserInfoEntity;
+import com.wust.newsmartschool.utils.WebServiceUtils;
+import com.wust.newsmartschool.utils.appUseUtils;
 import com.wust.newsmartschool.views.CircleImageView;
 import com.wust.newsmartschool.views.ECProgressDialog;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.ksoap2.serialization.SoapObject;
+
+import java.util.LinkedHashMap;
 import java.util.Set;
+
+import cn.jpush.android.api.JPushInterface;
+import cn.jpush.android.api.TagAliasCallback;
+import okhttp3.Call;
+import okhttp3.MediaType;
 
 /**
  * 登陆页面
@@ -73,19 +76,68 @@ public class LoginActivity extends BaseActivity {
 
     private boolean progressShow;
     private boolean autoLogin = false;
+    private String result1;
+    private ProgressDialog dialog;
 
     private String currentUsername;
     private String currentPassword;
     private ECProgressDialog pd;
-
+    public JSONArray flagpj = new JSONArray();
     CircleImageView pro_headimg;
-    // 全局变量
-    String userId;
-    //最后登录环信的密码，现在采用接口返回.
-    String logineasePWD;
 
     boolean usernameEditTextpass = false;
     boolean passwordEditTextpass = false;
+    private Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+
+            try {
+                if (msg.what == 100) {
+                    String resultString = (String) (msg.obj);
+                    Log.i("resultString", resultString);
+
+                    if ((resultString.substring(resultString.indexOf("=") + 1, resultString.indexOf("=") + 2)).equals("1")) {
+/**
+ *教务处验证成功后，获取咱们后台的个人信息并且缓存起来，缓存起来后就调用登录环信的方法，最后跳转。
+ *
+ * */
+                        PreferenceManager.getInstance().setCurrentUserId(currentUsername);
+                        GetMyInfo();
+//                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
+
+                    } else {
+
+                        {
+                            runOnUiThread(new Runnable() {
+                                public void run() {
+                                    pd.dismiss();
+                                }
+                            });
+                            showToastShort("用户名或密码错误");
+                        }
+
+                        if (msg.what == 101) {
+                            warningUnknow();
+                            runOnUiThread(new Runnable() {
+                                public void run() {
+                                    pd.dismiss();
+                                }
+                            });
+                        }
+                    }
+                }
+            } catch (Exception e) {
+                warningUnknow();
+                runOnUiThread(new Runnable() {
+                    public void run() {
+                        pd.dismiss();
+                    }
+                });
+                e.printStackTrace();
+            }
+
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,7 +163,7 @@ public class LoginActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    loginMoa();
+                    loginWebService();
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -120,17 +172,19 @@ public class LoginActivity extends BaseActivity {
         forgetpsw.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this, RegisterActivity.class).putExtra("from", "forgetpsw"));
+                AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+                builder.setTitle("找回密码");
+                builder.setMessage("请登录教务处网站修改密码");
+                builder.setPositiveButton("知道了", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                });
+                builder.show();
+                // startActivity(new Intent(LoginActivity.this, RegisterActivity.class).putExtra("from", "forgetpsw"));
             }
         });
 
-        // 如果用户名改变，清空密码
-        if ((DemoApplication.getInstance().mCache.getAsObject(Constant.MY_KEY_USERINFO)) != null) {
-            usernameEditText.setText(((UserInfoEntity) DemoApplication.getInstance().mCache.getAsObject(Constant.MY_KEY_USERINFO)).getData().getPersonnelId());
-            Editable etext = usernameEditText.getText();
-            Selection.setSelection(etext, etext.length());// 让光标显示在内容后面
-            usernameEditTextpass = true;
-        }
 
         usernameEditText.addTextChangedListener(new TextWatcher() {
             @Override
@@ -204,7 +258,7 @@ public class LoginActivity extends BaseActivity {
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_ACTION_DONE) {
                     try {
-                        loginMoa();
+                        loginWebService();
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -220,7 +274,7 @@ public class LoginActivity extends BaseActivity {
      *
      * @throws JSONException
      */
-    public void loginMoa() throws JSONException {
+    public void loginWebService() throws JSONException {
 
         hideSoftInputWindow();
 
@@ -255,21 +309,56 @@ public class LoginActivity extends BaseActivity {
             return;
         }
 
-        JSONObject loginJson = new JSONObject();
-        if (currentUsername.length() >= 10) {
-            loginJson.put("phone", currentUsername);
-            loginJson.put("personnelId", "");
-            loginJson.put("userPassword", (CommonUtils.encode(currentPassword)).toUpperCase());
-        } else {
-            loginJson.put("phone", "");
-            loginJson.put("personnelId", currentUsername);
-            loginJson.put("userPassword", (CommonUtils.encode(currentPassword)).toUpperCase());
-        }
-        loginJson.put("deviceId", CommonUtils.getDeviceID(LoginActivity.this));
-        loginJson.put("deviceType", "android");
-        Log.i("jObject_LoginActivity", loginJson.toString());
+        LinkedHashMap mapParams = new LinkedHashMap();
 
-        OkHttpUtils.postString().url(Constant.LOGIN_URL).content(loginJson.toString())
+        mapParams.put("username", currentUsername);
+        mapParams.put("password", currentPassword);
+        mapParams.put("time", appUseUtils.getTime());
+        mapParams.put("chkvalue", appUseUtils.getParamtowebservice());
+        WebServiceUtils.call(Constant.SERVICE_URL, Constant.NAMESPACE, "newlogin", mapParams, new WebServiceUtils.Response() {
+
+
+            @Override
+            public void onSuccess(final SoapObject result) {
+                result1 = result.toString();
+                Runnable runnable = new Runnable() {
+
+                    @Override
+                    public void run() {
+                        if (result1 != null) {
+                            System.out.println(result1);
+                            handler.sendMessage(handler.obtainMessage(100, result1));
+
+                        } else {
+                            handler.sendMessage(handler.obtainMessage(101));
+                        }
+                    }
+                };
+                new Thread(runnable).start();
+
+            }
+
+            @Override
+            public void onError(Exception e) {
+
+            }
+        });
+
+
+    }
+
+
+    private void GetMyInfo() throws JSONException {
+
+        JSONObject userIdJson = new JSONObject();
+        try {
+            userIdJson.put("id", currentUsername);
+        } catch (JSONException e1) {
+            e1.printStackTrace();
+        }
+
+        OkHttpUtils.postString().url(Constant.USERINFO_URL)
+                .content(userIdJson.toString())
                 .mediaType(MediaType.parse("application/json")).build()
                 .execute(new StringCallback() {
                     @Override
@@ -278,178 +367,24 @@ public class LoginActivity extends BaseActivity {
                         JSONObject jObject;
                         try {
                             jObject = new JSONObject(arg0);
-                            if (jObject.getInt("code") == 1) {
-                                userId = String.valueOf(jObject.getJSONObject("data").getInt("id"));
-//                                Log.i("userId_LoginActivity", userId);
-                                PreferenceManager.getInstance()
-                                        .setCurrentUserId(userId);
-                                logineasePWD = jObject.getJSONObject("data").getString("HXpsw");
-                                String sid = jObject.getJSONObject("data").getString("HXpsw");
-                                if (sid != null)
-                                    PreferenceManager.getInstance()
-                                            .setCurrentUserFlowSId(sid);
-//                                Log.e(TAG,
-//                                        currentUsername);
-                                if (jObject.getJSONObject("data").getInt("telephone") == 1) {
-                                    //获取自己已读未读数字的信息并且缓存在本地
-//                                    appUseUtils.GetMyUnreadMum(LoginActivity.this);
-                                    // 获取自己的流程信息并且缓存在本地的函数
-//                                    GetMyFlow();
-                                    GetMyInfo();
-                                } else {
-                                    pd.dismiss();
-                                    startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
-                                }
-
-                            } else {
-                                runOnUiThread(new Runnable() {
-                                    public void run() {
-                                        pd.dismiss();
-                                    }
-                                });
-                                showToastShort("用户名或密码错误");
-//                                 测试用
-//                                loginChat();
-                            }
-
-//                            showToastShort(jObject.getString("msg"));
-
-                        } catch (Exception e) {
-                            warningUnknow();
-                            runOnUiThread(new Runnable() {
-                                public void run() {
-                                    pd.dismiss();
-                                }
-                            });
-                            e.printStackTrace();
-                        }
-
-                    }
-
-                    @Override
-                    public void onError(Call arg0, Exception arg1) {
-                        // Log.i("www", arg0 + "");
-                        // Log.i("www", e + "");
-                        runOnUiThread(new Runnable() {
-                            public void run() {
-                                pd.dismiss();
-                            }
-                        });
-                        warningUnknow();
-                        // 测试用
-//                        loginChat();
-                    }
-                });
-    }
-
-
-    private void GetMyFlow() {
-        // 只有几个userId才有数据，测试先用死数据
-        // FlowJson.put("userId", "93");
-        // Log.e("FlowJson", FlowJson.toString());
-
-        OkHttpUtils
-                .post()
-                .url(Constant.FLOWLOGIN_URL)
-                .addParams("userId",
-                        PreferenceManager.getInstance().getCurrentUserId())
-                .build().execute(new StringCallback() {
-            @Override
-            public void onResponse(String arg0) {
-//                Log.e("onResponse", arg0.toString());
-                JSONObject jObject;
-                try {
-                    jObject = new JSONObject(arg0);
-                    if (jObject.getInt("code") == 1) {
-//                        Log.e("onResponse", jObject.getString("msg"));
-                        String sid = jObject.getJSONObject("data")
-                                .getString("sid");
-//                        Log.e("sid_LoginActivity", sid);
-                        PreferenceManager.getInstance()
-                                .setCurrentUserFlowSId(sid);
-                        if (sid != null) {
-                            GetMyInfo();
-                        }
-                    } else {
-                        runOnUiThread(new Runnable() {
-                            public void run() {
-                                pd.dismiss();
-                            }
-                        });
-//                        Toast.makeText(LoginActivity.this,
-//                                "流程权限获取失败", Toast.LENGTH_SHORT)
-//                                .show();
-                        /**
-                         * 测试用，有时候工作流获取不到sid，所以在这里如果获取不到就把他给写死咯~*/
-//                        GetMyInfo();
-//                        PreferenceManager.getInstance()
-//                                .setCurrentUserFlowSId("balabalabalabala");
-                    }
-                } catch (JSONException e) {
-                    runOnUiThread(new Runnable() {
-                        public void run() {
-                            pd.dismiss();
-                        }
-                    });
-                    warningUnknow();
-                    e.printStackTrace();
-                }
-
-            }
-
-            @Override
-            public void onError(Call arg0, Exception arg1) {
-//                Log.e("onResponse", arg0.toString());
-                runOnUiThread(new Runnable() {
-                    public void run() {
-                        pd.dismiss();
-                    }
-                });
-                warningUnknow();
-            }
-        });
-    }
-
-    private void GetMyInfo() throws JSONException {
-
-        JSONObject userIdJson = new JSONObject();
-        try {
-            userIdJson.put("userId", userId);
-            userIdJson.put("sid", PreferenceManager.getInstance().getCurrentUserFlowSId());
-            userIdJson.put("deviceId", CommonUtils.getDeviceID(LoginActivity.this));
-            userIdJson.put("deviceType", "android");
-        } catch (JSONException e1) {
-            e1.printStackTrace();
-        }
-
-//        Log.i("jObject_Login", userIdJson.toString());
-
-        OkHttpUtils.postString().url(Constant.USERINFO_URL)
-                .content(userIdJson.toString())
-                .mediaType(MediaType.parse("application/json")).build()
-                .execute(new StringCallback() {
-                    @Override
-                    public void onResponse(String arg0) {
-//                        Log.e(TAG, arg0);
-                        JSONObject jObject;
-                        try {
-                            jObject = new JSONObject(arg0);
                             if (jObject.getInt("code") == 1 && jObject.getJSONObject("data") != null) {
-                                UserInfoEntity userInfoEntity = new UserInfoEntity();
-                                userInfoEntity = new Gson().fromJson(arg0,
+                                UserInfoEntity userInfoEntity = new Gson().fromJson(arg0,
                                         UserInfoEntity.class);
+                                //这里是整体存储，存的是一个实体。
                                 DemoApplication.getInstance().mCache.put(
                                         Constant.MY_KEY_USERINFO,
                                         userInfoEntity);
-                                PreferenceManager.getInstance().setCurrentUserRealName(userInfoEntity.getData().getUserRealname().toString());
-                                PreferenceManager.getInstance().setCurrentUserDeptmentId(userInfoEntity.getData().getDepartmentId());
-                                PreferenceManager.getInstance().setCurrentUserDeptmentName(userInfoEntity.getData().getDepartmentName());
-//                                Log.i(TAG,
-//                                        userInfoEntity.getData()
-//                                                .getUserRealname() + userInfoEntity.getData().getUserId());
+                                //一下三个因为常会用到，所以单独存储一遍，方便使用。
+                                PreferenceManager.getInstance().setCurrentUserRealName(userInfoEntity.getData().getName().toString());
+                                PreferenceManager.getInstance().setCurrentUserColleageName(userInfoEntity.getData().getCollegeName());
+                                PreferenceManager.getInstance().setCurrentUserColleageId(userInfoEntity.getData().getCollegeId());
+                                PreferenceManager.getInstance().setCurrentUserClassId(userInfoEntity.getData().getClassId());
+                                PreferenceManager.getInstance().setCurrentUserClassName(userInfoEntity.getData().getClassName());
                                 // 登录环信
-
-                                loginChat();
+//                                loginChat();
+                                //环信暂时出了点问题，跳过。
+                                startActivity(new Intent(LoginActivity.this,
+                                        MainActivity.class));
                             }
                         } catch (JSONException e) {
                             runOnUiThread(new Runnable() {
@@ -464,8 +399,8 @@ public class LoginActivity extends BaseActivity {
 
                     @Override
                     public void onError(Call arg0, Exception arg1) {
-//                        Log.i(TAG, arg0 + "---"
-//                                + arg1.toString());
+                        Log.i(TAG, arg0 + "---"
+                                + arg1.toString());
                         runOnUiThread(new Runnable() {
                             public void run() {
                                 pd.dismiss();
@@ -488,11 +423,10 @@ public class LoginActivity extends BaseActivity {
         DemoDBManager.getInstance().closeDB();
 
         // reset current user name before login
-        DemoHelper.getInstance().setCurrentUserName(userId);
+        DemoHelper.getInstance().setCurrentUserName(currentUsername);
 
         // 调用sdk登陆方法登陆聊天服务器
-        //(CommonUtils.encode(currentPassword)).toUpperCase()
-        EMClient.getInstance().login(userId, logineasePWD,
+        EMClient.getInstance().login(currentUsername, currentPassword,
                 new EMCallBack() {
                     @Override
                     public void onSuccess() {

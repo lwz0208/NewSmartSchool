@@ -325,7 +325,7 @@ public class CreatNewNoticeActivity extends BaseActivity implements OnClickListe
                     getCallType = data.getStringExtra("deptType");
                     //如果发送的人中有自己的id或者说有自己的部门id，辣么回去的时候应该刷新一下。否则在收到的通知列表中就看不到这个通知了
                     if (pickeduserid.contains(PreferenceManager.getInstance().getCurrentUserId()) || pickedgroupid.contains(((UserInfoEntity) DemoApplication.getInstance().mCache
-                            .getAsObject(Constant.MY_KEY_USERINFO)).getData().getDepartmentId() + "")) {
+                            .getAsObject(Constant.MY_KEY_USERINFO)).getData().getCollegeId() + "")) {
                         setResult(RESULT_OK);
                     }
                     String displayText = "";

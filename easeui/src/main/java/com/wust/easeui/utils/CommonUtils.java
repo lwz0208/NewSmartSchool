@@ -706,7 +706,7 @@ public class CommonUtils {
             }
             JSONObject sent = new JSONObject();
             sent.put("userIds", UserIdarr);
-            CommonUtils.setCommonJson(mCt, sent, com.wust.easeui.utils.PreferenceManager.getInstance().getCurrentUserFlowSId());
+//            CommonUtils.setCommonJson(mCt, sent, com.wust.easeui.utils.PreferenceManager.getInstance().getCurrentUserFlowSId());
             Log.e(TAG, sent.toString());
             OkHttpUtils.postString().url(Constant.NAMEFORMIDARRAY_URL)
                     .content(sent.toString())
