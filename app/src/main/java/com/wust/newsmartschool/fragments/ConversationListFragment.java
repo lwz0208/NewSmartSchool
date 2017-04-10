@@ -38,6 +38,7 @@ import com.wust.newsmartschool.ui.MainActivity;
 import com.wust.easeui.Constant;
 import com.wust.easeui.ui.EaseConversationListFragment;
 import com.hyphenate.util.NetUtils;
+import com.wust.newsmartschool.zxing.activity.BarCodeTestActivity;
 import com.wust.newsmartschool.zxing.activity.CaptureActivity;
 
 /*

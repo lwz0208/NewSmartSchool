@@ -31,11 +31,14 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.alibaba.fastjson.JSONArray;
 import com.google.gson.Gson;
 import com.hyphenate.EMCallBack;
+import com.hyphenate.EMError;
 import com.hyphenate.chat.EMClient;
+import com.hyphenate.exceptions.HyphenateException;
 import com.wust.easeui.Constant;
 import com.wust.easeui.utils.EaseCommonUtils;
 import com.wust.easeui.utils.PreferenceManager;
@@ -95,7 +98,6 @@ public class LoginActivity extends BaseActivity {
                 if (msg.what == 100) {
                     String resultString = (String) (msg.obj);
                     Log.i("resultString", resultString);
-
                     if ((resultString.substring(resultString.indexOf("=") + 1, resultString.indexOf("=") + 2)).equals("1")) {
 /**
  *教务处验证成功后，获取咱们后台的个人信息并且缓存起来，缓存起来后就调用登录环信的方法，最后跳转。
@@ -349,14 +351,12 @@ public class LoginActivity extends BaseActivity {
 
 
     private void GetMyInfo() throws JSONException {
-
         JSONObject userIdJson = new JSONObject();
         try {
             userIdJson.put("id", currentUsername);
         } catch (JSONException e1) {
             e1.printStackTrace();
         }
-
         OkHttpUtils.postString().url(Constant.USERINFO_URL)
                 .content(userIdJson.toString())
                 .mediaType(MediaType.parse("application/json")).build()
@@ -382,9 +382,10 @@ public class LoginActivity extends BaseActivity {
                                 PreferenceManager.getInstance().setCurrentUserClassName(userInfoEntity.getData().getClassName());
                                 // 登录环信
 //                                loginChat();
+                                register();
                                 //环信暂时出了点问题，跳过。
-                                startActivity(new Intent(LoginActivity.this,
-                                        MainActivity.class));
+//                                startActivity(new Intent(LoginActivity.this,
+//                                        MainActivity.class));
                             }
                         } catch (JSONException e) {
                             runOnUiThread(new Runnable() {
@@ -483,15 +484,91 @@ public class LoginActivity extends BaseActivity {
                 });
     }
 
+
     /**
-     * 注册
-     *
-     * @param view
+     * 注册环信
      */
-    public void register(View view) {
-        startActivityForResult(new Intent(this, PreRegisterActivity.class), 0);
+
+    public void register() {
+
+        new Thread(new Runnable() {
+            public void run() {
+                try {
+                    // 调用sdk注册方法
+                    EMClient.getInstance().createAccount(
+                            currentUsername, currentPassword);
+                    runOnUiThread(new Runnable() {
+                        public void run() {
+                            if (!LoginActivity.this.isFinishing())
+                                pd.dismiss();
+                            // 保存用户名
+                            DemoHelper.getInstance().setCurrentUserName(
+                                    currentUsername);
+                            loginChat();
+//                            Toast.makeText(
+//                                    getApplicationContext(),
+//                                    getResources().getString(
+//                                            R.string.Registered_successfully),
+//                                    Toast.LENGTH_SHORT).show();
+
+                        }
+                    });
+                } catch (final HyphenateException e) {
+                    runOnUiThread(new Runnable() {
+                        public void run() {
+                            if (!LoginActivity.this.isFinishing())
+                                pd.dismiss();
+                            int errorCode = e.getErrorCode();
+                            if (errorCode == EMError.NETWORK_ERROR) {
+                                Toast.makeText(
+                                        getApplicationContext(),
+                                        getResources().getString(
+                                                R.string.network_anomalies),
+                                        Toast.LENGTH_SHORT).show();
+                            } else if (errorCode == EMError.USER_ALREADY_EXIST) {
+//                                Toast.makeText(
+//                                        getApplicationContext(),
+//                                        getResources().getString(
+//                                                R.string.User_already_exists),
+//                                        Toast.LENGTH_SHORT).show();
+                                loginChat();
+                            } else if (errorCode == EMError.USER_AUTHENTICATION_FAILED) {
+                                Toast.makeText(
+                                        getApplicationContext(),
+                                        getResources()
+                                                .getString(
+                                                        R.string.registration_failed_without_permission),
+                                        Toast.LENGTH_SHORT).show();
+                            } else if (errorCode == EMError.USER_ILLEGAL_ARGUMENT) {
+                                Toast.makeText(
+                                        getApplicationContext(),
+                                        getResources().getString(
+                                                R.string.illegal_user_name),
+                                        Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(
+                                        getApplicationContext(),
+                                        getResources().getString(
+                                                R.string.Registration_failed)
+                                                + e.getMessage(),
+                                        Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+                }
+            }
+        }).start();
+
     }
 
+    //    /**
+//     * 注册
+//     *
+//     * @param view
+//     */
+//    public void register(View view) {
+//        startActivityForResult(new Intent(this, PreRegisterActivity.class), 0);
+//    }
     @Override
     protected void onRestart() {
         // TODO Auto-generated method stub

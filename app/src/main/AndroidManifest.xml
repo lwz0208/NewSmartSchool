@@ -390,10 +390,7 @@
             android:label="@string/title_activity_friends_list" />
         <activity
             android:name="com.wust.newsmartschool.zxing.activity.CaptureActivity"
-            android:configChanges="orientation|keyboardHidden"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
-            android:windowSoftInputMode="stateAlwaysHidden" />
+            android:label="@string/app_name"/>
         <activity
             android:name="com.wust.newsmartschool.ui.CompanyActivity"
             android:label="@string/title_activity_company" />
