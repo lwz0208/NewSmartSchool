@@ -77,7 +77,6 @@
             android:screenOrientation="portrait"
             android:theme="@style/CommonTheme"
             android:windowSoftInputMode="adjustResize|stateVisible" />
-
         <!-- 注册 -->
         <activity
             android:name="com.wust.newsmartschool.ui.RegisterActivity"
@@ -538,6 +537,9 @@
             android:name="com.wust.newsmartschool.ui.WorkFragApplyActivity"
             android:label="@string/title_activity_work_frag_apply" />
         <activity android:name="com.wust.newsmartschool.ui.GroupMembersActivity"></activity>
+        <activity android:name="com.wust.newsmartschool.ui.FeedbackActivity" />
+        <activity android:name="com.wust.newsmartschool.ui.HelpActivity" />
+
     </application>
 
 </manifest>

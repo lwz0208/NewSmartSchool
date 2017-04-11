@@ -13,28 +13,6 @@
  */
 package com.wust.newsmartschool.fragments;
 
-import com.bumptech.glide.Glide;
-import com.wust.newsmartschool.DemoApplication;
-import com.wust.newsmartschool.DemoHelper;
-import com.wust.newsmartschool.R;
-import com.wust.newsmartschool.domain.UpdataEntity;
-import com.wust.newsmartschool.domain.UserInfoEntity;
-import com.wust.newsmartschool.ui.LoginActivity;
-import com.wust.newsmartschool.ui.MessageSettingActivity;
-import com.wust.newsmartschool.ui.UserInfoActivity;
-import com.wust.newsmartschool.utils.appUseUtils;
-import com.wust.newsmartschool.views.ECProgressDialog;
-import com.wust.easeui.utils.BadgeUtil;
-import com.wust.easeui.utils.CommonUtils;
-import com.wust.easeui.utils.PreferenceManager;
-import com.wust.easeui.widget.GlideRoundTransform;
-import com.google.gson.Gson;
-import com.hyphenate.EMCallBack;
-import com.hyphenate.chat.EMClient;
-import com.wust.easeui.Constant;
-import com.zhy.http.okhttp.OkHttpUtils;
-import com.zhy.http.okhttp.callback.StringCallback;
-
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -45,13 +23,37 @@ import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
+import com.google.gson.Gson;
+import com.hyphenate.EMCallBack;
+import com.hyphenate.chat.EMClient;
+import com.wust.easeui.Constant;
+import com.wust.easeui.utils.BadgeUtil;
+import com.wust.easeui.utils.CommonUtils;
+import com.wust.easeui.utils.PreferenceManager;
+import com.wust.easeui.widget.GlideRoundTransform;
+import com.wust.newsmartschool.DemoApplication;
+import com.wust.newsmartschool.DemoHelper;
+import com.wust.newsmartschool.R;
+import com.wust.newsmartschool.domain.UpdataEntity;
+import com.wust.newsmartschool.domain.UserInfoEntity;
+import com.wust.newsmartschool.ui.FeedbackActivity;
+import com.wust.newsmartschool.ui.HelpActivity;
+import com.wust.newsmartschool.ui.LoginActivity;
+import com.wust.newsmartschool.ui.MessageSettingActivity;
+import com.wust.newsmartschool.ui.UserInfoActivity;
+import com.wust.newsmartschool.utils.appUseUtils;
+import com.wust.newsmartschool.views.ECProgressDialog;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -78,6 +80,8 @@ public class SettingsFragment extends Fragment implements OnClickListener {
     RelativeLayout rl_check_updata_apk;
     RelativeLayout new_userinfo_layout;
     RelativeLayout rl_clear_cache;
+    RelativeLayout rl_help_layout;
+    RelativeLayout rl_suggestion_layout;
     UpdataEntity updataEntity;
     ECProgressDialog pd;
     /**
@@ -116,11 +120,17 @@ public class SettingsFragment extends Fragment implements OnClickListener {
         rl_setting_layout = (RelativeLayout) getView().findViewById(
                 R.id.rl_setting_layout);
         logoutBtn = (Button) getView().findViewById(R.id.btn_logout);
+        rl_help_layout=(RelativeLayout) getView().findViewById(
+                R.id.rl_help_layout);
+        rl_suggestion_layout=(RelativeLayout) getView().findViewById(
+                R.id.rl_suggestion_layout);
         logoutBtn.setOnClickListener(this);
         new_userinfo_layout.setOnClickListener(this);
         rl_check_updata_apk.setOnClickListener(this);
         rl_setting_layout.setOnClickListener(this);
         rl_clear_cache.setOnClickListener(this);
+        rl_help_layout.setOnClickListener(this);
+        rl_suggestion_layout.setOnClickListener(this);
         getUserInfo();
     }
 
@@ -197,6 +207,22 @@ public class SettingsFragment extends Fragment implements OnClickListener {
                 Glide.get(getActivity()).clearMemory();
                 DemoApplication.getInstance().mCache.clear();
                 GetMyInfo(getActivity());
+                break;
+            case R.id.rl_help_layout:
+                startActivity(new Intent(getContext(), HelpActivity.class));
+                if (android.os.Build.VERSION.SDK_INT > 5) {
+                    getActivity().overridePendingTransition(
+                            R.anim.slide_in_from_right,
+                            R.anim.slide_out_to_left);
+                }
+                break;
+            case R.id.rl_suggestion_layout:
+                startActivity(new Intent(getContext(),FeedbackActivity.class));
+                if (android.os.Build.VERSION.SDK_INT > 5) {
+                    getActivity().overridePendingTransition(
+                            R.anim.slide_in_from_right,
+                            R.anim.slide_out_to_left);
+                }
                 break;
             default:
                 break;
