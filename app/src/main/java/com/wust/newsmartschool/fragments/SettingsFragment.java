@@ -45,8 +45,6 @@ import com.wust.newsmartschool.DemoHelper;
 import com.wust.newsmartschool.R;
 import com.wust.newsmartschool.domain.UpdataEntity;
 import com.wust.newsmartschool.domain.UserInfoEntity;
-import com.wust.newsmartschool.ui.FeedbackActivity;
-import com.wust.newsmartschool.ui.HelpActivity;
 import com.wust.newsmartschool.ui.LoginActivity;
 import com.wust.newsmartschool.ui.MessageSettingActivity;
 import com.wust.newsmartschool.ui.UserInfoActivity;
@@ -209,20 +207,20 @@ public class SettingsFragment extends Fragment implements OnClickListener {
                 GetMyInfo(getActivity());
                 break;
             case R.id.rl_help_layout:
-                startActivity(new Intent(getContext(), HelpActivity.class));
-                if (android.os.Build.VERSION.SDK_INT > 5) {
-                    getActivity().overridePendingTransition(
-                            R.anim.slide_in_from_right,
-                            R.anim.slide_out_to_left);
-                }
+//                startActivity(new Intent(getContext(), HelpActivity.class));
+//                if (android.os.Build.VERSION.SDK_INT > 5) {
+//                    getActivity().overridePendingTransition(
+//                            R.anim.slide_in_from_right,
+//                            R.anim.slide_out_to_left);
+//                }
                 break;
             case R.id.rl_suggestion_layout:
-                startActivity(new Intent(getContext(),FeedbackActivity.class));
-                if (android.os.Build.VERSION.SDK_INT > 5) {
-                    getActivity().overridePendingTransition(
-                            R.anim.slide_in_from_right,
-                            R.anim.slide_out_to_left);
-                }
+//                startActivity(new Intent(getContext(),FeedbackActivity.class));
+//                if (android.os.Build.VERSION.SDK_INT > 5) {
+//                    getActivity().overridePendingTransition(
+//                            R.anim.slide_in_from_right,
+//                            R.anim.slide_out_to_left);
+//                }
                 break;
             default:
                 break;

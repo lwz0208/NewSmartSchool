@@ -1,5 +1,6 @@
 package com.wust.newsmartschool.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -11,13 +12,15 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.wust.newsmartschool.R;
+import com.wust.newsmartschool.ui.LibSeatActivity;
 
 public class WorkFragment extends Fragment implements OnClickListener {
     String TAG = "WorkFragment2_Degugs";
-    private RelativeLayout rl_work_notice;
-    private RelativeLayout rl_work_meetting;
-    private RelativeLayout rl_work_workline;
-    private RelativeLayout rl_work_duty;
+    private RelativeLayout rl_stu_home;
+    private RelativeLayout rl_stu_service;
+    private RelativeLayout rl_xuanke_pj;
+    private RelativeLayout rl_book_service;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -28,24 +31,26 @@ public class WorkFragment extends Fragment implements OnClickListener {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        rl_work_notice = (RelativeLayout) getView().findViewById(
-                R.id.rl_work_notice);
-        rl_work_meetting = (RelativeLayout) getView().findViewById(
-                R.id.rl_work_meetting);
-        rl_work_workline = (RelativeLayout) getView().findViewById(
-                R.id.rl_work_workline);
-        rl_work_duty = (RelativeLayout) getView().findViewById(
-                R.id.rl_work_duty);
-        rl_work_duty.setOnClickListener(this);
-        rl_work_notice.setOnClickListener(this);
-        rl_work_meetting.setOnClickListener(this);
-        rl_work_workline.setOnClickListener(this);
+        rl_stu_home = (RelativeLayout) getView().findViewById(
+                R.id.rl_stu_home);
+        rl_stu_service = (RelativeLayout) getView().findViewById(
+                R.id.rl_stu_service);
+        rl_xuanke_pj = (RelativeLayout) getView().findViewById(
+                R.id.rl_xuanke_pj);
+        rl_book_service = (RelativeLayout) getView().findViewById(
+                R.id.rl_book_service);
+
+        rl_stu_home.setOnClickListener(this);
+        rl_stu_service.setOnClickListener(this);
+        rl_xuanke_pj.setOnClickListener(this);
+        rl_book_service.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
+        Intent intent = new Intent();
         switch (v.getId()) {
-            case R.id.rl_work_notice:
+            case R.id.rl_stu_home:
                 Toast.makeText(getActivity(), "先给屏蔽了吧", Toast.LENGTH_SHORT).show();
 //                startActivity(new Intent(getContext(), WorkFragNoticeActivity.class));
 //                if (android.os.Build.VERSION.SDK_INT > 5) {
@@ -53,7 +58,7 @@ public class WorkFragment extends Fragment implements OnClickListener {
 //                            R.anim.slide_in_from_right, R.anim.slide_out_to_left);
 //                }
                 break;
-            case R.id.rl_work_workline:
+            case R.id.rl_stu_service:
                 Toast.makeText(getActivity(), "先给屏蔽了吧", Toast.LENGTH_SHORT).show();
 //                startActivity(new Intent(getContext(),
 //                        WorkFragApplyActivity.class));
@@ -62,7 +67,7 @@ public class WorkFragment extends Fragment implements OnClickListener {
 //                            R.anim.slide_in_from_right, R.anim.slide_out_to_left);
 //                }
                 break;
-            case R.id.rl_work_meetting:
+            case R.id.rl_xuanke_pj:
                 Toast.makeText(getActivity(), "先给屏蔽了吧", Toast.LENGTH_SHORT).show();
 //                startActivity(new Intent(getContext(),
 //                        MeetingActivity.class));
@@ -71,13 +76,9 @@ public class WorkFragment extends Fragment implements OnClickListener {
 //                            R.anim.slide_in_from_right, R.anim.slide_out_to_left);
 //                }
                 break;
-            case R.id.rl_work_duty:
-                Toast.makeText(getActivity(), "先给屏蔽了吧", Toast.LENGTH_SHORT).show();
-//                startActivity(new Intent(getContext(), WorkFragTaskActivity.class));
-//                if (android.os.Build.VERSION.SDK_INT > 5) {
-//                    getActivity().overridePendingTransition(
-//                            R.anim.slide_in_from_right, R.anim.slide_out_to_left);
-//                }
+            case R.id.rl_book_service:
+                intent.setClass(getActivity(), LibSeatActivity.class);
+                startActivity(intent);
                 break;
 
             default:

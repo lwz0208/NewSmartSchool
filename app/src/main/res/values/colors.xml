@@ -30,4 +30,8 @@
     <color name="grgray">#686868</color>
     <color name="dividercolor">#E4E0DE</color>
 
+    <color name="top">#005C3F</color>
+    <color name="dark_yellow">#ffe6a9</color>
+    <color name="gray">#808080</color>
+    <color name="dark_red">#f55e6e</color>
 </resources>

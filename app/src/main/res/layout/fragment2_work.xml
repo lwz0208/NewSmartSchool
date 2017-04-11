@@ -114,7 +114,6 @@
                 android:visibility="gone" />
 
             <RelativeLayout
-                android:id="@+id/rl_work_workline"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_gravity="center_vertical"
@@ -302,6 +301,7 @@
 
 
             <RelativeLayout
+                android:id="@+id/rl_stu_home"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_gravity="center_vertical"
@@ -350,6 +350,7 @@
                 android:background="#f2f2f2" />
 
             <RelativeLayout
+                android:id="@+id/rl_stu_service"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_gravity="center_vertical"
@@ -398,6 +399,7 @@
                 android:background="#f2f2f2" />
 
             <RelativeLayout
+                android:id="@+id/rl_xuanke_pj"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_gravity="center_vertical"
@@ -446,6 +448,7 @@
                 android:background="#f2f2f2" />
 
             <RelativeLayout
+                android:id="@+id/rl_book_service"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_gravity="center_vertical"
