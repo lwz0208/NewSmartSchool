@@ -82,7 +82,7 @@
             android:name="com.wust.newsmartschool.ui.RegisterActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateVisible" />
-        <!-- 聊天页面 -->
+        <!-- 聊天页面   -->
         <activity
             android:name="com.wust.newsmartschool.ui.ChatActivity"
             android:launchMode="singleTask"
