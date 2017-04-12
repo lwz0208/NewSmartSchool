@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dip"
+        android:layout_marginRight="5dip"
+        android:layout_marginTop="25dp"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.4"
+                android:gravity="center"
+                android:layout_gravity="center_vertical"
+                android:text="请选择校区:"
+                android:textColor="#888888"
+                android:textSize="16sp" />
+
+            <Spinner
+                android:id="@+id/spinner_campus"
+                android:layout_gravity="center_vertical"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.6" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.4"
+                android:gravity="center"
+                android:layout_gravity="center_vertical"
+                android:text="请选择阅览室:"
+                android:textColor="#888888"
+                android:textSize="16sp" />
+
+            <Spinner
+                android:id="@+id/spinner_room"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.6" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dip"
+        android:layout_marginRight="15dip"
+        android:layout_marginTop="25dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dip"
+            android:paddingBottom="5dip"
+            android:text="查询结果："
+            android:textColor="#888888"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_query_result"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0.9"
+            android:textColor="#302d2c"
+            android:textSize="14sp" />
+
+        <ImageButton
+            android:id="@+id/ibtn_update"
+            android:layout_width="32dip"
+            android:layout_height="32dip"
+            android:clickable="true"
+            android:src="@drawable/pic_icon_fresh"
+            android:background="@drawable/ibtn_update_circle"/>
+    </LinearLayout>
+
+    <GridView
+        android:id="@+id/gv_empty_seat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dip"
+        android:layout_marginRight="15dip"
+        android:layout_marginTop="10dip"
+        android:descendantFocusability="blocksDescendants"
+        android:focusable="true"
+        android:numColumns="5"
+        android:visibility="invisible" >
+    </GridView>
+
+</LinearLayout>
