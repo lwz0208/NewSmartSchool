@@ -155,7 +155,7 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentLeft="true"
                             android:layout_centerVertical="true"
-                            android:text="手机"
+                            android:text="学号"
                             android:textColor="@color/tarenziliao_color"
                             android:textStyle="bold" />
 
@@ -168,24 +168,6 @@
                             android:layout_toRightOf="@id/shoujititle"
                             android:textColor="@color/tarenziliao_color"
                             tools:text="8008208820" />
-
-
-                        <ImageView
-                            android:id="@+id/deptmem_callphone"
-                            android:layout_width="50dp"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true"
-                            android:src="@drawable/call_phone" />
-
-                        <ImageView
-                            android:id="@+id/sendshortmessage"
-                            android:layout_width="50dp"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:layout_marginRight="10dp"
-                            android:layout_toLeftOf="@+id/deptmem_callphone"
-                            android:src="@drawable/sendshortmessage" />
                     </RelativeLayout>
 
                     <RelativeLayout
@@ -226,7 +208,7 @@
                         android:layout_marginBottom="6dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="6dp"
-                        android:text="公司认证"
+                        android:text="学校认证"
                         android:textColor="@color/colorAccent"
                         android:textSize="18sp" />
 
@@ -245,7 +227,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="公司"
+                            android:text="学校"
                             android:textColor="@color/tarenziliao_color"
                             android:textStyle="bold" />
 
@@ -267,7 +249,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="部门"
+                            android:text="学院"
                             android:textColor="@color/tarenziliao_color"
                             android:textStyle="bold" />
 
@@ -289,7 +271,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="职位"
+                            android:text="专业"
                             android:textColor="@color/tarenziliao_color"
                             android:textStyle="bold" />
 
@@ -299,7 +281,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="50dp"
                             android:textColor="@color/tarenziliao_color"
-                            tools:text="院长" />
+                            tools:text="软件工程" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -321,7 +303,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="50dp"
                             android:textColor="@color/tarenziliao_color"
-                            tools:text="正式员工" />
+                            tools:text="研究生" />
                     </LinearLayout>
                 </LinearLayout>
 

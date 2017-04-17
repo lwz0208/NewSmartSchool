@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF"
+    android:gravity="bottom"
+    android:orientation="horizontal" >
+
+    <TextView
+        android:id="@+id/classroom_t1"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_weight="1"
+        android:background="@drawable/frammenu_pressornot_bg_selector"
+        android:gravity="center"
+        android:textColor="#88817B"
+        android:textSize="18sp"
+        android:clickable="true"/>
+
+    <View
+        android:layout_width="2px"
+        android:layout_height="fill_parent"
+        android:background="@color/dividercolor" />
+
+    <TextView
+        android:id="@+id/classroom_t2"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="1dp"
+        android:layout_weight="1"
+        android:background="@drawable/frammenu_pressornot_bg_selector"
+        android:gravity="center"
+        android:textColor="#88817B"
+        android:textSize="18sp"
+        android:clickable="true" />
+
+</LinearLayout>

@@ -168,11 +168,11 @@ public class NoticeChooseMemActivitySingleChooseForTask extends BaseActivity {
                                      List<ChildrenItem> tempchildrenItems = new ArrayList<ChildrenItem>();
                                      for (int i = 0; i < common_typeMem.getData().size(); i++) {
                                          ChildrenItem tempchildrenItem = new ChildrenItem();
-                                         tempchildrenItem.setId(common_typeMem.getData().get(i).getUserId() + "");
-                                         tempchildrenItem.setJobtitleName(common_typeMem.getData().get(i).getJobtitleName());
-                                         tempchildrenItem.setName(common_typeMem.getData().get(i).getUserRealname());
-                                         tempchildrenItem.setRoleId(common_typeMem.getData().get(i).getRoleId());
-                                         tempchildrenItem.setDepartmentName(common_typeMem.getData().get(i).getDepartmentName());
+                                         tempchildrenItem.setId(common_typeMem.getData().get(i).getId() + "");
+//                                         tempchildrenItem.setJobtitleName(common_typeMem.getData().get(i).getJobtitleName());
+                                         tempchildrenItem.setName(common_typeMem.getData().get(i).getName());
+//                                         tempchildrenItem.setRoleId(common_typeMem.getData().get(i).getRoleId());
+//                                         tempchildrenItem.setDepartmentName(common_typeMem.getData().get(i).getDepartmentName());
                                          tempchildrenItems.add(tempchildrenItem);
                                      }
                                      dataList.get(groupPosition).setChildrenItems(tempchildrenItems);

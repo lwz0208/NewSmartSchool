@@ -45,6 +45,9 @@ import com.wust.newsmartschool.DemoHelper;
 import com.wust.newsmartschool.R;
 import com.wust.newsmartschool.domain.UpdataEntity;
 import com.wust.newsmartschool.domain.UserInfoEntity;
+import com.wust.newsmartschool.ui.DepartOnlineActivity;
+import com.wust.newsmartschool.ui.FeedbackActivity;
+import com.wust.newsmartschool.ui.HelpActivity;
 import com.wust.newsmartschool.ui.LoginActivity;
 import com.wust.newsmartschool.ui.MessageSettingActivity;
 import com.wust.newsmartschool.ui.UserInfoActivity;
@@ -108,9 +111,8 @@ public class SettingsFragment extends Fragment implements OnClickListener {
         username = (TextView) getView().findViewById(R.id.new_username);
         head_imag = (ImageView) getView()
                 .findViewById(R.id.new_head_imag);
-        tv_memorysize = (TextView) getView().findViewById(R.id.tv_memorysize);
-        rl_clear_cache = (RelativeLayout) getView().findViewById(
-                R.id.rl_clear_cache);
+        // tv_memorysize = (TextView) getView().findViewById(R.id.tv_memorysize);
+        // rl_clear_cache = (RelativeLayout) getView().findViewById(R.id.rl_clear_cache);
         rl_check_updata_apk = (RelativeLayout) getView().findViewById(
                 R.id.rl_check_updata_apk);
         new_userinfo_layout = (RelativeLayout) getView().findViewById(
@@ -126,7 +128,7 @@ public class SettingsFragment extends Fragment implements OnClickListener {
         new_userinfo_layout.setOnClickListener(this);
         rl_check_updata_apk.setOnClickListener(this);
         rl_setting_layout.setOnClickListener(this);
-        rl_clear_cache.setOnClickListener(this);
+        //rl_clear_cache.setOnClickListener(this);
         rl_help_layout.setOnClickListener(this);
         rl_suggestion_layout.setOnClickListener(this);
         getUserInfo();
@@ -156,9 +158,11 @@ public class SettingsFragment extends Fragment implements OnClickListener {
             // 退出登陆
             case R.id.btn_logout:
                 //退出之后清除个人信息的缓存，并且暂停JPush
-                DemoApplication.getInstance().mCache.remove(Constant.MY_KEY_USERINFO);
+                /*DemoApplication.getInstance().mCache.remove(Constant.MY_KEY_USERINFO);
                 JPushInterface.stopPush(getActivity().getApplicationContext());
-                logout();
+                logout();*/
+                startActivity(new Intent(getActivity(), DepartOnlineActivity.class));
+
                 break;
 
             // 新添加，跳转到用户展示界面
@@ -193,7 +197,7 @@ public class SettingsFragment extends Fragment implements OnClickListener {
                     e.printStackTrace();
                 }
                 break;
-            case R.id.rl_clear_cache:
+           /* case R.id.rl_clear_cache:
                 pd.setPressText("正在清除...");
                 pd.show();
                 new Thread(new Runnable() {
@@ -205,22 +209,22 @@ public class SettingsFragment extends Fragment implements OnClickListener {
                 Glide.get(getActivity()).clearMemory();
                 DemoApplication.getInstance().mCache.clear();
                 GetMyInfo(getActivity());
-                break;
+                break;*/
             case R.id.rl_help_layout:
-//                startActivity(new Intent(getContext(), HelpActivity.class));
-//                if (android.os.Build.VERSION.SDK_INT > 5) {
-//                    getActivity().overridePendingTransition(
-//                            R.anim.slide_in_from_right,
-//                            R.anim.slide_out_to_left);
-//                }
+                startActivity(new Intent(getContext(), HelpActivity.class));
+                if (android.os.Build.VERSION.SDK_INT > 5) {
+                    getActivity().overridePendingTransition(
+                            R.anim.slide_in_from_right,
+                            R.anim.slide_out_to_left);
+                }
                 break;
             case R.id.rl_suggestion_layout:
-//                startActivity(new Intent(getContext(),FeedbackActivity.class));
-//                if (android.os.Build.VERSION.SDK_INT > 5) {
-//                    getActivity().overridePendingTransition(
-//                            R.anim.slide_in_from_right,
-//                            R.anim.slide_out_to_left);
-//                }
+                startActivity(new Intent(getContext(),FeedbackActivity.class));
+                if (android.os.Build.VERSION.SDK_INT > 5) {
+                    getActivity().overridePendingTransition(
+                            R.anim.slide_in_from_right,
+                            R.anim.slide_out_to_left);
+                }
                 break;
             default:
                 break;
@@ -372,7 +376,7 @@ public class SettingsFragment extends Fragment implements OnClickListener {
                             jObject = new JSONObject(arg0);
                             if (jObject.getInt("code") == 1 && jObject.getJSONObject("data") != null) {
                                 Toast.makeText(getActivity(), "清除成功", Toast.LENGTH_SHORT).show();
-                                tv_memorysize.setText(appUseUtils.getCacheSize(getActivity()));
+                                // tv_memorysize.setText(appUseUtils.getCacheSize(getActivity()));
                                 userInfoEntity = new Gson().fromJson(arg0,
                                         UserInfoEntity.class);
                                 DemoApplication.getInstance().mCache.put(
@@ -419,7 +423,7 @@ public class SettingsFragment extends Fragment implements OnClickListener {
             Double ASimpleCacheSize = DemoApplication.getInstance().mCache.CacheSize();
             String GlideCacheSize = appUseUtils.getCacheSize(getActivity());
             Log.e("FormatCacheSize", ASimpleCacheSize + "/-/" + GlideCacheSize);
-            tv_memorysize.setText(FormatCacheSize(ASimpleCacheSize + Double.valueOf(GlideCacheSize)));
+            //       tv_memorysize.setText(FormatCacheSize(ASimpleCacheSize + Double.valueOf(GlideCacheSize)));
             Glide.with(getActivity())
                     .load(Constant.GETHEADIMAG_URL
                             + PreferenceManager.getInstance().getCurrentUserId()

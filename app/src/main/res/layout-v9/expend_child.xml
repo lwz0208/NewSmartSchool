@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/expandlinear1"
+
+    android:layout_height="match_parent">
+
+    <LinearLayout
+
+        android:orientation="vertical"
+        android:id="@+id/linear"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:background="@color/background_gray"
+        >
+        <TextView
+            android:id="@+id/expand_text1"
+            android:textSize="15dp"
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"/>
+
+            <Button
+                android:id="@+id/btn_sentmessage"
+                android:onClick="onClick_SentInfo"
+                android:layout_width="wrap_content"
+                android:text="发消息"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="15dp"
+                android:paddingLeft="10dp"
+                android:background="@drawable/em_button_sendmessage_bg"
+                android:layout_height="30dp"
+                android:layout_marginBottom="5dp" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dip"
+            android:layout_alignParentBottom="true"
+            android:background="@color/top_bottom_line"
+            android:layout_marginTop="5dp"/>
+
+        </LinearLayout>
+
+
+
+</RelativeLayout>

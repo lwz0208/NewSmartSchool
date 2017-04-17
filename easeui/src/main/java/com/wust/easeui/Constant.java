@@ -35,19 +35,15 @@ public class Constant extends EaseConstant {
     // 通过userId获取用户个人信息
     public static final String USERINFO_URL = BASE_URL
             + "user/2002.spring";
+    public static final String DEPARTONLINE_URL = BASE_URL + "user/2001.spring";
+    public static final String GETMYCLASSTYPE_URL = BASE_URL
+            + "user/2004.spring";
     // 上传头像URL
     public static final String UPLOADAVATAR_URL = BASE_URL
             + "tools/upload/0003.spring";
-    // 通过phone获取用户个人信息,已弃用
-//    public static final String USERINFOFORPHONE_URL = BASE_URL
-//            + "home/user/1004.spring";
-    // 通过phone获取用户姓名
-    /*
-     * Quest: {"phone":[15107118210,13237169083,15671628493]}
-	 * 
-	 * Result: { "code": 1, "data": { "15107118210": "王嵩", "13237169083": "张远航",
-	 * "15671628493": "张迎萍" }, "msg": "请求成功" }
-	 */
+    // 获得公司部门列表信息
+    public static final String GETSCHOOL_URL = BASE_URL
+            + "user/2003.spring";
     //通过userId的数组批量获取每个id对应的真实姓名 1011
     public static final String NAMEFORMIDARRAY_URL = BASE_URL
             + "home/user/1011.spring";
@@ -350,5 +346,7 @@ public class Constant extends EaseConstant {
     public static final String BROAD_UNREADMSG = "ontoweb.work.unreadMsg";
     //jpush有消息来了就在首页插入一条
     public static final String BROAD_JPUSHDATA = "ontoweb.work.jpushData";
+    public static boolean viewpageflip = false; // viewpage滑动的时候，侧边栏不会出现的标志
+
 
 }

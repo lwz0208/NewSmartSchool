@@ -11,6 +11,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.google.gson.Gson;
+import com.wust.easeui.domain.UserInfoEntity;
 import com.wust.easeui.ui.EaseShowBigImageActivity;
 import com.wust.easeui.Constant;
 import com.zhy.http.okhttp.OkHttpUtils;
@@ -697,19 +699,15 @@ public class CommonUtils {
             textView.setText(realname);
         } else {//缓存里没有的话只有从接口里拿到了
             //标准化为接口所需要的格式
-            JSONArray UserIdarr = new JSONArray();
+            JSONObject userIdJson = new JSONObject();
             try {
-                UserIdarr.put(Integer.valueOf(UserPhone));
-            } catch (NumberFormatException e) {
-                textView.setText(UserPhone);
-                return;
+                userIdJson.put("id", UserPhone);
+            } catch (JSONException e1) {
+                e1.printStackTrace();
             }
-            JSONObject sent = new JSONObject();
-            sent.put("userIds", UserIdarr);
-//            CommonUtils.setCommonJson(mCt, sent, com.wust.easeui.utils.PreferenceManager.getInstance().getCurrentUserFlowSId());
-            Log.e(TAG, sent.toString());
-            OkHttpUtils.postString().url(Constant.NAMEFORMIDARRAY_URL)
-                    .content(sent.toString())
+            Log.e(TAG, userIdJson.toString());
+            OkHttpUtils.postString().url(Constant.USERINFO_URL)
+                    .content(userIdJson.toString())
                     .mediaType(MediaType.parse("application/json")).build()
                     .execute(new StringCallback() {
                         @Override
@@ -720,16 +718,22 @@ public class CommonUtils {
                         @Override
                         public void onResponse(String s) {
                             Log.e(TAG, s);
+                            JSONObject jObject;
                             try {
-                                JSONObject response = new JSONObject(s);
-                                String realname = response.getJSONObject("data").getString(UserPhone);
-                                textView.setText(realname);
-                                mCache.put(UserPhone + "_realname", realname);
-                            } catch (Exception e) {
-                                textView.setText((UserPhone));
+                                jObject = new JSONObject(s);
+                                if (jObject.getInt("code") == 1 && jObject.getJSONObject("data") != null) {
+                                    UserInfoEntity userInfoEntity = new Gson().fromJson(s,
+                                            UserInfoEntity.class);
+                                    String realname = userInfoEntity.getData().getName();
+                                    textView.setText(realname);
+                                    mCache.put(UserPhone + "_realname", realname);
+                                }
+                            } catch (JSONException e) {
+
                                 e.printStackTrace();
                             }
                         }
+
                     });
         }
     }

@@ -555,52 +555,6 @@ public class NoticeDetailActivity extends BaseActivity implements OnClickListene
 
     }
 
-    //获取全部成员的姓名，有时候如果是发布全部的通知，加载名字会很慢，这儿一次性把所有的名字都请求都然后缓存起来，以后都读缓存
-//    public void getAllNoticeName(String[] AcceptPhoneArray) throws JSONException {
-//        JSONArray UserIdarr = new JSONArray();
-//        for (int i = 0; i < AcceptPhoneArray.length; i++) {
-//            UserIdarr.put(Integer.valueOf(AcceptPhoneArray[i]));
-//        }
-//        JSONObject sent = new JSONObject();
-//        sent.put("userIds", UserIdarr);
-//        CommonUtils.setCommonJson(NoticeDetailActivity.this, sent, PreferenceManager.getInstance().getCurrentUserFlowSId());
-//        OkHttpUtils.postString().url(Constant.NAMEFORMIDARRAY_URL)
-//                .content(sent.toString())
-//                .mediaType(MediaType.parse("application/json")).build()
-//                .execute(new StringCallback() {
-//                             @Override
-//                             public void onError(Call call, Exception e) {
-//                                 pd.dismiss();
-//                                 Log.e(TAG, call.toString() + "/*/" + e.toString());
-//                             }
-//
-//                             @Override
-//                             public void onResponse(String s) {
-//                                 pd.dismiss();
-////                                 Log.e(TAG, s);
-//                                 try {
-//                                     JSONObject response = new JSONObject(s);
-//                                     String data = response.getString("data");
-//                                     StringBuilder sb = new StringBuilder(data);
-//                                     //取消最开始和最后面的那个大括号
-//                                     sb.replace(0, 1, "");
-//                                     sb.replace(sb.length() - 1, sb.length(), "");
-//                                     String[] Aperson = sb.toString().split(",");
-//                                     for (int i = 0; i < Aperson.length; i++) {
-//                                         Log.e(TAG, Aperson[i]);
-//                                         String[] temp = Aperson[i].split(":");
-//                                         Log.e(TAG, temp[0] + "/**/" + temp[1]);
-//                                         DemoApplication.getInstance().mCache.put(temp[0] + "_realname", temp[1]);
-//                                     }
-//                                 } catch (JSONException e) {
-//                                     e.printStackTrace();
-//                                 }
-//                                 whoseeListAdapter.notifyDataSetChanged();
-//                             }
-//                         }
-//
-//                );
-//    }
 
     //转发的函数
     public void forward_notice(View view) {

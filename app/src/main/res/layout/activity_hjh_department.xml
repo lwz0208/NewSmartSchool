@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <android.support.v7.widget.Toolbar
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/toolbar"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_width="match_parent"
+        android:background="@color/top"
+        app:title="部门服务时间安排表"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+    </android.support.v7.widget.Toolbar>
+
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:shrinkColumns="0,1,2,3" >
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_weight=".30"
+                android:background="@drawable/table_textview_bg"
+                android:gravity="center"
+                android:text="部门" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_weight=".30"
+                android:background="@drawable/table_textview_bg"
+                android:gravity="center"
+                android:text="现场办公时间" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_weight=".23"
+                android:background="@drawable/table_textview_bg"
+                android:gravity="center"
+                android:text="备注" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_weight=".20"
+                android:background="@drawable/table_textview_bg"
+                android:gravity="center"
+                android:text="地点" />
+        </TableRow>
+
+        <TableRow>
+
+            <TableLayout
+                android:layout_width="0dp"
+                android:layout_weight="0.80" >
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".30"
+                        android:background="@drawable/table_textview_bg"
+                        android:gravity="center"
+                        android:text="党委组织部" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".30"
+                        android:background="@drawable/table_textview_bg"
+                        android:gravity="center"
+                        android:text="周四 下午 14:30-17:30" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".23"
+                        android:background="@drawable/table_textview_bg"
+                        android:gravity="center"
+                        android:text="" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".30"
+                        android:background="@drawable/table_textview_bg"
+                        android:gravity="center"
+                        android:text="审计处、监察处" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".30"
+                        android:background="@drawable/table_textview_bg"
+                        android:gravity="center"
+                        android:text="周五上午  08:30-11:30" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".23"
+                        android:background="@drawable/table_textview_bg"
+                        android:gravity="center"
+                        android:text="两周一次（单周）" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".30"
+                        android:background="@drawable/table_textview_bg"
+                        android:gravity="center"
+                        android:text="科学技术发展院" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".30"
+                        android:background="@drawable/table_textview_bg"
+                        android:gravity="center"
+                        android:text="周三上午  08:30-11:30" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".23"
+                        android:background="@drawable/table_textview_bg"
+                        android:gravity="center"
+                        android:text="" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".30"
+                        android:background="@drawable/table_textview_bg"
+                        android:gravity="center"
+                        android:text="人事处" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".30"
+                        android:background="@drawable/table_textview_bg"
+                        android:gravity="center"
+                        android:text="四 上午  08:30-11:30" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".23"
+                        android:background="@drawable/table_textview_bg"
+                        android:gravity="center"
+                        android:text="" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".30"
+                        android:background="@drawable/table_textview_bg"
+                        android:gravity="center"
+                        android:text="实验室与设备管理处" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".30"
+                        android:background="@drawable/table_textview_bg"
+                        android:gravity="center"
+                        android:text="周二 全天  09:00-17:30" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".23"
+                        android:background="@drawable/table_textview_bg"
+                        android:gravity="center"
+                        android:text="两周一次（单周）" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".30"
+                        android:background="@drawable/table_textview_bg"
+                        android:gravity="center"
+                        android:text="采购与招标管理办公室" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".30"
+                        android:background="@drawable/table_textview_bg"
+                        android:gravity="center"
+                        android:text="周二 上午 08:30-11:30" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".23"
+                        android:background="@drawable/table_textview_bg"
+                        android:gravity="center"
+                        android:text="" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".30"
+                        android:background="@drawable/table_textview_bg"
+                        android:gravity="center"
+                        android:text="住宅建设与改革办公室" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".30"
+                        android:background="@drawable/table_textview_bg"
+                        android:gravity="center"
+                        android:text="周三下午 14:30-17:30" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".23"
+                        android:background="@drawable/table_textview_bg"
+                        android:gravity="center"
+                        android:text="" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".30"
+                        android:background="@drawable/table_textview_bg"
+                        android:gravity="center"
+                        android:text="离退休工作处" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".30"
+                        android:background="@drawable/table_textview_bg"
+                        android:gravity="center"
+                        android:text="周四一下午 14:30-17:30" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".23"
+                        android:background="@drawable/table_textview_bg"
+                        android:gravity="center"
+                        android:text="两周一次（单周）" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".30"
+                        android:background="@drawable/table_textview_bg"
+                        android:gravity="center"
+                        android:text="工会、妇委会" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".30"
+                        android:background="@drawable/table_textview_bg"
+                        android:gravity="center"
+                        android:text="周四一下午 14:30-17:30" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".23"
+                        android:background="@drawable/table_textview_bg"
+                        android:gravity="center"
+                        android:text="两周一次（双周）" />
+                </TableRow>
+            </TableLayout>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".20"
+                android:background="@drawable/table_textview_bg"
+                android:gravity="center"
+                android:text="黄 家 湖 校 区 教 六楼（医学院）二区三楼 62308房间（教务 办 公 室 隔 壁）" />
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>

@@ -188,9 +188,9 @@ public class EaseChatFragment extends EaseBaseFragment {
                                 Log.i("ChatActivity", userInfoEntity.getCode()
                                         + "");
                                 titleBar.setTitle(userInfoEntity.getData()
-                                        .getUserRealname());
+                                        .getName());
                                 mCache.put(Key_RealName, userInfoEntity
-                                        .getData().getUserRealname());
+                                        .getData().getName());
                             }
                         } catch (Exception e) {
                             e.printStackTrace();

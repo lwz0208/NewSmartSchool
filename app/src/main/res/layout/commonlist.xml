@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/frammenu_pressornot_bg_selector"
+    android:orientation="horizontal"
+    android:layout_marginBottom="1px" >
+
+    <ImageView
+        android:id="@+id/commonImage"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="5dp"
+        android:layout_marginBottom="7dp"
+        android:layout_marginTop="7dp"
+        android:src="@drawable/graduate_student_edu" />
+
+    <TextView
+        android:id="@+id/commonText"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        android:text="描述"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="#22201F" />
+
+</LinearLayout>

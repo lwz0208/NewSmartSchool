@@ -4,103 +4,129 @@ import java.io.Serializable;
 
 public class UserInfoEntity_Data implements Serializable {
 
+
     /**
-     *
+     * "studentType":1,//学生类型（0：本科  1：研究生）
+     * "collegeId":1,//学院id
+     * "id":"201613703031",//学号
+     * "sex":"男",//性别
+     * "classId":1,//班级id
+     * "name":"啊啊啊",//姓名
+     * "className":"软件工程",//班级名称
+     * "year":2016,//年级
+     * "majorName":"软件工程",//专业
+     * "collegeName":"计算机学院",//学院名称
+     * "majorId":1，//专业id
+     * "type":0 //用户类型（0：学生，1：老师，2：其他）
      */
-    private static final long serialVersionUID = 1L;
-    String userPassword;
-    String userRealname;
-    String createTime;
-    int roleId;
-    String userTelephone;
-    String companyName;
-    String userNickname;
-    String userImgurl;
-    int userGender;
-    int userId;
 
-    public String getUserPassword() {
-        return userPassword;
+
+    private int studentType;
+    private String collegeName;
+    private int classId;
+    private int majorId;
+    private int year;
+    private String sex;
+    private int collegeId;
+    private String name;
+    private String className;
+    private String id;
+    private String majorName;
+    private int type;
+
+    public int getStudentType() {
+        return studentType;
     }
 
-    public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword;
+    public void setStudentType(int studentType) {
+        this.studentType = studentType;
     }
 
-    public String getUserRealname() {
-        return userRealname;
+    public String getCollegeName() {
+        return collegeName;
     }
 
-    public void setUserRealname(String userRealname) {
-        this.userRealname = userRealname;
+    public void setCollegeName(String collegeName) {
+        this.collegeName = collegeName;
     }
 
-    public String getCreateTime() {
-        return createTime;
+    public int getClassId() {
+        return classId;
     }
 
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
+    public void setClassId(int classId) {
+        this.classId = classId;
     }
 
-    public String getUserTelephone() {
-        return userTelephone;
+    public int getMajorId() {
+        return majorId;
     }
 
-    public void setUserTelephone(String userTelephone) {
-        this.userTelephone = userTelephone;
+    public void setMajorId(int majorId) {
+        this.majorId = majorId;
     }
 
-    public String getCompanyName() {
-        return companyName;
+    public int getYear() {
+        return year;
     }
 
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
+    public void setYear(int year) {
+        this.year = year;
     }
 
-    public String getUserNickname() {
-        return userNickname;
+    public String getSex() {
+        return sex;
     }
 
-    public void setUserNickname(String userNickname) {
-        this.userNickname = userNickname;
+    public void setSex(String sex) {
+        this.sex = sex;
     }
 
-    public String getUserImgurl() {
-        return userImgurl;
+    public int getCollegeId() {
+        return collegeId;
     }
 
-    public void setUserImgurl(String userImgurl) {
-        this.userImgurl = userImgurl;
+    public void setCollegeId(int collegeId) {
+        this.collegeId = collegeId;
     }
 
-    public int getRoleId() {
-        return roleId;
+    public String getName() {
+        return name;
     }
 
-    public void setRoleId(int roleId) {
-        this.roleId = roleId;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getUserGender() {
-        return userGender;
+    public String getClassName() {
+        return className;
     }
 
-    public void setUserGender(int userGender) {
-        this.userGender = userGender;
+    public void setClassName(String className) {
+        this.className = className;
     }
 
-    public int getUserId() {
-        return userId;
+    public String getId() {
+        return id;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public static long getSerialversionuid() {
-        return serialVersionUID;
+    public String getMajorName() {
+        return majorName;
     }
 
+    public void setMajorName(String majorName) {
+        this.majorName = majorName;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
 }

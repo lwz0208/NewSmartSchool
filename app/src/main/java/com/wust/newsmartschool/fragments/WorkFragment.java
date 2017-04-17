@@ -13,6 +13,8 @@ import android.widget.Toast;
 
 import com.wust.newsmartschool.R;
 import com.wust.newsmartschool.ui.LibSeatActivity;
+import com.wust.newsmartschool.ui.StudentHomeActivity;
+import com.wust.newsmartschool.ui.StudentSelectActivity;
 
 public class WorkFragment extends Fragment implements OnClickListener {
     String TAG = "WorkFragment2_Degugs";
@@ -51,30 +53,16 @@ public class WorkFragment extends Fragment implements OnClickListener {
         Intent intent = new Intent();
         switch (v.getId()) {
             case R.id.rl_stu_home:
-                Toast.makeText(getActivity(), "先给屏蔽了吧", Toast.LENGTH_SHORT).show();
-//                startActivity(new Intent(getContext(), WorkFragNoticeActivity.class));
-//                if (android.os.Build.VERSION.SDK_INT > 5) {
-//                    getActivity().overridePendingTransition(
-//                            R.anim.slide_in_from_right, R.anim.slide_out_to_left);
-//                }
+                intent.setClass(getActivity(), StudentHomeActivity.class);
+                startActivity(intent);
                 break;
             case R.id.rl_stu_service:
-                Toast.makeText(getActivity(), "先给屏蔽了吧", Toast.LENGTH_SHORT).show();
-//                startActivity(new Intent(getContext(),
-//                        WorkFragApplyActivity.class));
-//                if (android.os.Build.VERSION.SDK_INT > 5) {
-//                    getActivity().overridePendingTransition(
-//                            R.anim.slide_in_from_right, R.anim.slide_out_to_left);
-//                }
+                Toast.makeText(getActivity(), "正在开发中...", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.rl_xuanke_pj:
-                Toast.makeText(getActivity(), "先给屏蔽了吧", Toast.LENGTH_SHORT).show();
-//                startActivity(new Intent(getContext(),
-//                        MeetingActivity.class));
-//                if (android.os.Build.VERSION.SDK_INT > 5) {
-//                    getActivity().overridePendingTransition(
-//                            R.anim.slide_in_from_right, R.anim.slide_out_to_left);
-//                }
+                intent.setClass(getActivity(), StudentSelectActivity.class);
+                startActivity(intent);
+
                 break;
             case R.id.rl_book_service:
                 intent.setClass(getActivity(), LibSeatActivity.class);

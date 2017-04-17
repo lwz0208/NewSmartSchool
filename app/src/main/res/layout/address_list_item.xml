@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:shrinkColumns="1,2"
+    >
+    <TableRow>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight=".50"
+            android:layout_height="wrap_content"
+            android:id="@+id/department"
+            android:text="职能部门"
+            android:gravity="left"
+            android:paddingLeft="10dp"
+            android:textColor="#000000"
+            />
+        <!--  <View android:layout_width="1dip"
+             android:layout_height="20dip"
+             android:background="#FF909090" /> -->
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight=".50"
+            android:layout_height="wrap_content"
+            android:id="@+id/phone"
+            android:text="联系电话"
+            android:textColor="#000000"
+            android:gravity="center"
+            />
+    </TableRow>
+
+</TableLayout>

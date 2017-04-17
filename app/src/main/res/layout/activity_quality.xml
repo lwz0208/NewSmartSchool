@@ -1,0 +1,18 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.wust.newsmartschool.ui.QualityActivity" >
+
+    <com.wust.newsmartschool.utils.MyListView
+        android:id="@+id/QNewslistView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:dividerHeight="0.1dp"
+        android:fastScrollEnabled="false"
+        android:scrollbarStyle="outsideOverlay"
+        android:scrollbars="vertical"
+        android:smoothScrollbar="true" >
+    </com.wust.newsmartschool.utils.MyListView>
+
+</RelativeLayout>

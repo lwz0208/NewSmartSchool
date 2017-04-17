@@ -1,10 +1,5 @@
 package com.wust.newsmartschool.adapter;
 
-import java.util.List;
-
-import com.wust.newsmartschool.R;
-import com.wust.newsmartschool.domain.Company_Dep;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,12 +7,17 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.wust.newsmartschool.R;
+import com.wust.newsmartschool.domain.CompanyEntity;
+
+import java.util.List;
+
 public class Uplistview_Adapter extends BaseAdapter {
     private LayoutInflater mInflater;
-    List<Company_Dep> itemlist;
+    List<CompanyEntity.DataBean> itemlist;
     private ViewHolder vh = new ViewHolder();
 
-    public Uplistview_Adapter(Context con, List<Company_Dep> objects) {
+    public Uplistview_Adapter(Context con, List<CompanyEntity.DataBean> objects) {
         mInflater = LayoutInflater.from(con);
         itemlist = objects;
     }
@@ -48,12 +48,12 @@ public class Uplistview_Adapter extends BaseAdapter {
             vh.brand_name = (TextView) convertView
                     .findViewById(R.id.brand_name);
             vh.brand_num = (TextView) convertView.findViewById(R.id.brand_num);
-            vh.brand_name.setText(itemlist.get(position).getDepName());
-            vh.brand_num.setText(itemlist.get(position).getUsersNum() + "人");
             convertView.setTag(vh);
         } else {
             vh = (ViewHolder) convertView.getTag();
         }
+        vh.brand_name.setText(itemlist.get(position).getName());
+        vh.brand_num.setText(itemlist.get(position).getDescri());
         return convertView;
     }
 

@@ -1,0 +1,204 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f5f3f2"
+    android:orientation="vertical"
+    tools:context="com.wust.newsmartschool.ui.Psy_MyAppointmentActivity" >
+
+    <!-- 标题以及返回键 -->
+
+    <include
+        android:id="@+id/head"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/head_title" />
+    <!-- 预约状态区域 -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="135.5dp"
+        android:layout_marginLeft="5.5dp"
+        android:layout_marginRight="5.5dp"
+        android:layout_marginTop="10.5dp"
+        android:background="@drawable/bg_psy_myappointment"
+        android:orientation="vertical" >
+
+        <!-- 标题 -->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30.5dp"
+            android:background="#e5e2dc"
+            android:gravity="center|left"
+            android:paddingLeft="15.5dp"
+            android:text="当前预约："
+            android:textColor="#222221"
+            android:textSize="12.5dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#D5CEC9" />
+        <!-- 内容 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <!-- 第一行 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal" >
+
+                <!-- 咨询师姓名 -->
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center|left"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="15.5dp"
+                        android:text="咨询师："
+                        android:textColor="#222221"
+                        android:textSize="12.5dp" />
+
+                    <TextView
+                        android:id="@+id/psy_expertname"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="刘小备"
+                        android:textColor="#222221"
+                        android:textSize="12.5dp" />
+                </LinearLayout>
+
+                <!-- 预约状态 -->
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center|left"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="预约状态："
+                        android:textColor="#222221"
+                        android:textSize="12.5dp" />
+
+                    <TextView
+                        android:id="@+id/psy_state"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="等待中"
+                        android:textColor="#222221"
+                        android:textSize="12.5dp" />
+                </LinearLayout>
+            </LinearLayout>
+            <!-- 第二行 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:orientation="horizontal" >
+
+                <!-- 预约时间 -->
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="30.5dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center|left"
+                        android:paddingLeft="15.5dp"
+                        android:text="预约时间："
+                        android:textColor="#222221"
+                        android:textSize="12.5dp" />
+
+                    <TextView
+                        android:id="@+id/psy_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center|left"
+                        android:text="2014年9月24日下午"
+                        android:textColor="#222221"
+                        android:textSize="12.5dp" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingBottom="10dp"
+                    android:paddingRight="10dp" >
+
+                    <Button
+                        android:id="@+id/psy_myapp_cancel_bt"
+                        android:layout_width="65.5dp"
+                        android:layout_height="30.5dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:background="@drawable/psy_cencel_appoint_bg"
+                        android:text="取消预约"
+                        android:textColor="#ffffff"
+                        android:textSize="12.5dp" />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10.5dp" />
+    <!-- 预约记录区域 -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/titletext"
+            android:layout_width="match_parent"
+            android:layout_height="30.5dp"
+            android:background="#e5e2dc"
+            android:gravity="center|left"
+            android:paddingLeft="20.5dp"
+            android:text="预约记录："
+            android:textColor="#222221"
+            android:textSize="12.5dp" />
+
+        <ListView
+            android:id="@+id/psy_myapp_historylist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/titletext" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" >
+
+            <ProgressBar
+                android:id="@+id/progressbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

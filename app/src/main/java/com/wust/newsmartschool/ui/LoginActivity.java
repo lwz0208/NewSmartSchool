@@ -1,6 +1,6 @@
 /**
  * Copyright (C) 2016 Hyphenate Inc. All rights reserved.
- * <p>
+ * <p/>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -380,6 +380,8 @@ public class LoginActivity extends BaseActivity {
                                 PreferenceManager.getInstance().setCurrentUserColleageId(userInfoEntity.getData().getCollegeId());
                                 PreferenceManager.getInstance().setCurrentUserClassId(userInfoEntity.getData().getClassId());
                                 PreferenceManager.getInstance().setCurrentUserClassName(userInfoEntity.getData().getClassName());
+                                PreferenceManager.getInstance().setCurrentUserYear(userInfoEntity.getData().getYear());
+                                PreferenceManager.getInstance().setCurrentUserstudentType(userInfoEntity.getData().getStudentType());
                                 // 登录环信
 //                                loginChat();
                                 register();

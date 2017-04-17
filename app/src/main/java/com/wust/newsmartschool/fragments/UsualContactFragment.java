@@ -1,11 +1,5 @@
 package com.wust.newsmartschool.fragments;
 
-import okhttp3.Call;
-import okhttp3.MediaType;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -21,27 +15,30 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.wust.easeui.Constant;
+import com.wust.easeui.utils.PreferenceManager;
+import com.wust.newsmartschool.R;
 import com.wust.newsmartschool.adapter.TypeMembers_Adapter;
 import com.wust.newsmartschool.domain.Common_TypeMem;
-import com.wust.newsmartschool.domain.Common_TypeMem_Data;
 import com.wust.newsmartschool.domain.CompanyEntity;
-import com.wust.newsmartschool.DemoApplication;
-import com.wust.newsmartschool.R;
 import com.wust.newsmartschool.ui.AddContactActivity;
 import com.wust.newsmartschool.ui.CompanyActivity;
 import com.wust.newsmartschool.ui.DeptMemInfoActivity;
 import com.wust.newsmartschool.ui.FriendsListActivity;
 import com.wust.newsmartschool.ui.GroupsActivity;
 import com.wust.newsmartschool.ui.NewFriendsMsgActivity;
-import com.wust.easeui.utils.CommonUtils;
-import com.wust.easeui.utils.PreferenceManager;
-import com.google.gson.Gson;
-import com.wust.easeui.Constant;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import okhttp3.Call;
+import okhttp3.MediaType;
 
 @SuppressWarnings("deprecation")
 public class UsualContactFragment extends Fragment implements OnClickListener {
@@ -56,7 +53,7 @@ public class UsualContactFragment extends Fragment implements OnClickListener {
     private ImageView add_newfriends;
     //电视下面本科室人员的一些参数
     private ListView listview_mydeptmembers;
-    List<Common_TypeMem_Data> data;
+    List<Common_TypeMem.DataBean> data;
     private TypeMembers_Adapter typememb_adapter;
 
     // 部门实体类列表需要传到companyactivity
@@ -90,7 +87,7 @@ public class UsualContactFragment extends Fragment implements OnClickListener {
         company = (TextView) headerView.findViewById(R.id.company);
         tip_my_deptname = (TextView) headerView.findViewById(R.id.tip_my_deptname);
         try {
-            tip_my_deptname.setText(PreferenceManager.getInstance().getCurrentUserColleageName());
+            tip_my_deptname.setText(PreferenceManager.getInstance().getCurrentUserClassName());
         } catch (Exception e) {
             ll_my_deptname.setVisibility(View.GONE);
             e.printStackTrace();
@@ -105,10 +102,8 @@ public class UsualContactFragment extends Fragment implements OnClickListener {
         ll_company.setOnClickListener(this);
 
         try {
-            // 调用公司列表接口
-            getCompanylist();
             //获得本科室成员的接口
-            getTypeMembers();
+            geMyClassMembers();
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -118,7 +113,7 @@ public class UsualContactFragment extends Fragment implements OnClickListener {
                 try {
                     String userId;
                     userId = String
-                            .valueOf(((Common_TypeMem_Data) typememb_adapter.getItem(position - 1)).getUserId());
+                            .valueOf(((Common_TypeMem.DataBean) typememb_adapter.getItem(position - 1)).getId());
                     Log.e(TAG, userId);
                     startActivity(new Intent(getActivity(),
                             DeptMemInfoActivity.class).putExtra("userId",
@@ -136,15 +131,6 @@ public class UsualContactFragment extends Fragment implements OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.ll_phonelist:
-                // 本来是进入选手机联系人界面的，本功能暂时屏蔽
-                // Uri uri = Uri.parse("content://contacts/people");
-                // Intent intent = new Intent(Intent.ACTION_PICK, uri);
-                // startActivityForResult(intent, Constant.readaddresslist);
-                // if (android.os.Build.VERSION.SDK_INT > 5)
-                // {
-                // getActivity().overridePendingTransition(
-                // R.anim.slide_in_from_right, R.anim.slide_out_to_left);
-                // }
                 // 进入申请与通知页面
                 startActivity(new Intent(getActivity(), NewFriendsMsgActivity.class));
                 if (android.os.Build.VERSION.SDK_INT > 5) {
@@ -167,17 +153,11 @@ public class UsualContactFragment extends Fragment implements OnClickListener {
                 }
                 break;
             case R.id.ll_company:
-                if (company.getText().equals("")) {
-                    Toast.makeText(getContext(), "未获取到有效信息,请重新启动", Toast.LENGTH_SHORT)
-                            .show();
-                } else {
-                    startActivity(new Intent(getContext(), CompanyActivity.class)
-                            .putExtra("companyentity", companyentity));
-                    if (android.os.Build.VERSION.SDK_INT > 5) {
-                        getActivity().overridePendingTransition(
-                                R.anim.slide_in_from_right,
-                                R.anim.slide_out_to_left);
-                    }
+                startActivity(new Intent(getContext(), CompanyActivity.class));
+                if (android.os.Build.VERSION.SDK_INT > 5) {
+                    getActivity().overridePendingTransition(
+                            R.anim.slide_in_from_right,
+                            R.anim.slide_out_to_left);
                 }
                 break;
             case R.id.add_newfriends:
@@ -192,48 +172,13 @@ public class UsualContactFragment extends Fragment implements OnClickListener {
         }
     }
 
-    public void getCompanylist() throws JSONException {
-        JSONObject loginJson = new JSONObject();
-        loginJson.put("userId", PreferenceManager.getInstance()
-                .getCurrentUserId());
-        CommonUtils.setCommonJson(getActivity(), loginJson, PreferenceManager.getInstance().getCurrentUserFlowSId());
-        Log.i(TAG, loginJson.toString());
-        OkHttpUtils.postString().url(Constant.GETCOMPANY_URL)
-                .content(loginJson.toString())
-                .mediaType(MediaType.parse("application/json")).build()
-                .execute(new StringCallback() {
-                    @Override
-                    public void onResponse(String arg0) {
-                        try {
-                            companyentity = new Gson().fromJson(arg0,
-                                    CompanyEntity.class);
-                            company.setText(companyentity.getCompanyName());
-                            Log.i("companyentity", companyentity.getCompanyName());
-                            DemoApplication.getInstance().mCache.put(
-                                    Constant.MY_KEY_COMPANY, companyentity);
-                        } catch (Exception e) {
-                            if (DemoApplication.getInstance().mCache.getAsObject(Constant.MY_KEY_COMPANY) != null)
-                                companyentity = (CompanyEntity) DemoApplication.getInstance().mCache.getAsObject(Constant.MY_KEY_COMPANY);
-                            e.printStackTrace();
-                        }
-                    }
 
-                    @Override
-                    public void onError(Call arg0, Exception arg1) {
-                        if (DemoApplication.getInstance().mCache.getAsObject(Constant.MY_KEY_COMPANY) != null)
-                            companyentity = (CompanyEntity) DemoApplication.getInstance().mCache.getAsObject(Constant.MY_KEY_COMPANY);
-                    }
-                });
-    }
-
-    private void getTypeMembers() throws JSONException {
-        JSONObject loginJson = new JSONObject();
-        loginJson.put("typeId", "departmentId");
-        loginJson.put("id", PreferenceManager.getInstance().getCurrentUserColleageId());
-        Log.i(TAG, loginJson.toString());
-        CommonUtils.setCommonJson(getActivity(), loginJson, PreferenceManager.getInstance().getCurrentUserFlowSId());
-        OkHttpUtils.postString().url(Constant.GETMEMBYTYPE_URL)
-                .content(loginJson.toString())
+    private void geMyClassMembers() throws JSONException {
+        JSONObject myclass = new JSONObject();
+        myclass.put("id", PreferenceManager.getInstance().getCurrentUserClassId());
+        Log.i(TAG, myclass.toString());
+        OkHttpUtils.postString().url(Constant.GETMYCLASSTYPE_URL)
+                .content(myclass.toString())
                 .mediaType(MediaType.parse("application/json")).build()
                 .execute(new StringCallback() {
                     @Override

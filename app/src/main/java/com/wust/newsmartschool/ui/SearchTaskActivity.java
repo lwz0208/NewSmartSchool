@@ -334,7 +334,7 @@ public class SearchTaskActivity extends BaseActivity implements View.OnClickList
 
                 final String[] DeptArray = new String[temp_Com.getData().size() + 1];
                 for (int i = 0; i < temp_Com.getData().size(); i++) {
-                    DeptArray[i] = temp_Com.getData().get(i).getDepName();
+                    DeptArray[i] = temp_Com.getData().get(i).getName();
                 }
                 DeptArray[temp_Com.getData().size()] = "忽略";
                 AlertDialog.Builder builder_dept = new AlertDialog.Builder(SearchTaskActivity.this);
@@ -346,7 +346,7 @@ public class SearchTaskActivity extends BaseActivity implements View.OnClickList
 //                        showToastShort(DeptArray[which]);
                         ((TextView) findViewById(R.id.tasksearch_bydept_tv)).setText(DeptArray[which]);
                         if (which < temp_Com.getData().size())
-                            createUserDeptId = temp_Com.getData().get(which).getDeptId();
+                            createUserDeptId = temp_Com.getData().get(which).getId();
                         else
                             createUserDeptId = -1;
                         dialog.cancel();

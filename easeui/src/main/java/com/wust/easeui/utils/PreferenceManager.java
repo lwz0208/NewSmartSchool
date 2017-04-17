@@ -52,6 +52,8 @@ public class PreferenceManager {
     private static String CurrentUserClassName = "CurrentUserClassName";
     private static String CurrentUserClassId = "CurrentUserClassId";
     private static String ISFIRSTUSE = "ISFIRSTUSE";
+    private static String studentType = "studentType";
+    private static String year = "year";
 
     private PreferenceManager(Context cxt) {
         mSharedPreferences = cxt.getSharedPreferences(PREFERENCE_NAME,
@@ -261,6 +263,28 @@ public class PreferenceManager {
     public String getCurrentUserClassName() {
         return mSharedPreferences.getString(
                 CurrentUserClassName, null);
+    }
+
+
+    public void setCurrentUserYear(int UserYear) {
+        editor.putInt(year, UserYear);
+        editor.commit();
+    }
+
+    public int getCurrentUserYear() {
+        return mSharedPreferences.getInt(
+                year, -1);
+    }
+
+
+    public void setCurrentUserstudentType(int Type) {
+        editor.putInt(studentType, Type);
+        editor.commit();
+    }
+
+    public int getCurrentUserstudentType() {
+        return mSharedPreferences.getInt(
+                studentType, -1);
     }
 
     public void setCurrentUserClassId(int id) {

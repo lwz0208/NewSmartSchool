@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f5f3f2"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/head"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        layout="@layout/head_title" />
+
+    <!-- 为了避免屏幕太小显示不全，添加ScrollView -->
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <!-- *****************姓名输入*************** -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48.5dp"
+                android:layout_marginLeft="15.5dp"
+                android:layout_marginRight="15.5dp"
+                android:layout_marginTop="15.5dp"
+                android:background="@drawable/bg_emptyclassroom_spinner"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15.5dp"
+                    android:gravity="center"
+                    android:text="姓名:  "
+                    android:textColor="#88817b"
+                    android:textSize="14.5dp" />
+
+                <EditText
+                    android:id="@+id/reservation_input_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/empty_blank_bg"
+                    android:textColor="#302d2c"
+                    android:textSize="14.5dp" />
+            </LinearLayout>
+            <!-- *****************性别选择*************** -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48.5dp"
+                android:layout_marginLeft="15.5dp"
+                android:layout_marginRight="15.5dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15.5dp"
+                    android:gravity="center"
+                    android:text="性别:  "
+                    android:textColor="#88817b"
+                    android:textSize="14.5dp" />
+
+                <RadioGroup
+                    android:id="@+id/reservation_sex_radiogroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp" >
+
+                    <RadioButton
+                        android:id="@+id/reservation_sex_male"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:checked="true"
+                        android:text="男" />
+
+                    <RadioButton
+                        android:id="@+id/reservation_sex_female"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="女" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <!-- 为了添加背景 ，这里套上一层Linearlayout -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15.5dp"
+                android:layout_marginRight="15.5dp"
+                android:background="@drawable/bg_emptyclassroom_spinner"
+                android:orientation="vertical" >
+
+                <!-- *****************预约日期选择************* -->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48.5dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="15.5dp"
+                        android:gravity="center"
+                        android:text="日期选择:"
+                        android:textColor="#88817b"
+                        android:textSize="14.5dp" />
+
+                    <EditText
+                        android:id="@+id/appointment_date"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/empty_blank_bg"
+                        android:textColor="#302d2c"
+                        android:textSize="16dp"
+                        android:layout_marginLeft="5dp" />
+                </LinearLayout>
+                <!-- *****************时间选择（上午、下午）************** -->
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#C3C3C3" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48.5dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="15.5dp"
+                        android:gravity="center"
+                        android:text="时间选择:"
+                        android:textColor="#88817b"
+                        android:textSize="14.5dp" />
+
+                    <Spinner
+                        android:id="@+id/appointment_time_select"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/empty_blank_bg"
+                        android:entries="@array/time"
+                        android:prompt="@string/hello_world"
+                        android:textSize="18sp" />
+                </LinearLayout>
+                <!-- *****************咨询师选择************** -->
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#C3C3C3" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48.5dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="15.5dp"
+                        android:gravity="center"
+                        android:text="教师选择:"
+                        android:textColor="#88817b"
+                        android:textSize="14.5dp" />
+
+                    <Spinner
+                        android:id="@+id/appointment_doctor_select"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/empty_blank_bg"
+                        android:prompt="@string/hello_world" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- *************手机号码****************** -->
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15.5dp"
+                android:layout_marginRight="15.5dp"
+                android:background="@drawable/bg_emptyclassroom_spinner"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15.5dp"
+                    android:gravity="center"
+                    android:text="手机号码:"
+                    android:textColor="#88817b"
+                    android:textSize="14.5dp" />
+
+                <EditText
+                    android:id="@+id/reservation_input_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/empty_blank_bg"
+                    android:inputType="number"
+                    android:textColor="#302d2c"
+                    android:textSize="16dp"
+                    android:layout_marginLeft="5dp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
+            <!-- **************备注信息********************** -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15.5dp"
+                android:layout_marginRight="15.5dp"
+                android:background="@drawable/bg_emptyclassroom_spinner"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15.5dp"
+                    android:gravity="center"
+                    android:text="备注信息:"
+                    android:textColor="#88817b"
+                    android:textSize="14.5dp" />
+
+                <EditText
+                    android:id="@+id/reservation_exp_msg"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15.5dp"
+                    android:background="@drawable/empty_blank_bg"
+                    android:textColor="#302d2c"
+                    android:textSize="14.5dp" />
+            </LinearLayout>
+
+            <!-- *****************提交****************** -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15.5dp"
+                android:layout_marginRight="15.5dp"
+                android:orientation="vertical" >
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="15.5dp" />
+
+                <Button
+                    android:id="@+id/reservation_appointment_send_appointment"
+                    android:layout_width="match_parent"
+                    android:layout_height="45.5dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/psy_send_bg"
+                    android:text="提交预约"
+                    android:textColor="#ffffff"
+                    android:textSize="18dp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="15.5dp" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/news_bg"
+    android:clickable="true"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <ImageView
+            android:id="@+id/psy_expertImg"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/female"/>
+
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="100dp"
+            android:layout_marginBottom="2dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@id/psy_expertImg"
+            >
+
+            <TextView
+                android:id="@+id/psy_expertname"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="3dp"
+                android:ellipsize="end"
+                android:lineSpacingExtra="1.5dp"
+                android:maxLines="2"
+                android:text="刘小备"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:layout_alignParentTop="true" />
+
+
+            <TextView
+                android:id="@+id/psy_expertext"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:ellipsize="end"
+                android:lines="5"
+                android:gravity="left|bottom"
+                android:layout_gravity="bottom"
+                android:text="刘小备，武汉科技大学2012级计算机科学与技术专业，热爱安卓和PHP编程，心理状态良好。"
+                android:textColor="#878787"
+                android:textSize="14sp"
+                android:layout_alignParentBottom="true"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+
+</LinearLayout>

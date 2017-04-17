@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class UserInfoEntity implements Serializable {
     /**
-     *
+     * 用户信息的外部实体
      */
     private static final long serialVersionUID = 1L;
 

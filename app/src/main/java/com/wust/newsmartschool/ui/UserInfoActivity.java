@@ -130,14 +130,14 @@ public class UserInfoActivity extends BaseActivity implements OnClickListener {
         switch (v.getId()) {
             case R.id.rl_changeavatar:
                 /**上传头像功能，该功能在app部分已经完成，但是暂时没有接口，为不对用户产生误解，故先屏蔽掉*/
-                uploadHeadPhoto();
+//                uploadHeadPhoto();
                 break;
             case R.id.rl_changepsw:
-                startActivity(new Intent(UserInfoActivity.this, ChangePswActivity.class));
-                if (android.os.Build.VERSION.SDK_INT > 5) {
-                    overridePendingTransition(R.anim.slide_in_from_right,
-                            R.anim.slide_out_to_left);
-                }
+//                startActivity(new Intent(UserInfoActivity.this, ChangePswActivity.class));
+//                if (android.os.Build.VERSION.SDK_INT > 5) {
+//                    overridePendingTransition(R.anim.slide_in_from_right,
+//                            R.anim.slide_out_to_left);
+//                }
                 break;
             default:
                 break;

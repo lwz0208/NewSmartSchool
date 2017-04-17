@@ -35,4 +35,22 @@
         <item>陈达</item>
     </string-array>
 
+    <string-array name="book_direction">
+        <item>Cici</item>
+        <item>Cruis</item>
+        <item>echo</item>
+        <item>Qin</item>
+    </string-array>
+    <string-array name="time">
+        <item>上午</item>
+        <item>下午</item>
+    </string-array>
+    <string-array name="logistic_time">
+        <item>8:00-10:00</item>
+        <item>10:00-12:00</item>
+        <item>12:00-14:00</item>
+        <item>14:00-16:00</item>
+        <item>16:00-17:30</item>
+    </string-array>
+
 </resources>

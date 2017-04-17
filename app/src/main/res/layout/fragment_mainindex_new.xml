@@ -12,13 +12,6 @@
         android:background="@color/top_bar_normal_bg"
         android:gravity="center_vertical">
 
-        <ImageView
-            android:id="@+id/head_img"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="16dp" />
-
         <TextView
             style="@style/common_topbar_text_style"
             android:layout_width="wrap_content"
@@ -46,13 +39,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:background="@color/white"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
+                    android:background="@color/white"
                     android:orientation="horizontal">
 
                     <ImageView
@@ -64,7 +57,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="8dp"
-                        android:text="与我相关"
+                        android:text="通用"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -74,20 +67,19 @@
                     android:background="@color/top_bottom_line" />
 
                 <LinearLayout
-                    android:id="@+id/ll_hospital_notice"
+                    android:id="@+id/ll_school_news"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/em_btn_bottom_selector_white"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp">
+                    android:padding="8dp">
 
                     <ImageView
-                        android:id="@+id/fpimage_notice"
+                        android:id="@+id/iv_school_news"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        tools:src="@drawable/notice" />
+                        android:src="@drawable/notice" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -95,68 +87,28 @@
                         android:orientation="vertical"
                         android:padding="10dp">
 
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:id="@+id/tv_notice"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textColor="@color/black_deep"
-                                android:textSize="14sp" />
-
-                            <FrameLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="4dp">
-
-                                <ImageView
-                                    android:id="@+id/iv_notice"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:src="@drawable/unread_msg_1"
-                                    android:visibility="invisible" />
-
-                                <TextView
-                                    android:id="@+id/tv_noticeNum"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:text="2"
-                                    android:textColor="@color/white"
-                                    android:textSize="12sp" />
-                            </FrameLayout>
-
-                        </LinearLayout>
-
                         <TextView
-                            android:id="@+id/hospital_notice_subcontent"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="医院通知，一呼百应"
-                            android:textSize="13sp" />
+                            android:text="校园新闻"
+                            android:textSize="16sp" />
                     </LinearLayout>
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/ll_my_task"
+                    android:id="@+id/ll_school_notice"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/em_btn_bottom_selector_white"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp">
+                    android:padding="8dp">
 
                     <ImageView
-                        android:id="@+id/fpimage_mytask"
+                        android:id="@+id/iv_school_notice"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        tools:src="@drawable/mytask" />
+                        android:src="@drawable/mytask" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -164,66 +116,28 @@
                         android:orientation="vertical"
                         android:padding="10dp">
 
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:id="@+id/tv_mytask"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textColor="@color/black_deep"
-                                android:textSize="14sp" />
-
-                            <FrameLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="4dp">
-
-                                <ImageView
-                                    android:id="@+id/iv_mytask"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:src="@drawable/unread_msg_1"
-                                    android:visibility="invisible" />
-
-                                <TextView
-                                    android:id="@+id/tv_mytaskNum"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:text="2"
-                                    android:textColor="@color/white"
-                                    android:textSize="12sp" />
-                            </FrameLayout>
-                        </LinearLayout>
-
                         <TextView
-                            android:id="@+id/my_task_subcontent"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="13sp"
-                            android:text="需要我完成的任务" />
+                            android:textSize="16sp"
+                            android:text="校园公告" />
                     </LinearLayout>
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/ll_publish_task"
+                    android:id="@+id/ll_school_intro"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/em_btn_bottom_selector_white"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp">
+                    android:padding="8dp">
 
                     <ImageView
-                        android:id="@+id/fpimage_publishtask"
+                        android:id="@+id/iv_school_intro"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        tools:src="@drawable/task" />
+                        android:src="@drawable/task" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -231,188 +145,43 @@
                         android:orientation="vertical"
                         android:padding="10dp">
 
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:id="@+id/tv_publishtask"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textColor="@color/black_deep"
-                                android:textSize="14sp" />
-
-                            <FrameLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="4dp">
-
-                                <ImageView
-                                    android:id="@+id/iv_publishtask"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:src="@drawable/unread_msg_2"
-                                    android:visibility="invisible" />
-
-                                <TextView
-                                    android:id="@+id/tv_publishtaskNum"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:text="13"
-                                    android:textColor="@color/white"
-                                    android:textSize="12sp" />
-                            </FrameLayout>
-                        </LinearLayout>
-
                         <TextView
-                            android:id="@+id/publish_task_subcontent"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="13sp"
-                            android:text="分配任务，逐一跟踪" />
+                            android:textSize="16sp"
+                            android:text="校园概况" />
                     </LinearLayout>
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/ll_unapply"
+                    android:id="@+id/ll_handing_guide"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/em_btn_bottom_selector_white"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp">
+                    android:padding="8dp">
 
                     <ImageView
-                        android:id="@+id/fpimage_waitdeal"
+                        android:id="@+id/iv_handing_guide"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        tools:src="@drawable/approval" />
+                        android:src="@drawable/approval" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:padding="10dp">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:id="@+id/tv_unapply"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textColor="@color/black_deep"
-                                android:textSize="14sp" />
-
-                            <FrameLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="4dp">
-
-                                <ImageView
-                                    android:id="@+id/iv_unapply"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:src="@drawable/unread_msg_3"
-                                    android:visibility="invisible" />
-
-                                <TextView
-                                    android:id="@+id/tv_unapplyNum"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:text="666"
-                                    android:textColor="@color/white"
-                                    android:textSize="12sp" />
-                            </FrameLayout>
-                        </LinearLayout>
 
                         <TextView
                             android:id="@+id/unapply_notice_subcontent"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="13sp"
-                            android:text="电脑维修、处方统计等各种申请" />
+                            android:textSize="16sp"
+                            android:text="办事指南" />
                     </LinearLayout>
                 </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/ll_my_apply"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/em_btn_bottom_selector_white"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp">
-
-                    <ImageView
-                        android:id="@+id/fpimage_myapprove"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        tools:src="@drawable/apply" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="10dp">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:id="@+id/tv_myapply"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textColor="@color/black_deep"
-                                android:textSize="14sp" />
-
-                            <FrameLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="4dp">
-
-                                <ImageView
-                                    android:id="@+id/iv_myapply"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:src="@drawable/unread_msg_4"
-                                    android:visibility="invisible" />
-
-                                <TextView
-                                    android:id="@+id/tv_myapplyNum"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:text="999+"
-                                    android:textColor="@color/white"
-                                    android:textSize="12sp" />
-                            </FrameLayout>
-                        </LinearLayout>
-
-                        <TextView
-                            android:id="@+id/my_apply_notice_subcontent"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="13sp"
-                            android:text="我提交的各项申请" />
-                    </LinearLayout>
-                </LinearLayout>
-
             </LinearLayout>
 
             <LinearLayout
@@ -438,99 +207,222 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="8dp"
-                        android:text="基础应用"
+                        android:text="个人"
                         android:textSize="12sp" />
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <ImageView
-                            android:id="@+id/iv_baseapp_arrow"
-                            android:layout_width="16dp"
-                            android:layout_height="8dp"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true"
-                            android:layout_marginRight="8dp"
-                            android:src="@drawable/down_arrow" />
-
-                    </RelativeLayout>
                 </LinearLayout>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dip"
                     android:background="@color/top_bottom_line" />
-
-                <com.wust.newsmartschool.utils.MyGridView
-                    android:id="@+id/baseappGV"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:numColumns="4"
-                    android:stretchMode="columnWidth"></com.wust.newsmartschool.utils.MyGridView>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@color/white"
-                android:orientation="vertical">
 
                 <LinearLayout
-                    android:id="@+id/usualapply_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:padding="16dp">
 
-                    <ImageView
+                    <LinearLayout
+                        android:id="@+id/ll_part_online"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/firstpage_rect_yellow" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp"
-                        android:text="常用申请"
-                        android:textSize="12sp" />
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:background="@drawable/em_btn_bottom_selector_white"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
 
                         <ImageView
-                            android:id="@+id/iv_usualapply_arrow"
-                            android:layout_width="16dp"
-                            android:layout_height="8dp"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true"
-                            android:layout_marginRight="8dp"
-                            android:src="@drawable/down_arrow" />
-                    </RelativeLayout>
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@drawable/chufang"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="8dp"
+                            android:text="部门在线"
+                            android:textSize="14sp"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_stu_home"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/em_btn_bottom_selector_white"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@drawable/chufang"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="8dp"
+                            android:text="学生之家"
+                            android:textSize="14sp"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_stu_service"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/em_btn_bottom_selector_white"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@drawable/chufang"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="8dp"
+                            android:text="校园服务"
+                            android:textSize="14sp"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_xuanke_pj"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/em_btn_bottom_selector_white"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@drawable/chufang"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="8dp"
+                            android:text="选课评教"
+                            android:textSize="14sp"/>
+
+                    </LinearLayout>
+
                 </LinearLayout>
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dip"
-                    android:background="@color/top_bottom_line" />
-
-                <com.wust.newsmartschool.utils.MyGridView
-                    android:id="@+id/usualapplyGV"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:numColumns="4"
-                    android:stretchMode="columnWidth">
+                    android:orientation="horizontal"
+                    android:padding="16dp">
 
-                </com.wust.newsmartschool.utils.MyGridView>
+                    <LinearLayout
+                        android:id="@+id/ll_book_service"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/em_btn_bottom_selector_white"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@drawable/chufang"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="8dp"
+                            android:text="图书服务"
+                            android:textSize="14sp"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:visibility="invisible"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@drawable/chufang"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="8dp"
+                            android:text="图书服务"
+                            android:textSize="14sp"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:visibility="invisible"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@drawable/chufang"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="8dp"
+                            android:text="图书服务"
+                            android:textSize="14sp"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:visibility="invisible"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@drawable/chufang"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="8dp"
+                            android:text="图书服务"
+                            android:textSize="14sp"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
             </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="20dp"
-                android:background="@color/common_bg"
-                android:orientation="vertical"></LinearLayout>
         </LinearLayout>
     </ScrollView>
 

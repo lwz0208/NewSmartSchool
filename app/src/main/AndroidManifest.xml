@@ -511,6 +511,12 @@
             </intent-filter>
         </receiver>
 
+        <activity
+            android:name=".ui.GradeActivity"
+            android:label="@string/title_activity_company" />
+        <activity
+            android:name=".ui.ProfessionalActivity"
+            android:label="@string/title_activity_company" />
         <activity android:name=".ui.ChooseAtPersonActivity" />
         <activity
             android:name=".ui.EditeTaskCommentActivity"
@@ -539,7 +545,77 @@
         <activity android:name=".ui.GroupMembersActivity" />
         <activity android:name=".ui.FeedbackActivity" />
         <activity android:name=".ui.HelpActivity" />
-        <activity android:name=".ui.LibSeatActivity"></activity>
+        <activity android:name=".ui.LibSeatActivity" />
+        <activity android:name=".ui.NewsListActivity" />
+        <activity android:name=".ui.NoticesActivity" />
+        <activity android:name=".ui.NoticesDetailActivity" />
+        <activity android:name=".ui.AboutSchoolActivity" />
+        <activity android:name=".ui.SchoolActivity" />
+        <activity android:name=".ui.SchoolLeaderActivity" />
+        <activity android:name=".ui.LeaderDetailActivity" />
+        <activity android:name=".ui.SchoolHistoryActivity" />
+        <activity android:name=".ui.SchoolAcademyActivity" />
+        <activity android:name=".ui.ToAcademyActivity" />
+        <activity android:name=".ui.SchoolManageActivity" />
+        <activity android:name=".ui.ToManageActivity" />
+        <activity android:name=".ui.BeautifulSchoolActivity" />
+        <activity android:name=".ui.PictureClickActivity" />
+        <activity android:name=".ui.ComprehensiveServiceActivity" />
+        <activity android:name=".ui.HjhDepartmentActivity" />
+        <activity android:name=".ui.HjhBusActivity" />
+        <activity android:name=".ui.SchoolBusDetailActivity" />
+        <activity android:name=".ui.CalendarActivity" />
+        <activity android:name=".ui.CalendarHolidayActivity" />
+        <activity android:name=".ui.AddressListActivity" />
+        <activity android:name=".ui.Security_Department_Activity" />
+        <activity android:name=".ui.Security_Department_detail_Activity" />
+        <activity android:name=".ui.StudentHomeActivity" />
+        <activity android:name=".ui.QualityDevelopActivity" />
+        <activity android:name=".ui.QualityActivity" />
+        <activity android:name=".ui.QualityDetialActivity" />
+        <activity android:name=".ui.DocumentActivity" />
+        <activity android:name=".ui.DocumentDetailActivity" />
+        <activity android:name=".ui.EmptyClassroom2Activity" />
+        <activity android:name=".ui.EmptyClassroomActivity" />
+        <activity android:name=".ui.PersonTimetableActivity" />
+
+        <activity android:name=".utils.StudentHomeDBHelper" />
+        <activity android:name=".ui.TimeTableDetailActivity" />
+        <activity android:name=".ui.PersonalGradeActivity" />
+        <activity android:name=".ui.GradeDetailActivity" />
+        <activity android:name=".ui.TrainingPlanActivity" />
+        <activity android:name=".ui.TrainningPlanDetail" />
+        <activity android:name=".ui.CostDetailActivity" />
+        <activity android:name=".ui.JobInformationActivity" />
+        <activity android:name=".ui.JobMessageActivity" />
+        <activity android:name=".ui.JobMessageDetailActivity" />
+        <activity android:name=".ui.RecruitmentActivity" />
+        <activity android:name=".ui.RecruitmentMessageDetail" />
+        <activity android:name=".ui.PsychologyConsultingActivity" />
+        <activity android:name=".ui.Psy_ExpertIntroduceActivity" />
+        <activity android:name=".ui.Psy_MyAppointmentActivity" />
+        <activity android:name=".ui.Psy_DirectAppointActivity" />
+        <activity android:name=".ui.SchoolServiceActivity" />
+        <activity android:name=".ui.MealActivity" />
+        <activity android:name=".ui.SelectActivity" />
+        <activity android:name=".ui.HaveSelectActivity" />
+        <activity android:name=".ui.CourseListActivity" />
+        <activity android:name=".ui.NoSelectActivity" />
+        <activity android:name=".ui.StudentSelectActivity" />
+
+        <activity android:name=".ui.HavePjActivity" />
+        <activity android:name=".ui.DetailPJActivity" />
+
+        <activity android:name=".ui.PjList1Activity" />
+
+        <activity android:name=".ui.PjActivity" />
+        <activity android:name=".ui.DepartOnlineActivity" />
+
+        <activity android:name=".utils.Constants">
+
+
+        </activity>
+
     </application>
 
 </manifest>

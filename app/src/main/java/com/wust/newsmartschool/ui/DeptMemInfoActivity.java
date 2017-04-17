@@ -2,7 +2,6 @@ package com.wust.newsmartschool.ui;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
@@ -17,19 +16,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.google.gson.Gson;
+import com.hyphenate.chat.EMClient;
+import com.hyphenate.exceptions.HyphenateException;
+import com.wust.easeui.Constant;
+import com.wust.easeui.domain.EaseUser;
+import com.wust.easeui.utils.PreferenceManager;
+import com.wust.easeui.widget.GlideCircleImage;
 import com.wust.newsmartschool.DemoHelper;
 import com.wust.newsmartschool.R;
 import com.wust.newsmartschool.db.UserDao;
 import com.wust.newsmartschool.domain.UserInfoEntity;
 import com.wust.newsmartschool.views.ECProgressDialog;
-import com.wust.easeui.Constant;
-import com.wust.easeui.domain.EaseUser;
-import com.wust.easeui.utils.CommonUtils;
-import com.wust.easeui.utils.PreferenceManager;
-import com.wust.easeui.widget.GlideCircleImage;
-import com.google.gson.Gson;
-import com.hyphenate.chat.EMClient;
-import com.hyphenate.exceptions.HyphenateException;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
@@ -57,8 +55,6 @@ public class DeptMemInfoActivity extends BaseActivity implements
     private TextView roleName;
     private TextView username_type;
     private TextView deptinfo_company;
-    private ImageView deptmem_callphone;
-    private ImageView sendshortmessage;
     private ImageView head_imag_mem;
     private ECProgressDialog pd;
     private LinearLayout ll_sentmessage;
@@ -85,16 +81,12 @@ public class DeptMemInfoActivity extends BaseActivity implements
         deptmem_jobtitle = (TextView) findViewById(R.id.deptmem_jobtitle);
         username_type = (TextView) findViewById(R.id.username_type);
         deptmem_dept = (TextView) findViewById(R.id.deptmem_dept);
-        deptmem_callphone = (ImageView) findViewById(R.id.deptmem_callphone);
-        sendshortmessage = (ImageView) findViewById(R.id.sendshortmessage);
         head_imag_mem = (ImageView) findViewById(R.id.head_imag_mem);
         btn_addfriends = (Button) findViewById(R.id.btn_addfriends);
         deptmem_gender = (TextView) findViewById(R.id.deptmem_gender);
         deptinfo_company = (TextView) findViewById(R.id.deptinfo_company);
         roleName = (TextView) findViewById(R.id.roleName);
         ll_sentmessage = (LinearLayout) findViewById(R.id.ll_sentmessage);
-        deptmem_callphone.setOnClickListener(this);
-        sendshortmessage.setOnClickListener(this);
         btn_addfriends.setOnClickListener(this);
         userInfoEntity = new UserInfoEntity();
 
@@ -119,20 +111,13 @@ public class DeptMemInfoActivity extends BaseActivity implements
             if (isFriend) {
                 btn_addfriends.setVisibility(View.GONE);
             } else {
-                deptmem_callphone.setVisibility(View.GONE);
-                sendshortmessage.setVisibility(View.GONE);
                 rl_bottom.setVisibility(View.INVISIBLE);
             }
             //判断是不是自己，如果是自己去掉打电话和发送消息（ps不能给自己打电话吧，更不能给自己发消息吧）
             if (userId.equals(PreferenceManager.getInstance().getCurrentUserId())) {
                 rl_bottom.setVisibility(View.INVISIBLE);
-                deptmem_callphone.setVisibility(View.GONE);
-                sendshortmessage.setVisibility(View.GONE);
                 btn_addfriends.setVisibility(View.GONE);
                 ll_sentmessage.setVisibility(View.GONE);
-//                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-//                layoutParams.setMargins(0, 45, 0, 0);//4个参数按顺序分别是左上右下
-//                up_scrollview.setLayoutParams(layoutParams);
             }
             pd.show();
             try {
@@ -170,8 +155,7 @@ public class DeptMemInfoActivity extends BaseActivity implements
     /* 获取个人信息 */
     public void getClickUserInfo() throws FileNotFoundException, JSONException {
         JSONObject phone = new JSONObject();
-        phone.put("userId", userId);
-        CommonUtils.setCommonJson(DeptMemInfoActivity.this, phone, PreferenceManager.getInstance().getCurrentUserFlowSId());
+        phone.put("id", userId);
         Log.i("getClickUserInfo", phone.toString());
         OkHttpUtils.postString().url(Constant.USERINFO_URL)
                 .content(phone.toString())
@@ -192,12 +176,16 @@ public class DeptMemInfoActivity extends BaseActivity implements
                                     deptinfo_company.setText("武汉科技大学");
                                     deptmem_realname.setText(userInfoEntity
                                             .getData().getName());
-
                                     deptmem_dept.setText(userInfoEntity.getData()
                                             .getCollegeName());
-
+                                    deptmem_phone.setText(userInfoEntity.getData().getId());
                                     deptmem_gender.setText(userInfoEntity.getData().getSex());
-
+                                    deptmem_jobtitle.setText(userInfoEntity.getData().getClassName());
+                                    if (userInfoEntity.getData().getStudentType() == 0)
+                                        roleName.setText("本科生");
+                                    else if (userInfoEntity.getData().getStudentType() == 1)
+                                        roleName.setText("研究生");
+                                    else roleName.setText("其他");
                                 }
 
 
@@ -208,8 +196,6 @@ public class DeptMemInfoActivity extends BaseActivity implements
 
                             }
                         } catch (Exception e) {
-                            deptmem_callphone.setVisibility(View.GONE);
-                            sendshortmessage.setVisibility(View.GONE);
                             ll_sentmessage.setVisibility(View.GONE);
                             btn_addfriends.setVisibility(View.GONE);
                             showToastShort("好友信息获取失败");
@@ -227,8 +213,6 @@ public class DeptMemInfoActivity extends BaseActivity implements
                     @Override
                     public void onError(Call arg0, Exception arg1) {
                         Log.e(TAG, arg0.toString() + "///" + arg1.toString());
-                        deptmem_callphone.setVisibility(View.GONE);
-                        sendshortmessage.setVisibility(View.GONE);
                         btn_addfriends.setVisibility(View.GONE);
                         ll_sentmessage.setVisibility(View.GONE);
                         runOnUiThread(new Runnable() {
@@ -245,30 +229,12 @@ public class DeptMemInfoActivity extends BaseActivity implements
     public void onClick_SentInfo(View view) {
         if (!userId.equals(PreferenceManager.getInstance().getCurrentUserId())) {
             //此处逻辑是：是好友的话就直接聊天，不是的话就先判断对方是不是开启了那个不接受非好友消息的设置，如果开启了那就不能发送，如果没有开启那就可以把消息给发送过去
-            if (isFriend) {
-                startActivity(new Intent(getApplicationContext(),
-                        ChatActivity.class).putExtra("userId", userId));
-                if (android.os.Build.VERSION.SDK_INT > 5) {
-                    overridePendingTransition(R.anim.slide_in_from_right,
-                            R.anim.slide_out_to_left);
-                }
+            startActivity(new Intent(getApplicationContext(),
+                    ChatActivity.class).putExtra("userId", userId));
+            if (android.os.Build.VERSION.SDK_INT > 5) {
+                overridePendingTransition(R.anim.slide_in_from_right,
+                        R.anim.slide_out_to_left);
             }
-//            else {
-//                if (userInfoEntity.getData().getReceiveStatus() == 0) {
-//                    startActivity(new Intent(getApplicationContext(),
-//                            ChatActivity.class).putExtra("userId", userId));
-//                    if (android.os.Build.VERSION.SDK_INT > 5) {
-//                        overridePendingTransition(R.anim.slide_in_from_right,
-//                                R.anim.slide_out_to_left);
-//                    }
-//                } else {
-//                    Toast.makeText(DeptMemInfoActivity.this, "对方设置了只接受好友消息",
-//                            Toast.LENGTH_SHORT).show();
-//                }
-//            }
-        } else if (userId.equals(PreferenceManager.getInstance().getCurrentUserId())) {
-            Toast.makeText(DeptMemInfoActivity.this, "您不能与自己聊天",
-                    Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -287,26 +253,7 @@ public class DeptMemInfoActivity extends BaseActivity implements
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.deptmem_callphone:
-                if (Phone.equals("")) {
-                    showToastShort("不是有效的号码");
-                } else {
-                    Intent intent = new Intent();
-                    intent.setAction(Intent.ACTION_CALL);
-                    intent.setData(Uri.parse("tel:" + Phone));
-                    startActivity(intent);
-                }
-                break;
-            case R.id.sendshortmessage:
-                if (Phone.equals("")) {
-                    showToastShort("不是有效的号码");
-                } else {
-                    Uri uri = Uri.parse("smsto:" + Phone);
-                    Intent sendIntent = new Intent(Intent.ACTION_VIEW, uri);
-                    sendIntent.putExtra("sms_body", "");
-                    startActivity(sendIntent);
-                }
-                break;
+
             case R.id.btn_addfriends:
                 new android.app.AlertDialog.Builder(DeptMemInfoActivity.this)
                         .setMessage("你确定要加对方为好友吗？")

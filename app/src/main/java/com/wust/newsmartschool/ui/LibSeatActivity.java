@@ -32,6 +32,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -65,15 +66,14 @@ import okhttp3.Call;
 import okhttp3.MediaType;
 
 
-public class LibSeatActivity extends AppCompatActivity
-{
+public class LibSeatActivity extends AppCompatActivity {
     private View view1, view2, view3, view4;//需要滑动的页卡
     private TabLayout mTabLayout;
     private ViewPager viewPager;//viewpager
     private List<View> viewList;//把需要滑动的页卡添加到这个list中
     private List<String> titleList;//viewpager的标题
 
-    private Toolbar toolbar;
+    private ImageView scanIcon;
     private MyListView appoCenterListView;
     private List<AppoCenterItem> appoCenterLists;
 
@@ -97,38 +97,34 @@ public class LibSeatActivity extends AppCompatActivity
     private HashMap<String, String> resultsMap;
 
     String[] campus = {
-            "黄家湖校区", "青山校区" };
+            "黄家湖校区", "青山校区"};
     String[] campusId = {
-            "1", "0" };
+            "1", "0"};
     String[] huangRooms = {
             "请选择", "南三(社会科学阅览室)", "南四(工程技术阅览室)", "南五(基础科学阅览室)", "南六(政法经管阅览室)",
-            "北三(建筑,艺术阅览室)", "北四(生物,医药阅览室)", "期刊(阅览室)" };
+            "北三(建筑,艺术阅览室)", "北四(生物,医药阅览室)", "期刊(阅览室)"};
     String[] huangRoomsId = {
             "0", "1", "2", "3", "4",
-            "5", "6", "8" };
+            "5", "6", "8"};
     String[] qingRooms = {
-            "请选择", "一楼阅览室", "三楼阅览室", "四楼阅览室", "五楼阅览室", "六楼阅览室" };
+            "请选择", "一楼阅览室", "三楼阅览室", "四楼阅览室", "五楼阅览室", "六楼阅览室"};
     String[] qingRoomsId = {
             "10", "11", "13", "14",
-            "15", "16" };
+            "15", "16"};
 
     @SuppressLint("HandlerLeak")
-    Handler handler = new Handler()
-    {
+    Handler handler = new Handler() {
         @Override
-        public void handleMessage(Message msg)
-        {
-            switch (msg.what)
-            {
-                case 0:	// 高级预约预约功能
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case 0:    // 高级预约预约功能
                 {
                     String obj = (String) msg.obj;
                     if (TextUtils.isEmpty(obj))
                         Toast.makeText(getApplicationContext(), "网络错误，请检查网络", Toast.LENGTH_SHORT).show();
                     else {
                         obj = resultsMap.get(obj);
-                        if (!obj.contains("Sorry"))
-                        {
+                        if (!obj.contains("Sorry")) {
                             viewPager.setCurrentItem(0);
                             new GetAppoInfo(GlobalVar.userid).execute();
                         }
@@ -141,8 +137,7 @@ public class LibSeatActivity extends AppCompatActivity
                 {
                     stopAnim();
                     String obj = (String) msg.obj;
-                    if (TextUtils.isEmpty(obj))
-                    {
+                    if (TextUtils.isEmpty(obj)) {
                         resultTextView.setText("网络错误，请检查网络");
                         Toast.makeText(getApplicationContext(), "网络错误，请检查网络", Toast.LENGTH_SHORT).show();
                         seatGridView.setVisibility(View.INVISIBLE);
@@ -156,8 +151,7 @@ public class LibSeatActivity extends AppCompatActivity
                     String[] results = obj.split("#");
                     results[0] = "剩余" + results[0] + "个空闲座位\n共有" + results[1] + "个座位";
                     resultTextView.setText(results[0]);
-                    if (emptySeatsJSONArray.length() != 0)
-                    {
+                    if (emptySeatsJSONArray.length() != 0) {
                         lists = new ArrayList<>();
                         //不知道什么原因，获取空座位的接口返回的座位最后一位是空，所以长度取到前一位即可
                         for (int i = 0; i < emptySeatsJSONArray.length() - 1; i++)
@@ -177,8 +171,7 @@ public class LibSeatActivity extends AppCompatActivity
                 case 2: // 一键预约
                 {
                     String obj = (String) msg.obj;
-                    if (TextUtils.isEmpty(obj))
-                    {
+                    if (TextUtils.isEmpty(obj)) {
                         onekeyAppoResultTextView.setText("网络错误，请检查网络");
                         Toast.makeText(getApplicationContext(), "网络错误，请检查网络", Toast.LENGTH_SHORT).show();
                         return;
@@ -187,8 +180,7 @@ public class LibSeatActivity extends AppCompatActivity
                         String campu = obj.split("#")[0];
                         String room = obj.split("#")[1];
 
-                        switch (room.length())
-                        {
+                        switch (room.length()) {
                             case 1:
                                 room = "00" + room;
                                 break;
@@ -201,12 +193,12 @@ public class LibSeatActivity extends AppCompatActivity
                                 break;
                         }
 
-                        if(Integer.parseInt(campu) <= 8) {
-                            if(Integer.parseInt(campu) == 8)
+                        if (Integer.parseInt(campu) <= 8) {
+                            if (Integer.parseInt(campu) == 8)
                                 campu = "7";
                             onekeyAppoResultTextView.setText(huangRooms[Integer.parseInt(campu)] + "第" + room + "号座位");
                         } else {
-                            if(Integer.parseInt(campu) == 11)
+                            if (Integer.parseInt(campu) == 11)
                                 campu = "12";
                             onekeyAppoResultTextView.setText(qingRooms[Integer.parseInt(campu) - 11] + "第" + room + "号座位");
                         }
@@ -222,7 +214,7 @@ public class LibSeatActivity extends AppCompatActivity
                 }
                 break;
 
-                case 3:	// 信息中心
+                case 3:    // 信息中心
                 {
                     if (appoCenterLists.size() == 0)
                         Toast.makeText(LibSeatActivity.this, "无信息", Toast.LENGTH_SHORT).show();
@@ -232,11 +224,10 @@ public class LibSeatActivity extends AppCompatActivity
                 }
                 break;
 
-                case 4:	// 取消预约
+                case 4:    // 取消预约
                 {
                     String obj = (String) msg.obj;
-                    if (TextUtils.isEmpty(obj))
-                    {
+                    if (TextUtils.isEmpty(obj)) {
                         Toast.makeText(LibSeatActivity.this, "网络错误，请检查网络", Toast.LENGTH_SHORT).show();
                         return;
                     } else {
@@ -252,15 +243,13 @@ public class LibSeatActivity extends AppCompatActivity
     };
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lib_seat);
         initView();
     }
 
-    private void initView()
-    {
+    private void initView() {
         resultsMap = new HashMap<String, String>();
         resultsMap.put("slow", "Sorry，下手太慢");
         resultsMap.put("had occupied", "Sorry，你正在使用一个座位");
@@ -273,21 +262,15 @@ public class LibSeatActivity extends AppCompatActivity
         isRefreshOnewkey = false;
         isAdmin = getIntent().getBooleanExtra("isAdmin", false);
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+        scanIcon = (ImageView) findViewById(R.id.toolbar);
+        scanIcon.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                switch (item.getItemId()){
-                    case R.id.action_scan:
-                        Intent intent = new Intent(LibSeatActivity.this, CaptureActivity.class);
-                        startActivityForResult(intent,0);
-                        break;
-                }
-                return true;
+            public void onClick(View v) {
+                Intent intent = new Intent(LibSeatActivity.this, CaptureActivity.class);
+                startActivityForResult(intent, 0);
             }
         });
+
 
         mTabLayout = (TabLayout) findViewById(R.id.tabs);
         viewPager = (ViewPager) findViewById(R.id.viewpager);
@@ -318,26 +301,23 @@ public class LibSeatActivity extends AppCompatActivity
         mTabLayout.setTabsFromPagerAdapter(mAdapter);//给Tabs设置适配器
         viewPager.setCurrentItem(1);
 
-        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener()
-        {
+        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
-            public void onPageSelected(int arg0)
-            {
-                switch (arg0)
-                {
+            public void onPageSelected(int arg0) {
+                switch (arg0) {
                     case 0:
                         new GetAppoInfo(GlobalVar.userid).execute();
                         break;
                     case 1:
-                        if(isRefreshOnewkey)
+                        if (isRefreshOnewkey)
                             onekeyAppoResultTextView.setText("");
                         break;
                     case 2:
-                        if(campusSpinner.getSelectedItem().toString().equals("黄家湖校区")) {
-                            if(!(roomSpinner.getSelectedItem().toString().equals("请选择")))
+                        if (campusSpinner.getSelectedItem().toString().equals("黄家湖校区")) {
+                            if (!(roomSpinner.getSelectedItem().toString().equals("请选择")))
                                 new GetDataTask(huangRoomsId[roomSpinner.getSelectedItemPosition()]).execute();
                         } else {
-                            if(!(roomSpinner.getSelectedItem().toString().equals("请选择")))
+                            if (!(roomSpinner.getSelectedItem().toString().equals("请选择")))
                                 new GetDataTask(qingRoomsId[roomSpinner.getSelectedItemPosition()]).execute();
                         }
 
@@ -346,14 +326,12 @@ public class LibSeatActivity extends AppCompatActivity
             }
 
             @Override
-            public void onPageScrolled(int arg0, float arg1, int arg2)
-            {
+            public void onPageScrolled(int arg0, float arg1, int arg2) {
 
             }
 
             @Override
-            public void onPageScrollStateChanged(int arg0)
-            {
+            public void onPageScrollStateChanged(int arg0) {
 
             }
         });
@@ -390,36 +368,29 @@ public class LibSeatActivity extends AppCompatActivity
     /**
      * 信息中心
      */
-    private void initAppoCenter()
-    {
+    private void initAppoCenter() {
         appoCenterListView = (MyListView) view1.findViewById(R.id.lv_appoint_center);
         appoCenterListView.setPullLoadEnable(false);
         new GetAppoInfo(GlobalVar.userid).execute();
 
-        appoCenterListView.setXListViewListener(new MyListView.IXListViewListener()
-        {
+        appoCenterListView.setXListViewListener(new MyListView.IXListViewListener() {
             @Override
-            public void onRefresh()
-            {
+            public void onRefresh() {
                 new GetAppoInfo(GlobalVar.userid).execute();
             }
 
             @Override
-            public void onLoadMore()
-            {
+            public void onLoadMore() {
 
             }
         });
 
-        appoCenterListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener()
-        {
+        appoCenterListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id)
-            {
+            public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
                 if (position == 1) {
                     final AppoCenterItem item = appoCenterLists.get(appoCenterLists.size() - position);
-                    if (item.getOldAction().equals("1"))
-                    {
+                    if (item.getOldAction().equals("1")) {
                         AlertDialog.Builder builder = new AlertDialog.Builder(LibSeatActivity.this);
                         builder.setTitle("取消预约");
                         builder.setMessage("是否取消预约" + item.getRoom() + "第" + item.getSeat()
@@ -452,7 +423,9 @@ public class LibSeatActivity extends AppCompatActivity
                                 } catch (Exception exception) {
                                     Toast.makeText(LibSeatActivity.this, "Sorry~出现未知错误", Toast.LENGTH_SHORT).show();
                                 }
-                            };
+                            }
+
+                            ;
                         }).setNegativeButton("保留预约", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
@@ -499,10 +472,10 @@ public class LibSeatActivity extends AppCompatActivity
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 AppoCenterItem item = appoCenterLists.get(appoCenterLists.size() - position);
-                if (position == 1 && (item.getOldAction().equals("1") || item.getOldAction().equals("2") || item.getOldAction().equals("6")|| item.getOldAction().equals("7") ||item.getOldAction().equals("8"))) {
+                if (position == 1 && (item.getOldAction().equals("1") || item.getOldAction().equals("2") || item.getOldAction().equals("6") || item.getOldAction().equals("7") || item.getOldAction().equals("8"))) {
                     Intent intent = new Intent(LibSeatActivity.this, CaptureActivity.class);
 //					intent.putExtra("isAdmin", isAdmin);
-                    startActivityForResult(intent,0);
+                    startActivityForResult(intent, 0);
                 }
             }
         });
@@ -511,8 +484,7 @@ public class LibSeatActivity extends AppCompatActivity
     /**
      * 高级预约
      */
-    private void initAdvancedAppo()
-    {
+    private void initAdvancedAppo() {
         ArrayAdapter<String> campusAdapter;
         campusSpinner = (Spinner) view3.findViewById(R.id.spinner_campus);
         roomSpinner = (Spinner) view3.findViewById(R.id.spinner_room);
@@ -533,7 +505,7 @@ public class LibSeatActivity extends AppCompatActivity
                 int position = roomSpinner.getSelectedItemPosition();
                 if (position == 0) {
                     stopAnim();
-                    return ;
+                    return;
                 }
                 String campus = campusId[campusSpinner.getSelectedItemPosition()];
                 String room = null;
@@ -547,13 +519,10 @@ public class LibSeatActivity extends AppCompatActivity
         });
 
 
-
-        campusSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
-        {
+        campusSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view,
-                                       int position, long id)
-            {
+                                       int position, long id) {
                 stopAnim();
                 if (position == 0) {
                     roomAdapter = new ArrayAdapter<String>(LibSeatActivity.this,
@@ -570,17 +539,14 @@ public class LibSeatActivity extends AppCompatActivity
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> parent)
-            {
+            public void onNothingSelected(AdapterView<?> parent) {
 
             }
         });
 
-        roomSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
-        {
+        roomSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
-            {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 stopAnim();
                 String campus = campusId[campusSpinner.getSelectedItemPosition()];
                 String room = null;
@@ -592,23 +558,20 @@ public class LibSeatActivity extends AppCompatActivity
                 if (position == 0) {
                     resultTextView.setText("请选择阅览室");
                     seatGridView.setVisibility(View.INVISIBLE);
-                    return ;
+                    return;
                 }
                 new GetDataTask(room).execute();
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> parent)
-            {
+            public void onNothingSelected(AdapterView<?> parent) {
 
             }
         });
 
-        seatGridView.setOnItemClickListener(new AdapterView.OnItemClickListener()
-        {
+        seatGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id)
-            {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String campus = campusId[campusSpinner.getSelectedItemPosition()];
                 String room = null;
                 if (campus.equals("1"))
@@ -624,8 +587,7 @@ public class LibSeatActivity extends AppCompatActivity
     /**
      * 初始化一键预约组件
      */
-    private void initOneKeyAppo()
-    {
+    private void initOneKeyAppo() {
         TextView messageTextView = (TextView) view2.findViewById(R.id.tv_message_tip);
         String messageText = messageTextView.getText().toString();
         int start = messageText.indexOf("高级预约");
@@ -635,11 +597,9 @@ public class LibSeatActivity extends AppCompatActivity
         builder.setSpan(blueSpan, start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         messageTextView.setText(builder);
 
-        messageTextView.setOnClickListener(new View.OnClickListener()
-        {
+        messageTextView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 viewPager.setCurrentItem(2);
             }
         });
@@ -660,19 +620,14 @@ public class LibSeatActivity extends AppCompatActivity
         campusAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         campusSpinner1.setAdapter(campusAdapter);
 
-        campusSpinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
-        {
+        campusSpinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view,
-                                       int position, long id)
-            {
-                if (position == 0)
-                {
+                                       int position, long id) {
+                if (position == 0) {
                     roomAdapter = new ArrayAdapter<String>(LibSeatActivity.this,
                             android.R.layout.simple_spinner_item, huangRooms);
-                }
-                else
-                {
+                } else {
                     roomAdapter = new ArrayAdapter<String>(LibSeatActivity.this,
                             android.R.layout.simple_spinner_item, qingRooms);
                     //onekeyAppoResultTextView.setText("青山校区暂时不可用");
@@ -684,21 +639,20 @@ public class LibSeatActivity extends AppCompatActivity
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> parent) {}
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
         });
 
-        onekeyAppoButton.setOnClickListener(new View.OnClickListener()
-        {
+        onekeyAppoButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
-                if(roomSpinner1.getSelectedItem().toString().equals("请选择")) {
+            public void onClick(View v) {
+                if (roomSpinner1.getSelectedItem().toString().equals("请选择")) {
                     onekeyAppoResultTextView.setText("请选择阅览室");
                     return;
                 }
 
                 String room;
-                if(campusSpinner1.getSelectedItemPosition() == 0)
+                if (campusSpinner1.getSelectedItemPosition() == 0)
                     room = huangRoomsId[roomSpinner1.getSelectedItemPosition()];
                 else
                     room = qingRoomsId[roomSpinner1.getSelectedItemPosition()];
@@ -713,11 +667,9 @@ public class LibSeatActivity extends AppCompatActivity
 
     }
 
-    protected void showAppointDialog(final String campus, final String room, final String seat)
-    {
+    protected void showAppointDialog(final String campus, final String room, final String seat) {
         String seatString = seat.substring(0, seat.length());
-        switch (seatString.length())
-        {
+        switch (seatString.length()) {
             case 1:
                 seatString = "00" + seatString;
                 break;
@@ -735,7 +687,9 @@ public class LibSeatActivity extends AppCompatActivity
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 new GetDataTask(room, seat, GlobalVar.userid).execute();
-            };
+            }
+
+            ;
         }).setNegativeButton("取消", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -761,39 +715,34 @@ public class LibSeatActivity extends AppCompatActivity
 
     /**
      * @author Yorek
-     * type = 1 查询座位, type = 0 预约座位, type = 2 一键预约, type = 4 取消预约
+     *         type = 1 查询座位, type = 0 预约座位, type = 2 一键预约, type = 4 取消预约
      */
-    private class GetDataTask extends AsyncTask<Void, Void, String>
-    {
+    private class GetDataTask extends AsyncTask<Void, Void, String> {
         private String room;
         private String seat;
         private String stuNum;
         private int type;
         private int pot;
 
-        public GetDataTask(String roomId)
-        {
+        public GetDataTask(String roomId) {
             room = roomId;
             type = 1;
         }
 
-        public GetDataTask(String roomId, String stuNum)
-        {
+        public GetDataTask(String roomId, String stuNum) {
             room = roomId;
             this.stuNum = stuNum;
             type = 2;
         }
 
-        public GetDataTask(String roomId, String seatId, String stuNum)
-        {
+        public GetDataTask(String roomId, String seatId, String stuNum) {
             room = roomId;
             seat = seatId;
             this.stuNum = stuNum;
             this.type = 0;
         }
 
-        public GetDataTask(String roomId, String seatId, String stuNum, int pot)
-        {
+        public GetDataTask(String roomId, String seatId, String stuNum, int pot) {
             room = roomId;
             seat = seatId;
             this.stuNum = stuNum;
@@ -802,11 +751,9 @@ public class LibSeatActivity extends AppCompatActivity
         }
 
         @Override
-        protected String doInBackground(Void... params)
-        {
+        protected String doInBackground(Void... params) {
             String result = null;
-            switch (type)
-            {
+            switch (type) {
                 case 0:
                     result = doAppoint();
                     break;
@@ -832,8 +779,7 @@ public class LibSeatActivity extends AppCompatActivity
         }
 
         @Override
-        protected void onPostExecute(String result)
-        {
+        protected void onPostExecute(String result) {
 
             Message message = Message.obtain();
             message.what = type;
@@ -845,12 +791,10 @@ public class LibSeatActivity extends AppCompatActivity
         }
 
         //空闲座位查询
-        private String getEmptySeat()
-        {
+        private String getEmptySeat() {
             String list = null;
 
-            try
-            {
+            try {
                 URL url = new URL(URL_UNIVERSAL.URL_EMPTY_SEAT + "?room=" + room);
                 HttpURLConnection connection = (HttpURLConnection) url
                         .openConnection();
@@ -858,8 +802,7 @@ public class LibSeatActivity extends AppCompatActivity
                 connection.setConnectTimeout(3000);
                 int responseCode = connection.getResponseCode();
 
-                if (responseCode == 200)
-                {
+                if (responseCode == 200) {
                     InputStream is = connection.getInputStream();
                     String result = StreamTools.readFromStream(is);
 
@@ -875,9 +818,7 @@ public class LibSeatActivity extends AppCompatActivity
 
                     return list;
                 }
-            }
-            catch (Exception exception)
-            {
+            } catch (Exception exception) {
 
             }
 
@@ -885,11 +826,9 @@ public class LibSeatActivity extends AppCompatActivity
         }
 
         //高级预约
-        private String doAppoint()
-        {
+        private String doAppoint() {
             String list = null;
-            try
-            {
+            try {
                 URL url = new URL(URL_UNIVERSAL.URL_ADVANCED_RESERVE + "?room=" + room + "&seatid=" + seat + "&stunum=" + stuNum);
                 HttpURLConnection connection = (HttpURLConnection) url
                         .openConnection();
@@ -897,8 +836,7 @@ public class LibSeatActivity extends AppCompatActivity
                 connection.setConnectTimeout(3000);
                 int responseCode = connection.getResponseCode();
 
-                if (responseCode == 200)
-                {
+                if (responseCode == 200) {
                     InputStream is = connection.getInputStream();
                     String result = StreamTools.readFromStream(is);
 
@@ -910,8 +848,7 @@ public class LibSeatActivity extends AppCompatActivity
                     Log.i("reserve status", "高级预约：" + queryResult);
                     return queryResult;
                 }
-            }
-            catch (Exception exception) {
+            } catch (Exception exception) {
 
             }
 
@@ -919,12 +856,10 @@ public class LibSeatActivity extends AppCompatActivity
         }
 
         //一键预约
-        private String onekeyAppo()
-        {
+        private String onekeyAppo() {
             String list = null;
 
-            try
-            {
+            try {
                 URL url = new URL(URL_UNIVERSAL.URL_ONEKEY_RESERVE + "?room=" + room + "&stunum=" + stuNum);
                 HttpURLConnection connection = (HttpURLConnection) url
                         .openConnection();
@@ -932,8 +867,7 @@ public class LibSeatActivity extends AppCompatActivity
                 connection.setConnectTimeout(3000);
                 int responseCode = connection.getResponseCode();
 
-                if (responseCode == 200)
-                {
+                if (responseCode == 200) {
                     InputStream is = connection.getInputStream();
                     String result = StreamTools.readFromStream(is);
 
@@ -945,9 +879,7 @@ public class LibSeatActivity extends AppCompatActivity
                     Log.i("reserve status", "一键预约：" + queryResult);
                     return queryResult;
                 }
-            }
-            catch (Exception exception)
-            {
+            } catch (Exception exception) {
 
             }
 
@@ -955,11 +887,9 @@ public class LibSeatActivity extends AppCompatActivity
         }
 
         //取消预约
-        private String cancelAppo()
-        {
+        private String cancelAppo() {
             String list = null;
-            try
-            {
+            try {
                 URL url = new URL(URL_UNIVERSAL.URL_CANCEL_RESERVE + "?&room=" + room + "&seatid=" + seat + "&stunum=" + stuNum + "&type=" + pot);
 
                 HttpURLConnection connection = (HttpURLConnection) url
@@ -968,8 +898,7 @@ public class LibSeatActivity extends AppCompatActivity
                 connection.setConnectTimeout(3000);
                 int responseCode = connection.getResponseCode();
 
-                if (responseCode == 200)
-                {
+                if (responseCode == 200) {
                     InputStream is = connection.getInputStream();
                     String result = StreamTools.readFromStream(is);
 
@@ -980,9 +909,7 @@ public class LibSeatActivity extends AppCompatActivity
                     Log.i("reserve status", "取消预约：" + queryResult);
                     return queryResult;
                 }
-            }
-            catch (Exception exception)
-            {
+            } catch (Exception exception) {
 
             }
 
@@ -990,26 +917,22 @@ public class LibSeatActivity extends AppCompatActivity
         }
     }
 
-    private class GetAppoInfo extends AsyncTask<Void, Void, List<AppoCenterItem>>
-    {
+    private class GetAppoInfo extends AsyncTask<Void, Void, List<AppoCenterItem>> {
         private String stuNum;
 
-        public GetAppoInfo(String stuNum)
-        {
+        public GetAppoInfo(String stuNum) {
             this.stuNum = stuNum;
         }
 
         @Override
-        protected List<AppoCenterItem> doInBackground(Void... params)
-        {
+        protected List<AppoCenterItem> doInBackground(Void... params) {
             List<AppoCenterItem> result = getAppoInfo();
 
             return result;
         }
 
         @Override
-        protected void onPostExecute(List<AppoCenterItem> list)
-        {
+        protected void onPostExecute(List<AppoCenterItem> list) {
             Message message = Message.obtain();
             message.what = 3;
             appoCenterLists = list;
@@ -1020,12 +943,10 @@ public class LibSeatActivity extends AppCompatActivity
         }
 
         //信息中心
-        private List<AppoCenterItem> getAppoInfo()
-        {
+        private List<AppoCenterItem> getAppoInfo() {
             List<AppoCenterItem> list = new ArrayList<AppoCenterItem>();
 
-            try
-            {
+            try {
                 URL url = new URL(URL_UNIVERSAL.URL_INFORMATION_CENTER + "?stunum=" + stuNum);
                 HttpURLConnection connection = (HttpURLConnection) url
                         .openConnection();
@@ -1033,14 +954,12 @@ public class LibSeatActivity extends AppCompatActivity
                 connection.setConnectTimeout(3000);
                 int responseCode = connection.getResponseCode();
 
-                if (responseCode == 200)
-                {
+                if (responseCode == 200) {
                     InputStream is = connection.getInputStream();
                     String result = StreamTools.readFromStream(is);
 
                     JSONArray jsonArray = new JSONArray(result);
-                    for (int i = 0; i < jsonArray.length(); i++)
-                    {
+                    for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject jsonObject = jsonArray.optJSONObject(i);
                         AppoCenterItem appoCenterItem = new AppoCenterItem();
                         appoCenterItem.setRoom(jsonObject.optString("room"));
@@ -1049,24 +968,23 @@ public class LibSeatActivity extends AppCompatActivity
                         appoCenterItem.setTime(jsonObject.optString("time"));
                         appoCenterItem.setClickable(jsonObject.optString("type").equals("0") ? true : false);
                         list.add(appoCenterItem);
-                        if(i == jsonArray.length()-1) {
-                            if(jsonObject.optString("action").equals("2") || jsonObject.optString("action").equals("8")) {
+                        if (i == jsonArray.length() - 1) {
+                            if (jsonObject.optString("action").equals("2") || jsonObject.optString("action").equals("8")) {
                                 scanRoom = jsonObject.optString("room");
                                 scanSeat = jsonObject.optString("seatid");
 
                             }
 
-                            if(jsonObject.optString("action").equals("1") || jsonObject.optString("action").equals("2") ||jsonObject.optString("action").equals("6") ||jsonObject.optString("action").equals("7") ||jsonObject.optString("action").equals("8"))
+                            if (jsonObject.optString("action").equals("1") || jsonObject.optString("action").equals("2") || jsonObject.optString("action").equals("6") || jsonObject.optString("action").equals("7") || jsonObject.optString("action").equals("8"))
                                 list.add(appoCenterItem);
 
-                            if(!(jsonObject.optString("action").equals("1")))
+                            if (!(jsonObject.optString("action").equals("1")))
                                 isRefreshOnewkey = true;
 
                         }
                     }
                 }
-            }
-            catch (Exception exception) {
+            } catch (Exception exception) {
             }
 
             return list;
@@ -1078,10 +996,10 @@ public class LibSeatActivity extends AppCompatActivity
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (resultCode==RESULT_OK){
+        if (resultCode == RESULT_OK) {
             Bundle bundle = data.getExtras();
             if (bundle != null) {
-                String result=bundle.getString("result");	//扫描二维码后返回的字符串
+                String result = bundle.getString("result");    //扫描二维码后返回的字符串
                 Log.i("扫描二维码返回串", result);
                 //返回格式:http://202.114.242.198:8090/smewm.php?room=12&seatid=1
                 String[] param = result.split("=");
@@ -1093,8 +1011,7 @@ public class LibSeatActivity extends AppCompatActivity
                 JSONObject jsonObject = new JSONObject();
                 OkHttpUtils.postString().url(URL).content(jsonObject.toString())
                         .mediaType(MediaType.parse("application/json")).build()
-                        .execute(new StringCallback()
-                        {
+                        .execute(new StringCallback() {
                             @Override
                             public void onError(Call call, Exception e) {
                                 Log.i("图书馆扫描二维码接口访问失败", call.toString() + "--" + e.toString());
@@ -1107,7 +1024,7 @@ public class LibSeatActivity extends AppCompatActivity
                                 try {
                                     JSONObject jsonObject = new JSONObject(response);
                                     String result = jsonObject.getString("result");
-                                    switch(result) {
+                                    switch (result) {
                                         case "room unavailable":
                                             Toast.makeText(getApplicationContext(), "阅览室不可用", Toast.LENGTH_SHORT).show();
                                             break;
@@ -1150,7 +1067,9 @@ public class LibSeatActivity extends AppCompatActivity
                                                 public void onClick(DialogInterface dialog, int which) {
                                                     UpdateSeatStatus(room, seat, 1);
 
-                                                };
+                                                }
+
+                                                ;
                                             }).setNegativeButton("暂时离开", new DialogInterface.OnClickListener() {
                                                 @Override
                                                 public void onClick(DialogInterface dialog, int which) {
@@ -1185,8 +1104,7 @@ public class LibSeatActivity extends AppCompatActivity
         JSONObject jsonObject = new JSONObject();
         OkHttpUtils.postString().url(URL).content(jsonObject.toString())
                 .mediaType(MediaType.parse("application/json")).build()
-                .execute(new StringCallback()
-                {
+                .execute(new StringCallback() {
 
                     @Override
                     public void onError(Call call, Exception e) {
@@ -1233,14 +1151,12 @@ public class LibSeatActivity extends AppCompatActivity
                 });
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                finish();
-                break;
+    public void back(View view) {
+        finish();
+        if (android.os.Build.VERSION.SDK_INT > 5) {
+            overridePendingTransition(
+                    R.anim.slide_in_from_left, R.anim.slide_out_to_right);
         }
-        return super.onOptionsItemSelected(item);
     }
 
     @Override

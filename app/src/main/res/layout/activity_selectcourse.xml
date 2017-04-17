@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F3F2"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/grade_include"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/head_title" />
+
+        <View
+                android:layout_width="fill_parent"
+                android:layout_height="2px"
+                android:background="@color/dividercolor" />
+
+        
+          <com.myView.CommonListView
+                android:id="@+id/list1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="13.5dp"
+                android:background="@color/dividercolor"
+                android:divider="@color/dividercolor"
+                android:dividerHeight="2px"
+                android:paddingBottom="2px"
+                android:paddingTop="2px" >
+            </com.myView.CommonListView>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px" />
+         
+  
+            
+     <ListView
+        android:id="@+id/xkzg"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/dividercolor"
+        android:divider="@color/dividercolor"
+        android:dividerHeight="2px"
+        android:paddingBottom="2px"
+        android:paddingTop="2px" >
+    </ListView>
+            
+
+</LinearLayout>

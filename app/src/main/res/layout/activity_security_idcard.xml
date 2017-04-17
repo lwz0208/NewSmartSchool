@@ -1,0 +1,221 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/toolbar"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_width="match_parent"
+        android:background="@color/top"
+        app:title="二代身份证办理流程"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+    </android.support.v7.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:scrollbars="none"
+        android:padding="15.5dp" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/idcard_bg_green"
+                android:padding="5dp"
+                android:text="新生办理须知" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@+id/bwc_a1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="50dp"
+                    android:layout_marginRight="50dp" />
+
+                <ImageView
+                    android:id="@+id/bwc_a2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginStart="50dp" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:background="@color/idcard_bg_yellow"
+                    android:padding="5dp"
+                    android:text="户口未迁入武汉科技大学（青山校区）的新生在武汉市办理身份证的学生须到建一南路青山分局办理" />
+
+                <TextView
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:background="@color/idcard_bg_yellow"
+                    android:padding="5dp"
+                    android:text="户口迁入武汉科技大学（黄家湖校区和青山校区）的新生，由校保卫处与公安部门联系，统一集中办理。具体时间根据实际情况另行通知" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@+id/bwc_a3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="50dp"
+                    android:layout_marginRight="50dp" />
+
+                <ImageView
+                    android:id="@+id/bwc_a4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginStart="50dp" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/idcard_bg_blue"
+                android:padding="5dp"
+                android:text="办理身份证的学生第一次办理身份证照相要求着深色非高领衣服" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:background="@color/idcard_bg_green"
+                android:padding="5dp"
+                android:text="补办身份证须知" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/xlistview_arrow" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/idcard_bg_yellow"
+                android:padding="5dp"
+                android:text="学生因遗失、过期等原因需办理身份证" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@+id/bwc_a5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="50dp"
+                    android:layout_marginRight="50dp" />
+
+                <ImageView
+                    android:id="@+id/bwc_a6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginStart="50dp" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:background="@color/idcard_bg_blue"
+                    android:padding="5dp"
+                    android:text="如户口未迁至学校，需回户籍所在地办理" />
+
+                <TextView
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:background="@color/idcard_bg_blue"
+                    android:padding="5dp"
+                    android:text="如户口已迁至学校" />
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/bwc_a7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="70dp"
+                android:layout_marginStart="70dp" />
+
+            <TextView
+                android:id="@+id/tv_bwc_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/idcard_bg_yellow"
+                android:padding="5dp"
+                android:text="@string/security_hukou_1" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/xlistview_arrow" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/idcard_bg_blue"
+                android:padding="5dp"
+                android:text="    1、学生带户口底页或身份证明单按照户籍所在地分别到红卫路派出所、青菱街派出所、马房山派出所申请办理身份证（照相、录入指纹）；\n  2、	需办理临时身份证的，另需准备一张一寸彩色照片，分别到各校区所在地派出所申请，申请成功后到各区所在政务中心办理（青山校区在青山分局办理），一般一周左右自行到政务中心取临时证。" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/xlistview_arrow" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/idcard_bg_yellow"
+                android:padding="5dp"
+                android:text="学生根据身份证办理回执上面的时间到派出所领取新办理身份证" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/idcard_bg_red"
+                android:layout_marginTop="10dp"
+                android:padding="5dp"
+                android:text="说明：由于各校区所在分局和派出所不同，办理流程和需要材料稍有不同，请在办理过程中具体咨询相关老师，以免浪费您的时间" />
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

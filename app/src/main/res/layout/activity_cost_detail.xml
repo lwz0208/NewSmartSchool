@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F3F2"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/grade_include"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/head_title" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15.5dp"
+        android:layout_marginRight="15.5dp"
+        android:layout_marginTop="15.5dp"
+        android:background="@drawable/bg_emptyclassroom_spinner"
+        android:orientation="vertical" >
+
+        <!-- 报修人姓名 -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="top|center"
+            android:text="个人缴费情况："
+            android:textSize="16.5dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15.5dp"
+                android:gravity="center"
+                android:text="学号："
+                android:textSize="14.5dp" />
+
+            <TextView
+                android:id="@+id/cost_detail_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15.5dp"
+                android:gravity="center"
+                android:text="--"
+                android:textColor="#88817b"
+                android:textSize="14.5dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15.5dp"
+                android:gravity="center"
+                android:text="学年："
+                android:textSize="14.5dp" />
+
+            <TextView
+                android:id="@+id/cost_detail_term"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15.5dp"
+                android:gravity="center"
+                android:text="--"
+                android:textColor="#88817b"
+                android:textSize="14.5dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15.5dp"
+                android:gravity="center"
+                android:text="缴费状态："
+                android:textSize="14.5dp" />
+
+            <TextView
+                android:id="@+id/cost_detail_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15.5dp"
+                android:gravity="center"
+                android:text="--"
+                android:textColor="#88817b"
+                android:textSize="14.5dp" />
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="15.5dp"/>
+    </LinearLayout>
+
+</LinearLayout>
